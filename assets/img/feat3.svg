@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12072) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-2" sketch:type="MSArtboardGroup">
+            <path d="M11,48.112 L32.28,34 L32.28,39.992 L16.432,50.296 L16.432,50.52 L32.28,60.824 L32.28,66.816 L11,52.704 L11,48.112 Z" id="Path" fill="#F63C38" sketch:type="MSShapeGroup"></path>
+            <path d="M43.96,75.96 L38.416,75.96 L56.84,27.24 L62.384,27.24 L43.96,75.96 Z" id="Path" fill="#F63C38" sketch:type="MSShapeGroup"></path>
+            <path d="M89.28,53.704 L68,67.816 L68,61.824 L83.848,51.52 L83.848,51.296 L68,40.992 L68,35 L89.28,49.112 L89.28,53.704 Z" id="Path" fill="#F63C38" sketch:type="MSShapeGroup"></path>
+            <rect id="Rectangle-2-Copy-2" stroke="#F63C38" stroke-width="5" sketch:type="MSShapeGroup" x="3" y="3" width="94" height="94" rx="8"></rect>
+        </g>
+    </g>
+</svg>

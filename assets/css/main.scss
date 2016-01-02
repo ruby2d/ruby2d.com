@@ -1,0 +1,323 @@
+---
+# Main CSS Styles: all styles are compiled to this file
+---
+
+@import "template/colors",
+        "template/syntax-highlighting",
+        "template";
+
+/* Custom Styles */
+
+$ruby-red:   #f63c38;
+$background: #f5f0eb;
+$dark:       #504c43;
+$light:      #fcfaf8;
+$medium:     #757062;
+$separator:  #c2bcab;
+$footer:     #c2bdb3;
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: $background;
+  color: $dark;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
+
+a {
+  color: $dark;
+  text-decoration: underline;
+}
+
+pre, code {
+  border: 1px solid $separator;  
+}
+
+code {
+  background: $light;
+  font-family: 'Source Code Pro', monospace;
+}
+
+hr {
+  background: $separator;
+}
+
+table {
+  display: block;
+  width: 100%;
+  margin: 30px 0;
+  overflow: auto;
+  word-break: normal;
+  word-break: keep-all;
+  
+  th {
+    font-weight: bold;
+  }
+  
+  th, td {
+    padding: 6px 13px;
+    border: 1px solid $separator;
+  }
+  
+  tr {
+    background-color: rgba(255, 255, 255, .1);
+    border-top: 1px solid #ccc;
+  }
+  
+  tr:nth-child(2n) {
+    background-color: rgba(0, 0, 0, .02);
+  }
+}
+
+.highlight {
+  border-radius: 3px;
+}
+
+header.site-header {
+  background: $ruby-red;
+  
+  nav {
+    ul {
+      margin-top: 2px;
+      font-weight: normal;
+      font-size: 15px;
+    }
+  }
+  
+  .site-nav-menu-mobile {
+    font-weight: normal;
+  }
+}
+
+.main {
+  margin-bottom: 50px;
+  
+  .page-nav {
+    h1 {
+      font-size: 22px;
+    }
+    a {
+      text-decoration: none;
+      font-size: 16px;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  .page-content {
+    h1 {
+      font-size: 34px;  
+    }
+    h2 {
+      font-size: 26px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+  }
+  
+  .post-header h1 {
+    font-size: 34px;
+  }
+}
+
+.row {
+  &:after, &:before {
+    display: table;
+    content: " "
+  }
+  
+  &:after {
+    clear: both
+  }
+}
+
+.column {
+  width: 33.33333333%;
+  float: left;
+}
+
+@media (max-width: 600px) {
+  .row {
+    margin: 0;
+  }
+  
+  .column, .row .feature {
+    width: 100%;
+  }
+}
+
+img.warning {
+  position: relative;
+  top: 7px;
+  margin: 0;
+  margin-top: -7px;
+}
+
+.warning {
+  margin-bottom: 30px;
+  padding: 10px;
+  background: #fef6e7;
+  border: 2px solid $separator;
+  border-radius: 3px;
+  
+  .icon {
+    float: left;
+  }
+  .message {
+    margin-left: 28px;
+  }
+}
+
+/* Home Styles */
+
+.home {
+  
+  .main {
+    padding-top: 0;
+    
+    .content {
+      max-width: 860px;
+      
+      &.simple-app {
+        max-width: 600px;
+      }
+    }
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  header.site-header {
+    .site-logo {
+      opacity: 0;
+    }
+    
+    @media (max-width: 640px) {
+      padding-bottom: 0;
+    }
+  }
+  
+  .banner {
+    background: $ruby-red;
+    padding: 35px 15px 45px 15px;
+    text-align: center;
+    color: #fff;
+    
+    img {
+      margin: 0;
+      width: 150px;
+    }
+    
+    h1, h2 {
+      margin: 0;
+    }
+    
+    h1 {
+      font-size: 60px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    
+    h2 {
+      font-size: 26px;
+      font-weight: 300;
+    }
+  }
+  
+  .features {
+    
+    .row {
+      .column {
+        text-align: center;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 35px 0;
+        
+        img {
+          margin: 0 0 10px 0;
+          width: 75px;
+        }
+        
+        h1, p {
+          margin: 0;
+        }
+        h1 {
+          margin-bottom: .3em;
+          font-size: 30px;
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+    
+    @media (max-width: 600px) {
+      .row {
+        margin: 20px 0;
+        
+        .column {
+          margin: 15px 0;
+        }
+      }
+    }
+  }
+  
+  .get-started {
+    background: $light;
+    padding: 15px 0;
+    text-align: center;
+    border-top: 1px solid $separator;
+    border-bottom: 1px solid $separator;
+    
+    .content {
+      max-width: 300px;
+    }
+    
+    a {
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
+    h1, p {
+      margin: 0;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.page-header h2 {
+  color: $medium;
+  font-weight: 300;
+}
+
+.page-nav {
+  ul li {
+    border-bottom: 1px solid $separator;
+  }
+}
+
+.learn-home {
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    margin-top: .2em;
+  }
+}
+
+/* Footer */
+
+footer .footer-content {
+  background: $footer;
+  border-top: 1px solid $medium;
+}
