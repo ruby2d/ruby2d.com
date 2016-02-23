@@ -12,6 +12,8 @@ contents:
     link: "#colors"
   - text: Shapes
     link: "#shapes"
+  - text: Text
+    link: "#text"
 #  - text: Audio
 #    link: "#audio"
   - text: Input
@@ -141,7 +143,14 @@ Rectangle.new(x1, y1, x2, y2, color)
 
 ```ruby
 Square.new
-Square.new(x1, y1, x2, y2, color)
+Square.new(x1, y1, size, color)
+```
+
+
+# Text
+
+```ruby
+Text.new(x1, x2, size, message)
 ```
 
 <!--
