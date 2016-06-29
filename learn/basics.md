@@ -150,7 +150,11 @@ Square.new(x1, y1, size, color)
 # Text
 
 ```ruby
-Text.new(x1, x2, size, message)
+text = Text.new(x, y, size, message, font, color)
+text.x = 123
+text.y = 456
+text.size = 100
+text.color = "blue"
 ```
 
 <!--
