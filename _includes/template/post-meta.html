@@ -8,10 +8,12 @@
   <span class="post-author-name">
     <a href="https://github.com/{{ author.github }}">{{ author.name }}</a>,
   </span>
-  <span class="post-date">{{ include.param.date | date: "%-d %b %Y" }} — </span>
-  <span class="post-category">
-  {% for category in include.param.categories %}
-    <span class="post-label"><a href="{{ site.baseurl }}{{ site.posts_path }}/categories/#{{ category }}">{{ category }}</a></span>
-  {% endfor %}
-  </span>
+  <span class="post-date">{{ include.param.date | date: "%-d %b %Y" }}</span>
+  {% if include.param.categories.size != 0 %}
+    <span class="post-category"> — 
+    {% for category in include.param.categories %}
+      <span class="post-label"><a href="{{ site.baseurl }}{{ site.posts_path }}/categories/#{{ category }}">{{ category }}</a></span>
+    {% endfor %}
+    </span>
+  {% endif %}
 </div>

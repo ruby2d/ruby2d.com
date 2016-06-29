@@ -1,7 +1,6 @@
 ---
 title: Contribute
 subtitle: Thanks for your interest!
-permalink: /contribute/
 ---
 
 Ruby 2D is an entirely open-source project built by dedicated folks who believe creating 2D applications should be simple and fun. Remember to [check the news](/news) for the latest updates and [join the mailing list](https://groups.google.com/d/forum/ruby2d) to stay connected with the community.

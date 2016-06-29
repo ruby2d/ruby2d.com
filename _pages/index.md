@@ -1,6 +1,8 @@
 ---
 layout: home
 edit_page: false
+permalink: /
+css: home
 ---
 
 ## Creating your first app

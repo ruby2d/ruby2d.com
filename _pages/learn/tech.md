@@ -1,6 +1,5 @@
 ---
 title: Technical Architecture
-permalink: /learn/tech/
 ---
 
 {% include warning.html icon="⚠️" message="In progress! This page will contain details on the technical implementation." %}

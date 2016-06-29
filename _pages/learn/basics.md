@@ -1,7 +1,6 @@
 ---
 title: Basics
 subtitle: Learn the basics of creating 2D apps
-permalink: /learn/basics/
 
 contents:
   - text: Concepts

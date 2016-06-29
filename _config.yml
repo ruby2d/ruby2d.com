@@ -29,6 +29,12 @@ edit_page:
     repo:   ruby2d.com
     branch: gh-pages
 
+# Pages
+collections:
+  pages:
+    output: true
+    permalink: /:path/
+
 # Posts
 posts_path: /news
 permalink: "/news/:year/:month/:day/:title"
@@ -38,9 +44,8 @@ paginate: 5
 paginate_path: "/news/page:num"
 
 # Build settings
-markdown: redcarpet
-redcarpet:
-  extensions: [hard_wrap, tables, highlight]
+kramdown:
+  hard_wrap: true
 
 # Plugins
 gems: [jekyll-paginate]

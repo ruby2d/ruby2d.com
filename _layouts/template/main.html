@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   
   <head>
     <meta charset="utf-8">
@@ -19,7 +19,6 @@
   </head>
   
   <body class="{{ page.css }}">
-    
     <div class="wrapper">
       
       {% include site-banner.html %}
@@ -44,7 +43,7 @@
             <div class="content">
               <hr>
               <p>
-                <a href="https://github.com/{{ site.edit_page.github.author }}/{{ site.edit_page.github.repo }}/edit/{{ site.edit_page.github.branch }}/{{ page.path }}">{{ site.edit_page.text }}</a>
+                <a href="https://github.com/{{ site.edit_page.github.author }}/{{ site.edit_page.github.repo }}/edit/{{ site.edit_page.github.branch }}/{{ page.relative_path }}">{{ site.edit_page.text }}</a>
               </p>
             </div>
           </div>

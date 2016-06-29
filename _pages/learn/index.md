@@ -3,6 +3,7 @@ title: Learn
 subtitle: Explore everything about building 2D apps in Ruby
 anchors: false
 css: learn-home
+permalink: /learn/
 ---
 
 {% include warning.html icon="⚠️" message="<b>Warning:</b> This project is still under development and many things have yet to be implemented. <a href=\"/roadmap\">Check out the roadmap</a> to get an overview of what's working, the platforms currently supported, and what's in progress." %}
