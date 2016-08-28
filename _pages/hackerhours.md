@@ -29,7 +29,7 @@ While normal people will install Ruby 2D using `gem install ruby2d`, you're a co
 
 First, clone the repo by running `git clone --recursive https://github.com/ruby2d/ruby2d.git` (the `--recursive` flag will make sure you get the [`test_media`](https://github.com/simple2d/test_media) submodule).
 
-Make sure you can run the Ruby 2D test card by `cd`-ing into the directory and running `rake testcard`
+Make sure you can run the Ruby 2D test card by `cd`-ing into the directory and running `rake testcard`. Since Ruby 2D is fairly new, the best way to see how to use the gem is to take a look at the examples in [tests/testcard.rb](https://github.com/ruby2d/ruby2d/blob/master/tests/testcard.rb).
 
 You're now ready to choose an issue to work on! Here are a few that are newbie friendly:
 
