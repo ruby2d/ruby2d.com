@@ -6,7 +6,7 @@ title: Get Started
 
 {% include warning.html icon="❗" message="Ruby 2D only supports <b>OS X</b> (10.11+) and <b>Linux</b> (Ubuntu) for now. More platforms coming soon." %}
 
-Ruby 2D lets you create 2D applications with ease, and run them just about anywhere. One dependency you'll need is a graphics and media library called [Simple 2D](https://github.com/simple2d).
+Ruby 2D lets you create 2D applications with ease, and run them just about anywhere. One dependency you'll need is a graphics and media library called [Simple 2D](https://github.com/simple2d/simple2d).
 
 - **On OS X**, the Ruby 2D gem will use [Homebrew](http://brew.sh) to install this library. You don't have to use Homebrew, but it makes things much simpler. Check out the [`simple2d.rb` formula](https://github.com/simple2d/homebrew-tap/blob/master/simple2d.rb) to see exactly what gets installed.
 

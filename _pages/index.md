@@ -27,4 +27,4 @@ show
 
 ## Contribute
 
-Ruby 2D is open source. View the code on [GitHub](https://github.com/ruby2d), check out the [mailing list](https://groups.google.com/d/forum/ruby2d), and learn how to [get involved](/contribute).
+Ruby 2D is open source. View the project on [GitHub](https://github.com/ruby2d) and learn how to [get involved](/contribute).
