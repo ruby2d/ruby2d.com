@@ -310,23 +310,36 @@ article.post-excerpt {
   }
 }
 
-.post-label {
-  &::after {
-    content: ","
+.post-meta {
+  .post-date-icon {
+    position: relative;
+    top: 3px;
+    margin: 0 3px 0 0;
+    width: 18px;
   }
-  
-  &:last-child::after {
-    content: "";
-  }
-}
 
-.post-author-img img {
-  position: relative;
-  top: 5px;
-  margin: 0;
-  width: 25px;
-  height: 25px;
-  border-radius: 3px;
+  .post-date {
+    margin-right: 14px;
+  }
+
+  .post-author-img img {
+    position: relative;
+    top: 5px;
+    margin: 0;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+  }
+
+  .post-label {
+    &::after {
+      content: ","
+    }
+    
+    &:last-child::after {
+      content: "";
+    }
+  }
 }
 
 

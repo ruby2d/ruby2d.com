@@ -2,13 +2,14 @@
 {% assign author = site.data.authors[include.param.author] %}
 
 <div class="post-meta">
+  <img class="post-date-icon" src="/assets/img/calendar.svg" alt="calendar icon">
+  <span class="post-date">{{ include.param.date | date: "%B %e, %Y" }}</span>
   <span class="post-author-img">
     <img src="https://avatars.githubusercontent.com/{{ author.github }}?s=50" alt="{{ author.name }}">
   </span>
   <span class="post-author-name">
-    <a href="https://github.com/{{ author.github }}">{{ author.name }}</a>,
+    <a href="https://github.com/{{ author.github }}">{{ author.name }}</a>
   </span>
-  <span class="post-date">{{ include.param.date | date: "%-d %b %Y" }}</span>
   {% if include.param.categories.size != 0 %}
     <span class="post-category"> — 
     {% for category in include.param.categories %}

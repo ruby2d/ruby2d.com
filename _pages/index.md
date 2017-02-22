@@ -1,6 +1,7 @@
 ---
 layout: home
 edit_page: false
+footer: false
 permalink: /
 css: home
 ---

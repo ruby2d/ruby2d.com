@@ -1,6 +1,6 @@
 ---
 title: Basics
-subtitle: Learn the basics of creating 2D apps
+subtitle: Learn the essentials of creating 2D apps
 
 contents:
   - text: Concepts

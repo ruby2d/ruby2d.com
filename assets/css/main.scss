@@ -32,7 +32,7 @@ a {
 }
 
 pre, code {
-  border: 1px solid $separator;  
+  border: 1px solid $separator;
 }
 
 code {
@@ -109,7 +109,7 @@ header.site-header {
   
   .page-content {
     h1 {
-      font-size: 34px;  
+      font-size: 34px;
     }
     h2 {
       font-size: 26px;
@@ -193,8 +193,10 @@ img.warning {
   }
   
   header.site-header {
+    padding: 0;
+    
     .site-logo {
-      opacity: 0;
+      visibility: hidden;
     }
     
     @media (max-width: 640px) {
@@ -308,7 +310,12 @@ img.warning {
 
 .learn-home {
   h2 {
+    margin-bottom: .2em;
+  }
+  h3 {
+    margin-top: 0;
     margin-bottom: 0;
+    font-size: 22px !important;
   }
   p {
     margin-top: .2em;
