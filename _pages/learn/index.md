@@ -6,7 +6,7 @@ css: learn-home
 permalink: /learn/
 ---
 
-This documentation contains everything you need to get started, learn about the basics of building 2D applications in Ruby, and releasing them to the world. Choose a section below to get started.
+{% include warning.html icon="⚠️" message="This documentation is a work in progress. If you get stuck, send a note to the <a href='https://groups.google.com/d/forum/ruby2d'>mailing list</a> or chat with us on <a href='https://gitter.im/ruby2d/ruby2d'>Gitter</a>." %}
 
 ## [Get started »](/learn/get-started)
 Learn how to install the Ruby gem and build your first 2D application.

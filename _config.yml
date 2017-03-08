@@ -9,11 +9,13 @@ url: "http://ruby2d.com"
 header:
   logo_text: Ruby 2D
   logo_img: logo.svg
-  # nav:
-  #   - text: GET STARTED
-  #     link: /learn/get-started
-  #   - text: LEARN
-  #     link: /learn
+  nav:
+    - text: GET STARTED
+      link: /learn/get-started
+    - text: LEARN
+      link: /learn
+    - text: GITHUB
+      link: https://github.com/ruby2d
   #   - text: NEWS
   #     link: /news
 

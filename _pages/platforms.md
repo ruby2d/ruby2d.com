@@ -10,7 +10,7 @@ title: Platform support
 
 # Officially supported
 
-- **macOS** (tested on 10.12.2 – [Sierra](http://www.apple.com/macos))
+- **macOS** (tested on 10.12.3 – [Sierra](http://www.apple.com/macos))
 - **Windows** (tested on Windows 10 Pro 64-bit, version 1607)
 - **Linux** (tested on [Ubuntu](http://www.ubuntu.com/desktop) 16.10)
   - Including single-board ARM computers, like [Raspberry Pi](https://www.raspberrypi.org) and [CHIP](https://getchip.com).
@@ -19,12 +19,16 @@ title: Platform support
 
 # Currently supported (as of [v0.3.0](https://github.com/ruby2d/ruby2d/releases))
 
+✅ = Completed
+❌ = Not implemented
+⚠️ = Untested (but might work)
+
 Platform     | Interpreted | Native
 -------------|-------------|-------
 OS X         | ✅          | ✅
-Windows      | ✅          | ❌
+Windows      | ✅          | ⚠️
 Linux        | ✅          | ✅
-Raspberry Pi | ✅          | ✅
+Linux/ARM    | ✅          | ✅
 Web          | ✅          | –
 iOS          | –           | ❌
 tvOS         | –           | ❌

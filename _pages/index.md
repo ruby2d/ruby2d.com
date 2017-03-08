@@ -1,7 +1,6 @@
 ---
 layout: home
 edit_page: false
-footer: false
 permalink: /
 css: home
 ---
@@ -26,6 +25,6 @@ s.color = 'red'
 show
 ```
 
-## Contribute
+## Get involved
 
-Ruby 2D is open source. View the project on [GitHub](https://github.com/ruby2d) and learn how to [get involved](/contribute).
+Ruby 2D is open source. View the project on [GitHub](https://github.com/ruby2d), join the [mailing list](https://groups.google.com/d/forum/ruby2d), and chat with us on [Gitter](https://gitter.im/ruby2d/ruby2d).
