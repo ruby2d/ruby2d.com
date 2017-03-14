@@ -84,7 +84,7 @@ On **macOS**, we recommend using [Homebrew](https://brew.sh) to install MRuby:
 brew install mruby
 ```
 
-On **Linux**, install the MRuby and the development files using `apt`:
+On **Linux**, install MRuby and its development files using `apt`:
 
 ```bash
 sudo apt install mruby libmruby-dev
