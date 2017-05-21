@@ -42,7 +42,7 @@ This is a bit verbose, especially for Ruby, so we'll stick to the style in the o
 Let's play with some other attributes. The black background is a little boring, so let's change it! We can `set` it to something more interesting, like the color blue:
 
 ```ruby
-set :background 'blue'
+set background: 'blue'
 ```
 
 Try some other colors, like `red`, `orange`, `lime`, `fuchsia`, or roll the dice with `random`. When there are multiple attributes we want to set, we can chain them together for convenience:
