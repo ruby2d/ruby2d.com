@@ -2,6 +2,61 @@
 
 This page contains informations about basic classess used to render objects to the window.
 
+## Common behavior
+
+Since, since the end, all of those objects end up in the window, there is some common behavior they all present.
+
+### z
+
+`z` value is interpreted as z-index for rendered objects. Objects with higher `z` value will be rendered on the top of objects with smaller `z` value.
+
+For all objects the default value of `z` is `0`. This means initialisation for all objects can be expanded like this:
+
+```
+Square.new(z: 0)
+Rectangle.new(z: 0)
+Quad.new(z: 0)
+Triangle.new(z: 0)
+```
+
+And so on.
+
+You can read the value of `z` like this:
+
+```
+Square.new.z    #=> 0
+Rectangle.new.z #=> 0
+Quad.new.z      #=> 0
+```
+
+And so on.
+
+You can update the value of `z` like this:
+
+```
+square = Square.new
+square.z = 1
+
+rectangle = Rectangle.new
+rectangle.z = 1
+```
+
+And so on.
+
+### contains?
+
+It is often useful to determine if given point on the window is contained by an object. You can do it easily with `contains?` method. For Square class, this would look like this:
+
+```
+square = Square.new
+square.contains?(10, 10) #=> true
+square.contains?(110, 110) #=> false
+```
+
+First argument to the `contains?` method is the x coordinate, and second is the y coordinate of point in question.
+
+The same interface is used for all classess explained below.
+
 ## Square
 
 Most basic shape you can draw with is a square. In it's basic form it is as simple as
@@ -101,43 +156,6 @@ square = Square.new
 square.color = 'red'
 ```
 
-### z
-
-`z` value is interpreted as z-index for rendered objects. Objects with higher `z` value will be rendered on the top of objects with smaller `z` value.
-
-The default value of `z` is `0`, so initial example could be expanded like this:
-
-```
-Square.new(z: 0)
-```
-
-You can read the value of `z` like this:
-
-```
-square = Square.new
-square.x #=> 0
-```
-
-You can update the value of `z` like this:
-
-```
-square = Square.new
-square.z = 1
-```
-
-### contains?
-
-It is often useful to determine if given point on the window is contained by a square. You can do it easily with `contains?` method, like this:
-
-```
-square = Square.new
-square.contains?(10, 10) #=> true
-square.contains?(110, 110) #=> false
-```
-
-First argument to the `contains?` method is the x coordinate, and second is the y coordinate of point in question.
-
-
 ## Rectangle
 
 Rectangle is very similiar to Square, with one major difference: it allows manipulation of `height` and `width` independently, where Square only allows a single value to manipulate both of those values.
@@ -172,11 +190,9 @@ rectangle.width = 250
 rectangle.width = 50
 ```
 
-### x, y, color, z, contains?
+### x, y, color
 
-Besides for `width` and `height` replacing `size` attribute, every other attribute that you can use for Square, you can also use with Rectangle class, in exactly the same manner.
-
-
+Rectangle class also allows managing of `x`, `y` and `color` attributes in the same way Square does.
 
 ## Quad
 
@@ -231,9 +247,9 @@ quad.x4 = 50
 quad.y4 = 150
 ```
 
-### color, z, contains?
+### color
 
-Quad responds to `color`, `z` and `contains?` fields and methods in the same way Rectangle and Square do. Please review it's documentation for more details.
+Quad allows management of `color the same way Rectangle and Square do. Please review it's documentation for more details.
 
 
 ## Triangle
@@ -299,11 +315,6 @@ As for other shapes, default color is white, so basic example, if expanded, woul
 Triangle.new(color: "white")
 ```
 
-### z, contains?
-
-`z` attribute and `contains?` method works in the same way it works for each class described above.
-
-
 ## Line
 
 Line allows you to draw a straight line from one point to another. In it's simplest form, a line is drawn like this:
@@ -366,11 +377,6 @@ line.width #=> 5
 
 TODO: Decide if we stick to allowing for 4 colors for line, or do we restrict for 1 color.
 
-### z, contains?
-
-`z` and `contains?` work the same as for every other renderable object.
-
-
 ## Image
 
 Image allows you to bring image files to your window.
@@ -421,13 +427,6 @@ image = Image.new(path: "/path/to/file")
 image.color = "red"
 image.color #=> Color.new("red")
 ```
-
-### z, contains?
-
-`z` and `contains?` work the same way like every object described above.
-
-
-
 
 ## Text
 
