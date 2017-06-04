@@ -30,7 +30,7 @@ ruby dk.rb install
 
 6. Add `/usr/local/bin` to your path, for example by running:
 ```
-setx PATH "%PATH%;C:\devkit\local\bin"
+set PATH=%PATH%;c:\devkit\local\bin
 ```
 
 For additional help with the DevKit, see the [RubyInstaller wiki](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit).
