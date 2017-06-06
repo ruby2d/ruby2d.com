@@ -37,7 +37,7 @@ For additional help with the DevKit, see the [RubyInstaller wiki](https://github
 
 # Installing Simple 2D
 
-1. Download the [latest release](https://github.com/simple2d/simple2d/releases/tag/v0.5.1) of the Simple 2D Windows installer for MinGW. Here's a direct link to download [simple2d-windows-mingw-0.5.1.zip](https://github.com/simple2d/simple2d/releases/download/v0.5.1/simple2d-windows-mingw-0.5.1.zip)
+1. Download the [latest release](https://github.com/simple2d/simple2d/releases/tag/v0.6.0) of the Simple 2D Windows installer for MinGW. Here's a [direct download link](https://github.com/simple2d/simple2d/releases/download/v0.6.0/simple2d-windows-mingw-0.6.0.zip).
 
 2. Extract the contents the `.zip` file, for example by right clicking and selecting "Extract All...".
 

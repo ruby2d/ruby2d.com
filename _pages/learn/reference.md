@@ -43,17 +43,15 @@ DSL methods can now be used, which will handle all window management.
 
 ## DSL methods
 
-| Method                   | Used to... |
-|--------------------------|------------|
-| `set(<attributes>)`      | Set a window attribute. |
-| `get(<attribute>)`       | Retrieve a window attribute. |
-| `on(<event>, <block>)`   | Specify a block to be called for a particular event. |
-| `on_key(<block>)`        | Specify a block to be called on every keyboard event. |
-| `on_controller(<block>)` | Specify a block to be called on every controller event. |
-| `update(<block>)`        | Specify a block to be called every loop, or frame, of the window. |
-| `clear`                  | Clear all drawable objects in the window. |
-| `show`                   | Show the window. |
-| `close`                  | Close the window. |
+| Method                | Used to... |
+|-----------------------|------------|
+| `set(<attributes>)`   | Set a window attribute. |
+| `get(<attribute>)`    | Retrieve a window attribute. |
+| `on(<event>,<block>)` | Specify a block to be called for a particular event. |
+| `update(<block>)`     | Specify a block to be called every loop, or frame, of the window. |
+| `clear`               | Clear all drawable objects in the window. |
+| `show`                | Show the window. |
+| `close`               | Close the window. |
 
 ## Setting attributes
 
@@ -161,9 +159,9 @@ Color.new([1, 0, 0, 0])
 Color.new([0.1, 0.0, 0.0, 0.5])
 
 # Coloring a shape, all the same red square
-Square.new(0, 0, 25, 'red')
-Square.new(0, 0, 25, [1, 0, 0, 1])
-Square.new(0, 0, 25, '#ff0000')
+Square.new(color: 'red')
+Square.new(color: [1, 0, 0, 1])
+Square.new(color: '#ff0000')
 ```
 
 # Triangle
@@ -173,11 +171,7 @@ Square.new(0, 0, 25, '#ff0000')
 ## Constructor
 
 ```ruby
-Triangle.new
-
-Triangle.new(x1, y1, x2, y2, x3, y3)
-
-Triangle.new(x1, y1, x2, y2, x3, y3, color)
+Triangle.new(x1: 50, y1: 0, x2: 100, y2: 100, x3: 0, y3: 100, z: 0, color: 'white')
 # Where `color` is any valid Ruby 2D color,
 # or set of three colors (for each vertex) in an array.
 ```
@@ -189,15 +183,17 @@ All attributes in the constructor can be read and written.
 ## Examples
 
 ```ruby
-Triangle.new(50, 0, 100, 100, 0, 100)
+Triangle.new
 
-Triangle.new(0, 200, 150, 200, 0, 300, 'red')
+Triangle.new(x1: 50, y1: 0, x2: 100, y2: 100, x3: 0, y3: 100)
+
+Triangle.new(x1: 0, y1: 200, x2: 150, y2: 200, x3: 0, y3: 300, color: 'red')
 
 t = Triangle.new(
-  320,  50,
-  540, 430,
-  100, 430,
-  ['red', '#2ECC40', [0.5, 0.2, 1.0, 0.8]]
+  x1: 320, y1: 50,
+  x2: 540, y2: 430,
+  x3: 100, y3: 430,
+  color: ['red', '#2ECC40', [0.5, 0.2, 1.0, 0.8]]
 )
 
 t.color = ['lime', [1, 1, 0, 1], 'random']
@@ -213,11 +209,7 @@ t.y3 = 350
 ## Constructor
 
 ```ruby
-Quad.new
-
-Quad.new(x1, y1, x2, y2, x3, y3, x4, y4)
-
-Quad.new(x1, y1, x2, y2, x3, y3, x4, y4, color)
+Quad.new(x1: 0, y1: 0, x2: 100, y2: 0, x3: 100, y3: 100, x4: 0, y4: 100, z: 0, color: 'white')
 # Where `color` is any valid Ruby 2D color,
 # or set of four colors (for each vertex) in an array.
 ```
@@ -229,16 +221,18 @@ All attributes in the constructor can be read and written.
 ## Examples
 
 ```ruby
-Quad.new(50, 50, 150, 50, 175, 75, 75, 75)
+Quad.new
 
-Quad.new(75, 100, 125, 100, 150, 150, 50, 150, 'blue')
+Quad.new(x1: 50, y1: 50, x2: 150, y2: 50, x3: 175, y3: 75, x4: 75, y4: 75)
+
+Quad.new(x1: 75, y1: 100, x2: 125, y2: 100, x3: 150, y3: 150, x4: 50, y4: 150, color: 'blue')
 
 q = Quad.new(
-  225, 25,
-  350, 50,
-  375, 125,
-  275, 125,
-  ['yellow', '#ff8c00', [0, 0, 0, 0], 'maroon']
+  x1: 225, y1: 25,
+  x2: 350, y2: 50,
+  x3: 375, y3: 125,
+  x4: 275, y4: 125,
+  color: ['yellow', '#ff8c00', [0, 0, 0, 0], 'maroon']
 )
 
 q.color = 'olive'
@@ -254,11 +248,7 @@ q.y3 = 75
 ## Constructor
 
 ```ruby
-Rectangle.new
-
-Rectangle.new(x, y, w, h)
-
-Rectangle.new(x, y, w, h, color)
+Rectangle.new(x: 0, y: 0, width: 200, height: 100, z: 0, color: 'white')
 # Where `color` is any valid Ruby 2D color,
 # or set of four colors (for each vertex) in an array.
 ```
@@ -270,14 +260,15 @@ All attributes in the constructor can be read and written.
 ## Examples
 
 ```ruby
-Rectangle.new(50, 50, 100, 50)
+Rectangle.new
 
-Rectangle.new(50, 125, 50, 125, 'green')
+Rectangle.new(x: 50, y: 50, width: 100, height: 50)
+
+Rectangle.new(x: 50, y: 125, width: 50, height: 125, color: 'green')
 
 r = Rectangle.new(
-  275, 75,
-  150, 200,
-  ['#1dff00', '#fa00ff', '#00edff', '#c7ff00']
+  x: 275, y: 75, width: 150, height: 200,
+  color: ['#1dff00', '#fa00ff', '#00edff', '#c7ff00']
 )
 
 r.color = [1, 0.4, 0.28, 0.82]
@@ -299,11 +290,7 @@ All attributes in the constructor can be read and written.
 ## Constructor
 
 ```ruby
-Square.new
-
-Square.new(x, y, size)
-
-Square.new(x, y, size, color)
+Square.new(x: 0, y: 0, size: 100, z: 0, color: 'white')
 # Where `color` is any valid Ruby 2D color,
 # or set of four colors (for each vertex) in an array.
 ```
@@ -311,13 +298,15 @@ Square.new(x, y, size, color)
 ## Examples
 
 ```ruby
-Square.new(50, 50, 125)
+Square.new
 
-Square.new(25, 200, 150, 'green')
+Square.new(x: 50, y: 50, size: 125)
+
+Square.new(x: 25, y: 200, size: 150, color: 'green')
 
 s = Square.new(
-  200, 50, 100,
-  ['red', 'white', 'blue', 'random']
+  x: 200, y: 50, size: 100,
+  color: ['red', 'white', 'blue', 'random']
 )
 
 s.color = '#0019ff'
@@ -336,7 +325,7 @@ s.size = 200
 At creation, `width` and `height` are set to the native size of the image.
 
 ```ruby
-Image.new(x, y, path)
+Image.new(x: 0, y: 0, path: <image_file>, z: 0, color: 'white')
 # Where `path` is the image file path
 ```
 
@@ -348,9 +337,9 @@ Read only: `path`
 ## Examples
 
 ```ruby
-Image.new(75, 50, 'balloon.png')
+Image.new(path: 'balloon.png')
 
-img = Image.new(50, 175, 'assets/tile.bmp')
+img = Image.new(x: 50, y: 175, path: 'assets/tile.bmp')
 
 img.x = 75
 img.y = 100
@@ -395,10 +384,8 @@ spr.next
 ## Constructor
 
 ```ruby
-Text.new(x, y, message, size, path)
+Text.new(x: 0, y: 0, text: "Hello World!", size: 20, font: <file_path>, z: 0, color: 'white')
 # Where `path` is the font file path
-
-Text.new(x, y, message, size, path, color)
 ```
 
 ## Accessors
@@ -409,7 +396,7 @@ Read only: `size`, `path`
 ## Examples
 
 ```ruby
-txt = Text.new(25, 50, "hello!", 20, "vera.ttf")
+txt = Text.new(x: 25, y: 50, text: 'hello!', size: 20, font: 'vera.ttf')
 
 txt.text = "A new message!"
 
