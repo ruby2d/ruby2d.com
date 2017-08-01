@@ -385,13 +385,13 @@ spr.next
 
 ```ruby
 Text.new(x: 0, y: 0, text: "Hello World!", size: 20, font: <file_path>, z: 0, color: 'white')
-# Where `path` is the font file path
+# Where `font` is the font file path
 ```
 
 ## Accessors
 
-Read and write: `x`, `y`, `message`, `color`
-Read only: `size`, `path`
+Read and write: `x`, `y`, `text`, `color`
+Read only: `size`, `font`
 
 ## Examples
 
