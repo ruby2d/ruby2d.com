@@ -1,10 +1,8 @@
 ---
 title: Get started
+subtitle: Ruby 2D lets you create 2D applications with ease using Ruby, and run them just about anywhere
+layout: learn
 ---
-
-Ruby 2D lets you create 2D applications with ease using Ruby, and run them just about anywhere.
-
-{% include warning.html icon="⚠️" message="This project is fairly new and some things might be wrong. If you get stuck, send a note to the <a href='https://groups.google.com/d/forum/ruby2d'>mailing list</a> or chat with us on <a href='https://gitter.im/ruby2d/ruby2d'>Gitter</a>." %}
 
 ## Set up your environment and install dependencies
 
@@ -68,9 +66,7 @@ ruby app.rb
 
 You should see this impressive triangle...
 
-<div style="margin-bottom:-50px;text-align:center">
-  <img style="margin:0;width:100%;max-width:736px" src="/assets/img/triangle-shadow.png">
-</div>
+<img style="margin-bottom:-2rem" src="/assets/img/triangle-shadow.png">
 
 Congrats, you just built your first Ruby 2D app! 🎉
 
@@ -116,7 +112,3 @@ app.exe
 The web version of your app was transpiled, a source-to-source compilation, from Ruby to JavaScript. The `app.html` file contains a `<script>` tag linking to the `app.js` file containing the code for your application. When you open the HTML file in a web browser, the script will run, the `<canvas>` element will be created (your window), and the triangle will appear. Try opening the HTML file by simply double clicking it.
 
 Whether you run your script using the Ruby interpreter, build and run it natively, or build it for the web, the results will all be the same.
-
-# What's next?
-
-Ready to learn more? [Explore the documentation](/learn) to discover everything Ruby 2D can do.

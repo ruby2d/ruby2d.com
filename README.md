@@ -1,3 +1,5 @@
-# The Ruby 2D Website
+# The Ruby 2D website
 
-Visit at [ruby2d.com](http://www.ruby2d.com). Uses [this template](https://github.com/blacktm/jekyll-template).
+View at [ruby2d.com](http://www.ruby2d.com)
+
+Run `rake` to view locally at `http://localhost:4000`

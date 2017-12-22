@@ -1,172 +1,90 @@
 ---
-# Main CSS Styles: all styles are compiled to this file
 ---
 
-@import "template/colors",
-        "template/syntax-highlighting",
-        "template";
+@import "tachyons", "syntax-highlighting";
 
-/* Custom Styles */
+// Common things ///////////////////////////////////////////////////////////////
 
-$ruby-red:   #f63c38;
-$background: #f5f0eb;
-$dark:       #504c43;
-$light:      #fcfaf8;
-$medium:     #757062;
-$separator:  #c2bcab;
-$footer:     #c2bdb3;
+$ruby-red: rgb(246, 60, 56);  // #f63c38
+$tan-light: rgb(255, 250, 247);
+$tan-medium: rgb(255, 245, 230);
+$tan-dark: rgb(240, 210, 170);
+$brown: rgb(100, 65, 56);
 
-body {
-  font-family: 'Open Sans', sans-serif;
-  background: $background;
-  color: $dark;
+.bg-ruby-red {
+  background: $ruby-red;
 }
 
-h1, h2, h3, h4 {
-  font-weight: 300;
+.bg-tan-light {
+  background: $tan-light;
+}
+
+.bg-tan-medium {
+  background: $tan-medium;
+}
+
+.b--tan-medium {
+  border-color: $tan-medium;
+}
+
+.b--tan-dark {
+  border-color: $tan-dark;
+}
+
+.brown {
+  color: $brown;
+}
+
+.mw65 {
+  max-width: 40rem;
 }
 
 a {
-  color: $dark;
-  text-decoration: underline;
+  @extend .brown;
 }
 
-pre, code {
-  border: 1px solid $separator;
-}
-
-code {
-  background: $light;
-  font-family: 'Source Code Pro', monospace;
-}
-
-hr {
-  background: $separator;
+p {
+  @extend .lh-copy;
+  font-size: 1.15rem;
 }
 
 table {
-  display: block;
-  width: 100%;
-  margin: 30px 0;
-  overflow: auto;
-  word-break: normal;
-  word-break: keep-all;
-  
+  @extend .ba, .bw1, .b--tan-dark, .br2;
+
   th {
-    font-weight: bold;
+    @extend .bb, .bw1, .b--tan-dark, .bg-tan-medium;
   }
-  
+
   th, td {
-    padding: 6px 13px;
-    border: 1px solid $separator;
+    @extend .pa2;
   }
-  
-  tr {
-    background-color: rgba(255, 255, 255, .1);
-    border-top: 1px solid #ccc;
-  }
-  
-  tr:nth-child(2n) {
-    background-color: rgba(0, 0, 0, .02);
+
+  tr:nth-child(even) {
+    @extend .bg-tan-medium;
   }
 }
 
-.highlight {
-  border-radius: 3px;
+h1.title {
+  @extend .f1, .mt0, .mb2;
 }
 
-header.site-header {
-  background: $ruby-red;
-  
-  nav {
-    ul {
-      margin-top: 2px;
-      font-weight: normal;
-      font-size: 15px;
-    }
-  }
-  
-  .site-nav-menu-mobile {
-    font-weight: normal;
-  }
+p.subtitle {
+  @extend .f3, .mt0, .mb4;
 }
 
-.main {
-  margin-bottom: 50px;
-  
-  .page-nav {
-    h1 {
-      font-size: 22px;
-    }
-    a {
-      text-decoration: none;
-      font-size: 16px;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  }
-  
-  .page-content {
-    h1 {
-      font-size: 34px;
-    }
-    h2 {
-      font-size: 26px;
-    }
-    h3 {
-      font-size: 20px;
-    }
-    li {
-      line-height: 1.7em;
-    }
-  }
-  
-  .post-header h1 {
-    font-size: 34px;
-  }
+.is-expanded {
+  display: inline-block !important;
 }
 
-.row {
-  &:after, &:before {
-    display: table;
-    content: " "
-  }
-  
-  &:after {
-    clear: both
-  }
-}
-
-.column {
-  width: 33.33333333%;
-  float: left;
-}
-
-@media (max-width: 600px) {
-  .row {
-    margin: 0;
-  }
-  
-  .column, .row .feature {
-    width: 100%;
-  }
-}
-
-img.warning {
-  position: relative;
-  top: 7px;
-  margin: 0;
-  margin-top: -7px;
-}
+// Includes styles /////////////////////////////////////////////////////////////
 
 .warning {
   margin-bottom: 20px;
   padding: 10px;
-  background: #fef6e7;
-  border: 2px solid $separator;
+  background: $tan-medium;
+  border: 2px solid $tan-dark;
   border-radius: 3px;
-  
+
   .icon {
     float: left;
   }
@@ -175,166 +93,293 @@ img.warning {
   }
 }
 
-/* Home Styles */
+// Site navigation /////////////////////////////////////////////////////////////
 
-.home {
-  
-  .main {
-    padding-top: 0;
-    
-    .content {
-      max-width: 860px;
-      
-      &.simple-app {
-        max-width: 600px;
-      }
-    }
+nav.site-header {
+  @extend .flex, .justify-between, .mw8, .center, .f5, .b;
+
+  a {
+    @extend .b, .white, .no-underline;
   }
-  
-  h1 {
-    font-size: 32px;
-  }
-  
-  header.site-header {
-    .site-logo {
-      visibility: hidden;
-    }
-    
-    @media (max-width: 640px) {
-      padding-bottom: 0;
-    }
-  }
-  
-  .banner {
-    background: $ruby-red;
-    padding: 35px 15px 45px 15px;
-    text-align: center;
-    color: #fff;
-    
+
+  .logo {
+    @extend .flex, .items-center, .ml1, .mr0, .pa2, .pr0, .link;
+
     img {
-      margin: 0;
-      width: 150px;
-    }
-    
-    h1, h2 {
-      margin: 0;
-    }
-    
-    h1 {
-      font-size: 60px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-    
-    h2 {
-      font-size: 26px;
-      font-weight: 300;
+      @extend .mr2;
+      width: 50px;
+      height: 50px;
     }
   }
-  
-  .features {
-    
-    .row {
-      .column {
-        text-align: center;
-        padding: 10px;
-        box-sizing: border-box;
-        margin: 35px 0;
-        
-        img {
-          margin: 0 0 10px 0;
-          width: 75px;
-        }
-        
-        h1, p {
-          margin: 0;
-        }
-        h1 {
-          margin-bottom: .3em;
-          font-size: 30px;
-        }
-        p {
-          font-size: 16px;
-        }
-      }
-    }
-    
-    @media (max-width: 600px) {
-      .row {
-        margin: 20px 0;
-        
-        .column {
-          margin: 15px 0;
-        }
-      }
+
+  .logo-empty {
+    @extend .flex, .items-center, .pa2;
+
+    img {
+      width: 50px;
+      height: 50px;
     }
   }
-  
-  .get-started {
-    background: $light;
-    padding: 15px 0;
-    text-align: center;
-    border-top: 1px solid $separator;
-    border-bottom: 1px solid $separator;
-    
-    .content {
-      max-width: 300px;
-    }
-    
+
+  .links {
+    @extend .mr1, .pa2, .pl0, .flex, .items-center;
+
     a {
-      text-decoration: none;
-      
+      @extend .dib, .mr3, .mr4-ns;
+      margin-top: 2px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0);
+
       &:hover {
-        text-decoration: underline;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+      }
+
+      &:last-child {
+        @extend .mr0;
       }
     }
-    
-    h1, p {
-      margin: 0;
-    }
-    h1 {
-      margin-bottom: 5px;
-    }
   }
 }
 
-.page-header h2 {
-  color: $medium;
-  font-weight: 300;
-}
+// Home page ///////////////////////////////////////////////////////////////////
 
-.page-nav {
-  ul li {
-    border-bottom: 1px solid $separator;
-  }
-}
+.home-banner {
+  @extend .ph2, .pt4, .pb5, .tc, .white;
 
-.learn-home {
-  h2 {
-    margin-bottom: .2em;
-  }
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-    font-size: 22px !important;
-  }
-  p {
-    margin-top: .2em;
-  }
-}
-
-/* Windows */
-
-.windows {
   img {
-    width: 100%;
-    max-width: 650px;
+    width: 150px;
+  }
+
+  h1 {
+    @extend .mt3, .mb3;
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    @extend .ma0, .fw3;
+    font-size: 2rem;
   }
 }
 
-/* Footer */
+// Learn pages /////////////////////////////////////////////////////////////////
 
-footer .footer-content {
-  background: $footer;
-  border-top: 1px solid $medium;
+.learn {
+  @extend .flex, .items-start, .mw8, .center, .mb4, .pa3;
+
+  .contents {
+    @extend .mr3, .pr3, .br, .bw1, .b--tan-dark;
+    min-width: 8.5rem;
+
+    h1 {
+      @extend .mt2, .f3;
+    }
+
+    a {
+      @extend .db, .mb2, .f5, .link, .b, .underline-hover;
+
+      &.current {
+        &::before {
+          content: "👉 ";
+        }
+      }
+    }
+  }
+
+  .page {
+    @extend .flex-auto;
+  }
+}
+
+.color-example {
+  @extend .pv2, .ph3, .br2;
+
+  &.navy {
+    color: #fff;
+    background-color: #001F3F;
+  }
+
+  &.blue {
+    color: #fff;
+    background-color: #0074D9;
+  }
+
+  &.aqua {
+    color: #1e343d;
+    background-color: #7FDBFF;
+  }
+
+  &.teal {
+    color: #fff;
+    background-color: #39CCCC;
+  }
+
+  &.olive {
+    color: #fff;
+    background-color: #3D9970;
+  }
+
+  &.green {
+    color: #fff;
+    background-color: #2ECC40;
+  }
+
+  &.lime {
+    color: #003517;
+    background-color: #01FF70;
+  }
+
+  &.yellow {
+    color: #453b00;
+    background-color: #FFDC00;
+  }
+
+  &.orange {
+    color: #fff;
+    background-color: #FF851B;
+  }
+
+  &.red {
+    color: #fff;
+    background-color: #FF4136;
+  }
+
+  &.brown {
+    color: #fff;
+    background-color: #663300;
+  }
+
+  &.fuchsia {
+    color: #fff;
+    background-color: #F012BE;
+  }
+
+  &.purple {
+    color: #fff;
+    background-color: #B10DC9;
+  }
+
+  &.maroon {
+    color: #fff;
+    background-color: #85144B;
+  }
+
+  &.white {
+    color: #000;
+    background-color: #FFFFFF;
+  }
+
+  &.silver {
+    color: #000;
+    background-color: #DDDDDD;
+  }
+
+  &.gray {
+    color: #fff;
+    background-color: #AAAAAA;
+  }
+
+  &.black {
+    color: #fff;
+    background-color: #111111;
+  }
+}
+
+// Media queries ///////////////////////////////////////////////////////////////
+
+// A little more than the iPhone 8 Plus and smaller
+@media screen and (max-width: 36em) {
+  nav.site-header {
+
+    a {
+      font-size: 0.75rem;
+      margin-right: 1rem;
+    }
+
+    .logo, .logo-empty {
+      margin-left: 0;
+
+      img {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    .links {
+      margin-right: 0;
+
+      a {
+        margin-right: 0.7rem;
+      }
+    }
+  }
+
+  .learn {
+    display: block;
+
+    .contents {
+      margin: 0 0 1.15rem 0;
+      padding: 0.25rem;
+      border: 2px solid $tan-dark;
+      border-radius: .25rem;
+      background-color: $tan-medium;
+
+      h1 {
+        cursor: pointer;
+        margin: 0;
+        -webkit-user-select: none;
+
+        &::after {
+          content: " ▾";
+        }
+      }
+
+      .links {
+        display: none;
+        margin-top: 1rem;
+      }
+    }
+  }
+}
+
+// iPhone SE and smaller
+@media screen and (max-width: 22em) {
+  .logo, .logo-empty {
+    img {
+      display: none;
+    }
+  }
+}
+
+// Code ////////////////////////////////////////////////////////////////////////
+
+code {
+  @extend .pb0, .ba, .bw1, .b--tan-dark, .br2, .bg-white;
+  padding: 0 4px;
+  font-family: 'Source Code Pro', monospace;
+  word-wrap: break-word;
+}
+
+pre {
+  @extend .br2;
+
+  code {
+    @extend .pa2, .lh-copy, .db, .overflow-y-auto, .bg-white;
+    font-size: 1.15rem;
+    word-wrap: normal;
+
+    /* long code snippets */
+
+    &::-webkit-scrollbar {
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-track-piece {
+      background-color: $tan-medium;
+      border-radius: .15rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $tan-dark;
+      border-radius: .15rem;
+    }
+  }
 }

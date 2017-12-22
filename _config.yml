@@ -1,65 +1,14 @@
-# Site settings
-title: Ruby 2D
-description: >
-  Make cross-platform 2D applications in Ruby
-baseurl: ""
-url: "http://ruby2d.com"
 
-# Header
-header:
-  logo_text: Ruby 2D
-  logo_img: logo.svg
-  nav:
-    - text: GET STARTED
-      link: /learn/get-started
-    - text: LEARN
-      link: /learn
-    - text: GITHUB
-      link: https://github.com/ruby2d
-  #   - text: NEWS
-  #     link: /news
+kramdown:
+  hard_wrap: true
 
-# Pages
-anchors: true
-
-# Edit pages
-edit_page:
-  # enabled: true  # Enabled by default for pages and posts
-  text: "Improve this page »"
-  github:
-    author: ruby2d
-    repo:   ruby2d.com
-    branch: gh-pages
-
-# Pages
 collections:
   pages:
     output: true
     permalink: /:path/
 
-# Posts
-posts_path: /news
-permalink: "/news/:year/:month/:day/:title"
-
-# Pagination
-paginate: 5
-paginate_path: "/news/page:num"
-
-# Build settings
-kramdown:
-  hard_wrap: true
-
-# Plugins
-gems: [jekyll-paginate]
-
-# Defaults
 defaults:
   - scope:
       path: ""
     values:
-      layout: template/page
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: template/post
+      layout: main

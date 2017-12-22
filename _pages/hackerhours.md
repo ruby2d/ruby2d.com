@@ -1,6 +1,7 @@
 ---
 title: Welcome Hacker Hours!
 subtitle: Your guide to getting started
+layout: article
 ---
 
 Ruby 2D is for those who love Ruby *and* making games, art, and other media apps. Ruby 2D is a gem, meaning it's a bunch of Ruby files and other assets for making 2D apps. Currently, it only runs on Mac and Linux, but hopefully Windows will be supported in time for the next meetup. **If you are running Windows**, you can use Ruby 2D with a virtual machine, like [VirtualBox](https://www.virtualbox.org), running [Ubuntu](http://www.ubuntu.com/desktop). This might take awhile to set up, so beware – you may want to choose a different project for today.

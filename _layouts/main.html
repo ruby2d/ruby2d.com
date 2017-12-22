@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ruby 2D{% unless page.title == 'home' %} — {{ page.title }}{% endunless %}</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon-152.png">
+    <script src="/assets/js/fastclick.js"></script>
+    <script src="/assets/js/anchor.js"></script>
+  </head>
+
+  <body class="sans-serif mb5 bg-tan-light brown">
+    <!-- Header -->
+    <div class="bg-ruby-red">
+      <nav class="site-header">
+        {% if page.title == 'home' %}
+        <div class="logo-empty">
+          <img src="/assets/img/empty-logo.svg">
+        </div>
+        {% else %}
+        <a class="logo" href="/">
+          <img src="/assets/img/logo-sm.svg" alt="Ruby 2D logo">
+          <div>RUBY 2D</div>
+        </a>
+        {% endif %}
+        <div class="links">
+          <a href="/learn/get-started">GET STARTED</a>
+          <a href="/learn">LEARN</a>
+          <a href="/community">COMMUNITY</a>
+        </div>
+      </nav>
+    </div>
+    {{ content }}
+  </body>
+
+  <!-- Google Analytics -->
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-31822241-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>

@@ -1,0 +1,47 @@
+---
+layout: main
+---
+
+<div class="learn">
+  <div class="contents">
+    <h1 id="learn-contents-menu">Contents</h1>
+    <div id="learn-contents-menu-links" class="links">
+      <a class="{% if page.id contains 'get-started' %}current{% endif %}" href="/learn/get-started">Get started</a>
+      <a class="{% if page.id contains 'window' %}current{% endif %}" href="/learn/window">Window</a>
+      <a class="{% if page.id contains 'colors' %}current{% endif %}" href="/learn/colors">Colors</a>
+      <a class="{% if page.id contains 'renderable' %}current{% endif %}" href="/learn/renderable">Renderable</a>
+      <a class="{% if page.id contains 'shapes' %}current{% endif %}" href="/learn/shapes">Shapes</a>
+      <a class="{% if page.id contains 'images' %}current{% endif %}" href="/learn/images">Images</a>
+      <!-- <a href="/learn/sprites">Sprites</a> -->
+      <a class="{% if page.id contains 'text' %}current{% endif %}" href="/learn/text">Text</a>
+      <a class="{% if page.id contains 'audio' %}current{% endif %}" href="/learn/audio">Audio</a>
+      <a class="{% if page.id contains 'input' %}current{% endif %}" href="/learn/input">Input</a>
+      <!-- <a href="/learn/building">Building</a> -->
+    </div>
+  </div>
+  <div class="page">
+    <h1 class="title">{{ page.title }}</h1>
+    <p class="subtitle">{{ page.subtitle }}</p>
+    <p>✏️ <a class="link underline-hover" href="https://github.com/ruby2d/ruby2d.com/edit/gh-pages/{{ page.relative_path }}">Suggest an edit to this page &raquo;</a></p>
+    {{ content }}
+  </div>
+</div>
+
+
+<script>
+// Add anchors to headers
+anchors.add('.learn .page h1, .learn .page h2, .learn .page h3');
+anchors.remove('.learn .page h1.title');
+
+// Toggle mobile menu
+document.getElementById('learn-contents-menu').onclick = function() {
+  document.getElementById('learn-contents-menu-links').classList.toggle('is-expanded');
+};
+
+window.addEventListener('resize', function (e) {
+  document.getElementById('learn-contents-menu-links').classList.remove('is-expanded');
+});
+
+// // Attach FastClick to mobile menu buttons
+FastClick.attach(document.getElementById('learn-contents-menu'));
+</script>
