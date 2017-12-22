@@ -290,7 +290,7 @@ nav.site-header {
   nav.site-header {
 
     a {
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       margin-right: 1rem;
     }
 
@@ -342,9 +342,15 @@ nav.site-header {
 
 // iPhone SE and smaller
 @media screen and (max-width: 22em) {
-  .logo, .logo-empty {
-    img {
-      display: none;
+  nav.site-header {
+    a {
+      font-size: .75rem;
+    }
+
+    .logo, .logo-empty {
+      img {
+        display: none;
+      }
     }
   }
 }
