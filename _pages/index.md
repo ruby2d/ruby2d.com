@@ -23,7 +23,7 @@ permalink: /
   <div class="dtc-ns tc pv4 ph3">
     <img width="85" src="/assets/img/feat3.svg">
     <h1 class="mv2 fw4">Web</h1>
-    <p class="mv1">Build your app for the web using JavaScript or WebAssembly.</p>
+    <p class="mv1">Build your app for the web using JavaScript.</p>
   </div>
 </div>
 
