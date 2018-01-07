@@ -38,12 +38,10 @@ Ruby 2D works with 64-bit Windows and is tested on the latest releases of Window
 
 1. Open a MinGW 64-bit command prompt (in the Start menu named "MSYS2 MinGW 64-bit" or at `C:\tools\msys64\mingw64.exe` if using Chocolatey).
 
-2. Paste and run the following snippet:
+2. Paste and run the following snippet to download and install the latest [Simple 2D MinGW release](https://github.com/simple2d/simple2d/releases/latest):
 ```bash
 url='https://raw.githubusercontent.com/simple2d/simple2d/master/bin/simple2d.sh'; which curl > /dev/null && cmd='curl -fsSL' || cmd='wget -qO -'; bash <($cmd $url) install
 ```
-
-This will download and install the latest [Simple 2D MinGW release](https://github.com/simple2d/simple2d/releases/latest) for you.
 
 # Using Ruby 2D on Windows
 
