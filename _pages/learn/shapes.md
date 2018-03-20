@@ -458,7 +458,7 @@ line.y2 = 150
 
 ## width
 
-You can decide the `width` of a triangle. The default width is `2`, so the basic example, if expanded, would look like this:
+You can decide the `width` of a line. The default width is `2`, so the basic example, if expanded, would look like this:
 
 ```ruby
 Line.new(width: 2)
