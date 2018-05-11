@@ -9,7 +9,7 @@ This page contains informations about basic classes used to render objects to th
 
 # Common behavior
 
-Since, since the end, all of those objects end up in the window, there is some common behavior they all present.
+Since all of those objects end up in the window, there is some common behavior they all present.
 
 ## z
 
