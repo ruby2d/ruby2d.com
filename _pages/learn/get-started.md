@@ -15,6 +15,13 @@ brew tap simple2d/tap
 brew install simple2d
 ```
 
+**Troubleshooting macOS High Sierra**
+```bash
+Error: Could not symlink Frameworks/Simple2D
+$ mkdir -m 777 /usr/local/Frameworks
+$ brew link simple2d
+```
+
 On **Linux**, run the install script by pasting this snippet in your terminal:
 
 ```bash
