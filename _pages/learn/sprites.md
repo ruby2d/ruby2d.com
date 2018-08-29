@@ -5,6 +5,8 @@ layout: learn
 
 {% include warning.html icon="🚧" message="This page is a work in progress!" %}
 
+{% comment %}
+
 # Sprite
 
 `Ruby2D::Sprite`
@@ -27,3 +29,5 @@ spr.clip(x, y, w, h, frames)
 
 spr.next
 ```
+
+{% endcomment %}

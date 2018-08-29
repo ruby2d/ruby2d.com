@@ -1,7 +1,7 @@
 ---
 title: The window
 subtitle: Learn to create and configure a window in Ruby 2D
-next_guide: colors
+next_guide: 2d-basics
 layout: learn
 ---
 

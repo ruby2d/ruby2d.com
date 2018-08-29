@@ -3,13 +3,58 @@
 
 @import "tachyons", "syntax-highlighting";
 
-// Common things ///////////////////////////////////////////////////////////////
+// Variables ///////////////////////////////////////////////////////////////////
 
 $ruby-red: rgb(246, 60, 56);  // #f63c38
 $tan-light: rgb(255, 250, 247);
 $tan-medium: rgb(255, 245, 230);
 $tan-dark: rgb(240, 210, 170);
 $brown: rgb(100, 65, 56);
+
+// Elements ////////////////////////////////////////////////////////////////////
+
+h1 {
+  @extend .mt4;
+}
+
+p, ul, ol {
+  @extend .lh-copy;
+  font-size: 1.15rem;
+}
+
+li {
+  @extend .mv3;
+}
+
+a {
+  @extend .brown;
+}
+
+table {
+  @extend .ba, .bw1, .b--tan-dark, .br2;
+
+  th {
+    @extend .bb, .bw1, .b--tan-dark, .bg-tan-medium;
+  }
+
+  th, td {
+    @extend .pa2;
+  }
+
+  tr:nth-child(even) {
+    @extend .bg-tan-medium;
+  }
+}
+
+h1.title {
+  @extend .f1, .mt0, .mb2;
+}
+
+p.subtitle {
+  @extend .f3, .mt0, .mb2;
+}
+
+// Common classes //////////////////////////////////////////////////////////////
 
 .bg-ruby-red {
   background: $ruby-red;
@@ -37,39 +82,6 @@ $brown: rgb(100, 65, 56);
 
 .mw65 {
   max-width: 40rem;
-}
-
-a {
-  @extend .brown;
-}
-
-p {
-  @extend .lh-copy;
-  font-size: 1.15rem;
-}
-
-table {
-  @extend .ba, .bw1, .b--tan-dark, .br2;
-
-  th {
-    @extend .bb, .bw1, .b--tan-dark, .bg-tan-medium;
-  }
-
-  th, td {
-    @extend .pa2;
-  }
-
-  tr:nth-child(even) {
-    @extend .bg-tan-medium;
-  }
-}
-
-h1.title {
-  @extend .f1, .mt0, .mb2;
-}
-
-p.subtitle {
-  @extend .f3, .mt0, .mb4;
 }
 
 .is-expanded {

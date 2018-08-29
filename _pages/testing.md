@@ -1,6 +1,9 @@
 ---
 title: Release testing
+layout: article
 ---
+
+A guide for how to test a release on [macOS](#macos), [Linux](#linux), and [Windows](#windows).
 
 # macOS
 
@@ -141,18 +144,9 @@ done
 
 From a clean install with latest updates...
 
-<!--
-1. Install the RubyInstaller (https://rubyinstaller.org/downloads)
+1. Follow the Ruby 2D Windows [install instructions](http://www.ruby2d.com/learn/windows)
 
-[Ruby 2.4.1-1 (x64)](https://github.com/oneclick/rubyinstaller2/releases/download/2.4.1-1/rubyinstaller-2.4.1-1-x64.exe)
-Extract to "C:\ruby"
-
-When prompted for MSYS2, choose "3 - MSYS2 and MINGW development toolchain"
--->
-
-Follow [Ruby 2D instructions](http://www.ruby2d.com/learn/windows)
-
-Install Ruby 2D and run tests
+2. Run the following:
 
 ```bash
 git clone --recursive https://github.com/ruby2d/ruby2d.git
