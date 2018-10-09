@@ -16,15 +16,10 @@ Ruby 2D works with 64-bit Windows and is tested on the latest releases of Window
 
 3. When prompted for "Which components shall be installed", just press "enter" to install all of them. When finished installing, press "enter" again to quit.
 
-4. Add Ruby to your MinGW environment, for example by adding:
+4. Add Ruby to your MinGW environment, for example by running the following in a MinGW 64-bit command prompt (usually at `C:\Ruby25-x64\msys64\mingw64.exe`):
 ```
-export PATH=$PATH:/c/Ruby25-x64/bin
+echo "export PATH=$PATH:/c/Ruby25-x64/bin" > ~/.bash_profile
 ```
-to your `~/.bash_profile`, which will be located at:
-```
-C:\Ruby25-x64\msys64\home\your_user_name
-```
-Note, your Ruby directory might differ.
 
 **Using Chocolatey...**
 
@@ -34,15 +29,10 @@ Note, your Ruby directory might differ.
 
 3. Install the [MSYS2 package](https://chocolatey.org/packages/msys2) using `choco install msys2`
 
-4. Add Ruby to your MinGW environment, for example by adding:
+4. Add Ruby to your MSYS2 environment, for example by running:
 ```
-export PATH=$PATH:/c/tools/ruby25/bin
+echo "export PATH=$PATH:/c/tools/ruby25/bin" > ~/.bash_profile
 ```
-to your `~/.bash_profile`, which will be located at:
-```
-C:\tools\msys64\home\your_user_name
-```
-Note, your Ruby directory might differ.
 
 5. To be able to build native Ruby gem extensions, install the MinGW compiler toolchain by opening a MinGW 64-bit command prompt (located at `C:\tools\msys64\mingw64.exe`) and running `pacman -S make mingw-w64-x86_64-gcc`
 

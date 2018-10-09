@@ -22,6 +22,8 @@ On **Linux**, run the install script by pasting this snippet in your terminal:
 url='https://raw.githubusercontent.com/simple2d/simple2d/master/bin/simple2d.sh'; which curl > /dev/null && cmd='curl -fsSL' || cmd='wget -qO -'; bash <($cmd $url) install
 ```
 
+Need help setting up your Ruby environment on Linux? [Check out the guide »](/learn/linux)
+
 On **Windows**, learn how to [set up your environment »](/learn/windows)
 
 ## Install the gem
@@ -67,7 +69,7 @@ ruby app.rb
 
 You should see this impressive triangle...
 
-<img style="margin-bottom:-2rem" src="/assets/img/triangle-shadow.png">
+<img style="margin-bottom:-2rem; width: 100%; max-width: 752px" src="/assets/img/triangle-shadow.png">
 
 Congrats, you just built your first Ruby 2D app! 🎉
 
