@@ -9,22 +9,13 @@ layout: learn
 
 Before installing the gem, we'll need to install a few dependencies, namely a native graphics engine Ruby 2D will use behind the scenes called [Simple 2D](https://github.com/simple2d/simple2d).
 
-On **macOS**, we recommend using [Homebrew](https://brew.sh) and running:
-
+- On **macOS**, we recommend using [Homebrew](https://brew.sh) and running:
 ```
 brew tap simple2d/tap
 brew install simple2d
 ```
-
-On **Linux**, run the install script by pasting this snippet in your terminal:
-
-```bash
-url='https://raw.githubusercontent.com/simple2d/simple2d/master/bin/simple2d.sh'; which curl > /dev/null && cmd='curl -fsSL' || cmd='wget -qO -'; bash <($cmd $url) install
-```
-
-Need help setting up your Ruby environment on Linux? [Check out the guide »](/learn/linux)
-
-On **Windows**, learn how to [set up your environment »](/learn/windows)
+- On **Linux**, learn how to [set up your environment »](/learn/linux)
+- On **Windows**, learn how to [set up your environment »](/learn/windows)
 
 ## Install the gem
 

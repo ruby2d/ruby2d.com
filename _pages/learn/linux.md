@@ -6,9 +6,9 @@ layout: learn
 
 # Install Ruby
 
-We recommend managing Ruby versions using [rbenv](https://github.com/rbenv/rbenv). To set it up:
+Installing Ruby with package managers (apt, yum, pacman) can cause issues. We recommend using a Ruby version manager instead, like [rbenv](https://github.com/rbenv/rbenv). Here's how to set it up:
 
-1. Check out rbenv into `~/.rbenv`:
+1. First, clone the rbenv repo into `~/.rbenv`:
 ```bash
 $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ```
@@ -18,7 +18,7 @@ $ git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 $ git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
 ```
 
-3. Add rbenv to your path and initialize by adding the following to your `~/.bashrc` or `~/.bash_profile`:
+3. Add rbenv to your path and initialize it by adding the following to your `~/.bashrc` or `~/.bash_profile`:
 ```bash
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
@@ -31,9 +31,9 @@ $ source ~/.bashrc  # or ~/.bash_profile
 
 5. [Install packages](https://github.com/rbenv/ruby-build/wiki#suggested-build-environment) to prepare your build environment.
 
-6. Install the latest version of Ruby (2.5.1 in this case), and don't generate RDoc to save time (plus, docs are online):
+6. Install the latest version of Ruby (2.5.1 in this case), and don't build the documentation (saves time, plus it's all online anyways):
 ```bash
-$ CONFIGURE_OPTS="--disable-install-doc --enable-shared" rbenv install 2.5.1 --verbose
+$ CONFIGURE_OPTS="--disable-install-doc" rbenv install 2.5.1 --verbose
 ```
 
 7. Set Ruby 2.5.1 as the global default:
@@ -41,7 +41,7 @@ $ CONFIGURE_OPTS="--disable-install-doc --enable-shared" rbenv install 2.5.1 --v
 $ rbenv global 2.5.1
 ```
 
-8. Don't install docs for gems
+8. Skip building documentation when installing gems:
 ```bash
 $ echo "gem: --no-document" > ~/.gemrc
 ```
@@ -59,30 +59,34 @@ Hello Ruby
 
 Ruby 2D requires a native graphics engine called Simple 2D, which relies on SDL. Install SDL packages for your Linux distribution:
 
-- Ubuntu/Debian/Mint:
-```bash
-$ sudo apt install -y libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
-```
+- Ubuntu, Debian, and Mint:
+  ```bash
+  sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+  ```
 
-- CentOS/Fedora:
+- CentOS and Fedora:
 ```bash
-# `dnf install` on Fedora 22+
-$ sudo yum install -y SDL2-devel SDL2_image-devel SDL2_mixer-devel SDL2_ttf-devel
+# Or `dnf install` on Fedora
+sudo yum install SDL2-devel SDL2_image-devel SDL2_mixer-devel SDL2_ttf-devel
 ```
 
 - Arch:
-```bash
-$ sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_ttf
-```
+  ```bash
+  sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_ttf
+  ```
 
-Next, download the source for the [latest version](https://github.com/simple2d/simple2d/releases/latest) and run `make && sudo make install`
+Next, download the source for the [latest version of Simple 2D](https://github.com/simple2d/simple2d/releases/latest) and run:
+
+```
+make && sudo make install
+```
 
 # Install Ruby 2D
 
 You're now ready to install the gem!
 
 ```
-$ gem install ruby2d
+gem install ruby2d
 ```
 
 That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started#writing-your-first-2d-app)
