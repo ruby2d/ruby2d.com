@@ -1,7 +1,7 @@
 ---
 title: Get started
 subtitle: Learn how to start creating 2D apps in Ruby
-next_guide: window
+next_topic: window
 layout: learn
 ---
 
@@ -66,4 +66,4 @@ Congrats, you just built your first Ruby 2D app! 🎉
 
 # What's next?
 
-There's a lot Ruby 2D can do. Continue on to the [next guide](/learn/{{ page.next_guide }}) or select a topic in the [contents menu](#) 👆
+There's a lot Ruby 2D can do. Continue to the [next topic](/learn/{{ page.next_topic }}) or select one from the [contents menu](#). 👆

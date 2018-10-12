@@ -49,7 +49,7 @@ echo "export PATH=$PATH:/c/tools/ruby25/bin" > ~/.bash_profile
 url='https://raw.githubusercontent.com/simple2d/simple2d/master/bin/simple2d.sh'; which curl > /dev/null && cmd='curl -fsSL' || cmd='wget -qO -'; bash <($cmd $url) install
 ```
 
-# Install the Ruby 2D gem
+# Install Ruby 2D
 
 You're now ready to install the gem! Make sure to use a MinGW 64-bit command prompt as you did when installing Simple 2D above.
 

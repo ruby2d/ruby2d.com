@@ -1,0 +1,49 @@
+---
+title: Native
+subtitle: Learn how to build a native executable of your app
+next_topic: web
+layout: learn
+---
+
+Ruby programs are simply text files that can be run by a Ruby interpreter, like [MRI / CRuby](https://en.wikipedia.org/wiki/Ruby_MRI). Did you know you can also compile your programs to native code using MRuby.
+
+First, you'll need to install MRuby:
+
+- On **macOS**, we recommend using [Homebrew](https://brew.sh) to install MRuby:
+```
+brew install mruby
+```
+
+- On **Linux**, use your package manager:
+  ```bash
+  # Ubuntu, Debian, and Mint
+  sudo apt install mruby libmruby-dev
+
+  # Other Linux distributions, search your package manager
+  ```
+  If your distribution, doesn't have an MRuby package, compile and install [from source](https://github.com/mruby/mruby) instead.
+
+- On **Windows**, we don't yet have instructions, but we're working on it!
+
+With MRuby installed, using the "Hello Triangle" script you wrote above, run the following to build a native and web-based version of the app:
+
+```
+ruby2d build app.rb
+```
+
+Notice a `build/` directory was created containing an executable named either `app` on Unix-like systems, or `app.exe` on Windows.
+
+The executable is a compiled, native version of your app. It can run on any system, similar to the one you built it on, without the need for the full Ruby interpreter to be present. Let's try running the native app on the command line:
+
+```bash
+# Enter the `build/` directory
+cd build
+
+# Run on Unix-like systems
+./app
+
+# Run on Windows
+app.exe
+```
+
+Continue to the [next topic »](/learn/{{ page.next_topic }})

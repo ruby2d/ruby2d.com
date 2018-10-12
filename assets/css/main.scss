@@ -11,6 +11,48 @@ $tan-medium: rgb(255, 245, 230);
 $tan-dark: rgb(240, 210, 170);
 $brown: rgb(100, 65, 56);
 
+// Common classes //////////////////////////////////////////////////////////////
+
+.bg-ruby-red {
+  background: $ruby-red;
+}
+
+.bg-tan-light {
+  background: $tan-light;
+}
+
+.bg-tan-medium {
+  background: $tan-medium;
+}
+
+.b--tan-medium {
+  border-color: $tan-medium;
+}
+
+.b--tan-dark {
+  border-color: $tan-dark;
+}
+
+.bg-tan-dark {
+  background: $tan-dark;
+}
+
+.brown {
+  color: $brown;
+}
+
+.b--brown {
+  border-color: $brown;
+}
+
+.mw65 {
+  max-width: 40rem;
+}
+
+.is-expanded {
+  display: inline-block !important;
+}
+
 // Elements ////////////////////////////////////////////////////////////////////
 
 h1 {
@@ -39,6 +81,7 @@ table {
 
   th, td {
     @extend .pa2;
+    line-height: 1.5rem;
   }
 
   tr:nth-child(even) {
@@ -54,38 +97,9 @@ p.subtitle {
   @extend .f3, .mt0, .mb2;
 }
 
-// Common classes //////////////////////////////////////////////////////////////
-
-.bg-ruby-red {
-  background: $ruby-red;
-}
-
-.bg-tan-light {
-  background: $tan-light;
-}
-
-.bg-tan-medium {
-  background: $tan-medium;
-}
-
-.b--tan-medium {
-  border-color: $tan-medium;
-}
-
-.b--tan-dark {
-  border-color: $tan-dark;
-}
-
-.brown {
-  color: $brown;
-}
-
-.mw65 {
-  max-width: 40rem;
-}
-
-.is-expanded {
-  display: inline-block !important;
+hr {
+  @extend .bn, .bg-tan-dark;
+  height: 5px;
 }
 
 // Includes styles /////////////////////////////////////////////////////////////
@@ -199,100 +213,109 @@ nav.site-header {
   .page {
     @extend .flex-auto;
   }
-}
 
-.color-example {
-  @extend .pv2, .ph3, .br2;
+  .color-example {
+    @extend .pv1, .ph2, .br2, .ba, .bw1, .b--brown;
 
-  &.navy {
-    color: #fff;
-    background-color: #001F3F;
+    &.navy {
+      color: #fff;
+      background-color: #001F3F;
+    }
+
+    &.blue {
+      color: #fff;
+      background-color: #0074D9;
+    }
+
+    &.aqua {
+      color: #1e343d;
+      background-color: #7FDBFF;
+    }
+
+    &.teal {
+      color: #fff;
+      background-color: #39CCCC;
+    }
+
+    &.olive {
+      color: #fff;
+      background-color: #3D9970;
+    }
+
+    &.green {
+      color: #fff;
+      background-color: #2ECC40;
+    }
+
+    &.lime {
+      color: #003517;
+      background-color: #01FF70;
+    }
+
+    &.yellow {
+      color: #453b00;
+      background-color: #FFDC00;
+    }
+
+    &.orange {
+      color: #fff;
+      background-color: #FF851B;
+    }
+
+    &.red {
+      color: #fff;
+      background-color: #FF4136;
+    }
+
+    &.brown {
+      color: #fff;
+      background-color: #663300;
+    }
+
+    &.fuchsia {
+      color: #fff;
+      background-color: #F012BE;
+    }
+
+    &.purple {
+      color: #fff;
+      background-color: #B10DC9;
+    }
+
+    &.maroon {
+      color: #fff;
+      background-color: #85144B;
+    }
+
+    &.white {
+      color: #000;
+      background-color: #FFFFFF;
+    }
+
+    &.silver {
+      color: #000;
+      background-color: #DDDDDD;
+    }
+
+    &.gray {
+      color: #fff;
+      background-color: #AAAAAA;
+    }
+
+    &.black {
+      color: #fff;
+      background-color: #111111;
+    }
   }
 
-  &.blue {
-    color: #fff;
-    background-color: #0074D9;
+  img.sprite-sheet {
+    @extend .border-box, .pa2, .br3, .ba, .bw2, .b--tan-dark, .bg-white;
   }
 
-  &.aqua {
-    color: #1e343d;
-    background-color: #7FDBFF;
+  video.sprite-video {
+    @extend .br3, .ba, .bw2, .b--tan-dark;
   }
 
-  &.teal {
-    color: #fff;
-    background-color: #39CCCC;
-  }
-
-  &.olive {
-    color: #fff;
-    background-color: #3D9970;
-  }
-
-  &.green {
-    color: #fff;
-    background-color: #2ECC40;
-  }
-
-  &.lime {
-    color: #003517;
-    background-color: #01FF70;
-  }
-
-  &.yellow {
-    color: #453b00;
-    background-color: #FFDC00;
-  }
-
-  &.orange {
-    color: #fff;
-    background-color: #FF851B;
-  }
-
-  &.red {
-    color: #fff;
-    background-color: #FF4136;
-  }
-
-  &.brown {
-    color: #fff;
-    background-color: #663300;
-  }
-
-  &.fuchsia {
-    color: #fff;
-    background-color: #F012BE;
-  }
-
-  &.purple {
-    color: #fff;
-    background-color: #B10DC9;
-  }
-
-  &.maroon {
-    color: #fff;
-    background-color: #85144B;
-  }
-
-  &.white {
-    color: #000;
-    background-color: #FFFFFF;
-  }
-
-  &.silver {
-    color: #000;
-    background-color: #DDDDDD;
-  }
-
-  &.gray {
-    color: #fff;
-    background-color: #AAAAAA;
-  }
-
-  &.black {
-    color: #fff;
-    background-color: #111111;
-  }
 }
 
 // Media queries ///////////////////////////////////////////////////////////////

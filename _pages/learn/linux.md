@@ -1,6 +1,6 @@
 ---
 title: Ruby 2D on Linux
-subtitle: Learn how to set up your environment on Linux
+subtitle: Learn how to set up your environment and install dependencies
 layout: learn
 ---
 
@@ -57,26 +57,26 @@ Hello Ruby
 
 # Install Simple 2D
 
-Ruby 2D requires a native graphics engine called Simple 2D, which relies on SDL. Install SDL packages for your Linux distribution:
-
+1. Ruby 2D requires a native graphics engine called Simple 2D, which relies on [SDL](https://www.libsdl.org). Install SDL packages for your Linux distribution.
 - Ubuntu, Debian, and Mint:
-  ```bash
-  sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
-  ```
-
+```bash
+sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+```
 - CentOS and Fedora:
 ```bash
 # Or `dnf install` on Fedora
 sudo yum install SDL2-devel SDL2_image-devel SDL2_mixer-devel SDL2_ttf-devel
 ```
-
+- openSUSE:
+```bash
+sudo zypper install libSDL2-devel libSDL2_image-devel libSDL2_mixer-devel libSDL2_ttf-devel
+```
 - Arch:
-  ```bash
-  sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_ttf
-  ```
+```bash
+sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_ttf
+```
 
-Next, download the source for the [latest version of Simple 2D](https://github.com/simple2d/simple2d/releases/latest) and run:
-
+2. Next, download the source code for the [latest version of Simple 2D](https://github.com/simple2d/simple2d/releases/latest) and run:
 ```
 make && sudo make install
 ```
