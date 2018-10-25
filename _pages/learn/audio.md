@@ -38,6 +38,12 @@ song.loop = true
 
 # Fade out music over 2 seconds (2000 milliseconds) and stop
 song.fadeout(2000)
+
+# Adjust the volume from 0 to 100%
+song.volume = 50
+
+# Use the `Music` class to also adjust the volume
+Music.volume = 80
 ```
 
 Continue to the [next topic »](/learn/{{ page.next_topic }})

@@ -89,4 +89,4 @@ You're now ready to install the gem!
 gem install ruby2d
 ```
 
-That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started#writing-your-first-2d-app)
+That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started/#writing-your-first-2d-app)

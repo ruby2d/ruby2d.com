@@ -59,4 +59,4 @@ gem install ruby2d
 
 {% include warning.html icon="⚠️" message="When working with Ruby 2D, make sure to always use a MinGW 64-bit command prompt, rather than a standard one (cmd.exe) or the \"Start Command Prompt with Ruby\" found in the Start menu." %}
 
-That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started#writing-your-first-2d-app)
+That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started/#writing-your-first-2d-app)
