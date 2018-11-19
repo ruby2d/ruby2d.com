@@ -49,8 +49,8 @@ get: mouse_x
 get: mouse_y
 
 # Or using the `Window` class
-Winow.mouse_x
-Winow.mouse_y
+Window.mouse_x
+Window.mouse_y
 ```
 
 Capture all mouse events:
