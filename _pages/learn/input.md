@@ -45,8 +45,8 @@ The coordinates of the mouse can be read like so:
 
 ```ruby
 # Using the DSL
-get: mouse_x
-get: mouse_y
+get :mouse_x
+get :mouse_y
 
 # Or using the `Window` class
 Window.mouse_x
