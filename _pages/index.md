@@ -13,7 +13,7 @@ permalink: /
   <div class="dtc-ns tc pv4 ph3">
     <img width="85" src="/assets/img/feat1.svg">
     <h1 class="mv2 fw4">Interpreted</h1>
-    <p class="mv1">Write your app as a classic Ruby script, just like you're use to.</p>
+    <p class="mv1">Write your app as a classic Ruby script, just like you're used to.</p>
   </div>
   <div class="dtc-ns tc pv4 ph3">
     <img width="85" src="/assets/img/feat2.svg">
