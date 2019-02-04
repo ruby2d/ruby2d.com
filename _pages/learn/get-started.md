@@ -11,15 +11,18 @@ Before installing the gem, we'll need to install a few dependencies, namely a na
 
 - On **macOS**, we recommend using [Homebrew](https://brew.sh) and running:
 ```
-brew tap simple2d/tap
-brew install simple2d
+$ brew tap simple2d/tap && brew install simple2d
 ```
-- On **Linux**, learn how to [set up your environment »](/learn/linux)
+- On **Linux**, paste and run this snippet in your terminal:
+```bash
+url='https://raw.githubusercontent.com/simple2d/simple2d/master/bin/simple2d.sh'; which curl > /dev/null && cmd='curl -fsSL' || cmd='wget -qO -'; bash <($cmd $url) install
+```
+If you need further help, learn how to [set up your Linux environment »](/learn/linux)
 - On **Windows**, learn how to [set up your environment »](/learn/windows)
 
 ## Install the gem
 
-Now you're ready to install the Ruby 2D gem:
+Now you're ready to install the Ruby 2D gem! On your command line, run:
 
 ```
 gem install ruby2d

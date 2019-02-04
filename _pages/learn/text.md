@@ -14,7 +14,6 @@ Text.new('Hello')
 Here are all the possible instance attributes:
 
 ```ruby
-
 Text.new(
   'Hello',
   x: 150, y: 470,

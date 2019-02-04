@@ -1,5 +1,6 @@
 ---
 title: Platform support
+layout: article
 ---
 
 # Officially supported
