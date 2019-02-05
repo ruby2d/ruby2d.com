@@ -30,7 +30,7 @@ coin.play
 
 Here's what our animation looks like:
 
-<video width="140" class="sprite-video" src="/assets/img/coin.mp4" autoplay loop></video>
+<video width="140" class="sprite-video" src="/assets/img/coin.mp4" autoplay muted loop></video>
 
 Just like regular images, you can also set the `x` and `y` position of the sprite, along with its `width`, `height`, and `color`. To stop the sprite playing in this example, simply call `coin.stop`.
 
@@ -58,7 +58,7 @@ end
 
 Here's what our animation looks like:
 
-<video width="154" class="sprite-video" src="/assets/img/boom.mp4" autoplay loop></video>
+<video width="154" class="sprite-video" src="/assets/img/boom.mp4" autoplay muted loop></video>
 
 So far, we've only focused on a single animation, but what if we want to have many in a single sprite sheet? A perfect example might be a hero character in our game, where the sprite sheet image might look like this:
 
@@ -102,7 +102,7 @@ end
 
 Here's what each animation looks like:
 
-<video width="150" class="sprite-video" src="/assets/img/hero.mp4" autoplay loop></video>
+<video width="150" class="sprite-video" src="/assets/img/hero.mp4" autoplay muted loop></video>
 
 In the most complex case, we may want to specify a _different_ clipping rectangle for every frame. Instead of an animation frame range, we provide an array containing the size of the clipping rectangle and the time in milliseconds it should be displayed. Take this sprite atlas with numbers of different sizes scattered about:
 
@@ -154,6 +154,6 @@ atlas.play animation: :count, loop: true
 
 Here's what the animation looks like:
 
-<video width="100" class="sprite-video" src="/assets/img/atlas.mp4" autoplay loop></video>
+<video width="100" class="sprite-video" src="/assets/img/atlas.mp4" autoplay muted loop></video>
 
 Continue to the [next topic »](/learn/{{ page.next_topic }})
