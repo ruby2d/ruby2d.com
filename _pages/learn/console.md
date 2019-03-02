@@ -9,7 +9,7 @@ Each time you want to change your Ruby 2D application you need to close the wind
 To use the console, run this command on your command line, replacing `game.rb` with the filename of your Ruby 2D program:
 
 ```bash
-ruby console game.rb
+ruby2d console game.rb
 ```
 
 Once your program has started, you'll be able to write Ruby code on the console to interact with your program. For example, to add some new text to our application, we could write on the console:
