@@ -63,10 +63,10 @@ ruby app.rb
 
 You should see this impressive triangle...
 
-<img style="margin-bottom:-2rem; width: 100%; max-width: 752px" src="/assets/img/triangle-shadow.png">
+<img style="margin-bottom:-2rem; width: 100%; max-width: 752px" src="/assets/img/learn/triangle-shadow.png">
 
 Congrats, you just built your first Ruby 2D app! 🎉
 
 # What's next?
 
-There's a lot Ruby 2D can do. Continue to the [next topic](/learn/{{ page.next_topic }}) or select one from the [contents menu](#). 👆
+There's a lot Ruby 2D can do. [Check out the showcase](/showcase) to see examples of what you can build. To keep learning, continue to the [next topic](/learn/{{ page.next_topic }}) or select one from the [contents menu](#) at the top. 👆

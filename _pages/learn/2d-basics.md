@@ -11,7 +11,7 @@ Before we start making some graphics, let's cover the basics.
 
 First, it's important to know that visible objects drawn in the window follow a coordinate system. Instead of something you might be familiar with from your math classes, this system has its origin, or `(0, 0)`, in the upper-left corner, and the _x_ and _y_ values get larger toward the bottom-right. This might seem odd, but it's actually common in 2D computer graphics.
 
-<img style="width: 100%; max-width: 400px" src="/assets/img/window-coordinates.png">
+<img style="width: 100%; max-width: 400px" src="/assets/img/learn/window-coordinates.png">
 
 In this documentation, `x` is the _x_-coordinate and `y` is the _y_-coordinate. When an object has multiple pairs of _x_ and _y_ coordinates, they will be numbered, for example: `x1`, `y1` or `x2`, `y2`.
 

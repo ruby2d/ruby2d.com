@@ -29,7 +29,7 @@ permalink: /
 
 <div class="pv3 ph2 tc bg-white bt bb bw1 b--tan-dark">
   <a class="link f2 underline-hover" href="/learn/get-started">Get started »</a>
-  <p class="mv2 f4">Install the gem and read the guides</p>
+  <p class="mv2 f4">Install the gem, read the guides, and <a href="/showcase">see what you can build!</a></p>
 </div>
 
 <div class="mt4 mw65 ph2 center" markdown="1">
@@ -50,6 +50,4 @@ s.color = 'red'
 # Show the window
 show
 ```
-
-Enjoy Ruby 2D? [Join the community](/community)!
 </div>
