@@ -31,7 +31,7 @@ permalink: /
 -->
 
 <div class="mt4 mw65 ph2 center" markdown="1">
-Create 2D applications, games, and visualizations with ease. Just a few lines of code is enough to get you started. <a href="/showcase">See what you can build!</a>
+Create 2D applications, games, and visualizations with ease. Just a few lines of code is enough to get started. <a href="/showcase">See what you can build!</a>
 
 ```ruby
 require 'ruby2d'
