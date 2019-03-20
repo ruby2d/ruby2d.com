@@ -173,7 +173,7 @@ nav.site-header {
 // Home page ///////////////////////////////////////////////////////////////////
 
 .home-banner {
-  @extend .ph2, .pt4, .pb5, .tc, .white;
+  @extend .ph2, .pt4, .pb3, .tc, .white;
 
   img {
     width: 150px;
@@ -329,7 +329,7 @@ nav.site-header {
   nav.site-header {
 
     a {
-      font-size: 0.8rem;
+      font-size: 0.95rem;
       margin-right: 1rem;
     }
 
@@ -379,17 +379,22 @@ nav.site-header {
   }
 }
 
-// iPhone SE and smaller
-@media screen and (max-width: 22em) {
+// iPhone 8 and smaller
+@media screen and (max-width: 24em) {
   nav.site-header {
-    a {
-      font-size: .75rem;
-    }
-
     .logo, .logo-empty {
       img {
         display: none;
       }
+    }
+  }
+}
+
+// iPhone SE and smaller
+@media screen and (max-width: 23em) {
+  nav.site-header {
+    a {
+      font-size: 0.75rem;
     }
   }
 }

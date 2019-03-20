@@ -7,8 +7,10 @@ permalink: /
   <img src="/assets/img/logo.svg">
   <h1>Ruby 2D</h1>
   <h2>Make cross-platform 2D applications in Ruby</h2>
+  <p class="mv3"><a class="f3 white" href="/learn/get-started">Get started »</a></p>
 </div>
 
+<!--
 <div class="dt-ns dt--fixed-ns mv2 center mw8">
   <div class="dtc-ns tc pv4 ph3">
     <img width="85" src="/assets/img/feat1.svg">
@@ -26,14 +28,10 @@ permalink: /
     <p class="mv1">Build your app for the web using WebAssembly (coming soon).</p>
   </div>
 </div>
-
-<div class="pv3 ph2 tc bg-white bt bb bw1 b--tan-dark">
-  <a class="link f2 underline-hover" href="/learn/get-started">Get started »</a>
-  <p class="mv2 f4">Install the gem, read the guides, and <a href="/showcase">see what you can build!</a></p>
-</div>
+-->
 
 <div class="mt4 mw65 ph2 center" markdown="1">
-With Ruby 2D, you can create 2D applications, games, and visualizations with ease. Just a few lines of code is enough to get you started.
+Create 2D applications, games, and visualizations with ease. Just a few lines of code is enough to get you started. <a href="/showcase">See what you can build!</a>
 
 ```ruby
 require 'ruby2d'
@@ -51,3 +49,10 @@ s.color = 'red'
 show
 ```
 </div>
+
+<!--
+<div class="pv3 ph2 tc bg-white bt bb bw1 b--tan-dark">
+  <a class="link f2 underline-hover" href="/learn/get-started">Get started »</a>
+  <p class="mv2 f4">Install the gem, read the guides, and <a href="/showcase">see what you can build!</a></p>
+</div>
+-->
