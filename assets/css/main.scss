@@ -54,7 +54,7 @@ $brown: rgb(100, 65, 56);
 }
 
 .is-expanded {
-  display: inline-block !important;
+  display: block !important;
 }
 
 // Elements ////////////////////////////////////////////////////////////////////
@@ -114,6 +114,7 @@ hr {
   background: $tan-medium;
   border: 2px solid $tan-dark;
   border-radius: 3px;
+  line-height: 1.5rem;
 
   .icon {
     float: left;
@@ -159,7 +160,7 @@ nav.site-header {
       margin-top: 2px;
       border-bottom: 2px solid rgba(255, 255, 255, 0);
 
-      &:hover {
+      &:hover, &.active {
         border-bottom: 2px solid rgba(255, 255, 255, 0.7);
       }
 
@@ -198,6 +199,9 @@ nav.site-header {
   .contents {
     @extend .mr3, .pr3, .br, .bw1, .b--tan-dark;
     min-width: 8.5rem;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 
     h1 {
       @extend .mt2, .f3;
@@ -216,6 +220,14 @@ nav.site-header {
 
   .page {
     @extend .flex-auto;
+
+    .active::before {
+      content: "👉 ";
+    }
+    .active {
+      font-weight: bold;
+      text-decoration: none;
+    }
   }
 
   .color-example {
@@ -371,9 +383,15 @@ nav.site-header {
         }
       }
 
+      a {
+        font-size: 1.15rem;
+      }
+
       .links {
         display: none;
-        margin-top: 1rem;
+        margin-top: 0.4rem;
+        padding-top: 0.6rem;
+        border-top: 2px solid #f0d2aa;
       }
     }
   }

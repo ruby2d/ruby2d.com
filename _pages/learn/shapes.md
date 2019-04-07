@@ -5,7 +5,7 @@ next_topic: images
 layout: learn
 ---
 
-{% comment %}
+<!--
 TODO: Talk about setting a color for each vertex, or corner, of a shape.
 
 ```ruby
@@ -35,8 +35,7 @@ shape.color = [
   '#FF0000'
 ]
 ```
-{% endcomment %}
-
+-->
 
 A number of shapes can be drawn, such as [triangles](#triangles), [squares](#squares), [rectangles](#rectangles), [quadrilaterals](#quadrilaterals), [lines](#lines), and [circles](#circles). All instance attributes on all shapes can be read and set individually on a new object, for example:
 

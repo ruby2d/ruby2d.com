@@ -5,22 +5,13 @@ next_topic: window
 layout: learn
 ---
 
-## Set up your environment and install dependencies
+# Set up your Ruby environment
 
-Before installing the gem, we'll need to install a few dependencies, namely a native graphics engine Ruby 2D will use behind the scenes called [Simple 2D](https://github.com/simple2d/simple2d).
+Ruby 2D makes use of low-level graphics and hardware, so you'll need a Ruby environment that can build native extensions. If you're new to Ruby and need some help, check out these guides: [**macOS**](/learn/macos), [**Windows**](/learn/windows), and [**Linux**](/learn/linux).
 
-- On **macOS**, we recommend using [Homebrew](https://brew.sh) and running:
-```
-$ brew tap simple2d/tap && brew install simple2d
-```
-- On **Linux**, paste and run this snippet in your terminal:
-```bash
-url='https://raw.githubusercontent.com/simple2d/simple2d/master/bin/simple2d.sh'; which curl > /dev/null && cmd='curl -fsSL' || cmd='wget -qO -'; bash <($cmd $url) install
-```
-If you need further help, learn how to [set up your Linux environment »](/learn/linux)
-- On **Windows**, learn how to [set up your environment »](/learn/windows)
+{% include warning.html icon="👋" message="<b>There's a new way to install Ruby 2D!</b> On macOS and Windows, you no longer have to install <i>any</i> dependencies — just go ahead and install the gem using any Ruby command prompt you'd like. <b>On Linux</b>, you'll still have to install dependencies for now, <a href=\"/learn/linux\">see instructions here</a>." %}
 
-## Install the gem
+# Install the gem
 
 Now you're ready to install the Ruby 2D gem! On your command line, run:
 
@@ -28,13 +19,14 @@ Now you're ready to install the Ruby 2D gem! On your command line, run:
 gem install ruby2d
 ```
 
-# Writing your first 2D app
+{% include warning.html icon="🤔" message="<b>Having problems installing the gem?</b> <a href=\"https://gitter.im/ruby2d/ruby2d\">Chat with us on Gitter</a>." %}
+
+# Write your first 2D app
 
 After installing the gem, create a new Ruby script called `app.rb` and add the following two lines.
 
 ```ruby
 require 'ruby2d'
-
 show
 ```
 
@@ -58,7 +50,7 @@ show
 Great! Now save your script and run it on the command line using:
 
 ```
-ruby app.rb
+ruby triangle.rb
 ```
 
 You should see this impressive triangle...

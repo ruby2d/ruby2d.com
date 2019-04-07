@@ -27,9 +27,9 @@
         </a>
         {% endif %}
         <div class="links">
-          <a href="/showcase">SHOWCASE</a>
-          <a href="/learn/get-started">LEARN</a>
-          <a href="/community">COMMUNITY</a>
+          <a href="/showcase" class="{% if page.id == '/showcase' %}active{% endif %}">SHOWCASE</a>
+          <a href="/learn/get-started" class="{% if page.id contains '/learn' %}active{% endif %}">LEARN</a>
+          <a href="/community" class="{% if page.id == '/community' %}active{% endif %}">COMMUNITY</a>
         </div>
       </nav>
     </div>

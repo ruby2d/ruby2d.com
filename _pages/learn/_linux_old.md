@@ -1,6 +1,6 @@
 ---
 title: Ruby 2D on Linux
-subtitle: Learn how to set up your Ruby environment on Linux
+subtitle: Learn how to set up your environment and install dependencies
 layout: learn
 ---
 
@@ -31,21 +31,21 @@ $ source ~/.bashrc  # or `~/.bash_profile`
 
 5. [Install packages](https://github.com/rbenv/ruby-build/wiki#suggested-build-environment) to prepare your build environment.
 
-6. Install the latest version of Ruby (2.6.2 in this case):
+6. Install the latest version of Ruby (2.6.1 in this case):
 ```
-$ rbenv install 2.6.2
+$ rbenv install 2.6.1
 ```
 
-7. Set Ruby 2.6.2 as the global default:
+7. Set Ruby 2.6.1 as the global default:
 ```
-$ rbenv global 2.6.2
+$ rbenv global 2.6.1
 ```
 
 8. Check to make sure everything works:
 ```
 $ rbenv versions
   system
-* 2.6.2 (set by /home/<me>/.rbenv/version)
+* 2.6.1 (set by /home/<me>/.rbenv/version)
 $ ruby -e "puts 'Hello Ruby'"
 Hello Ruby
 ```
@@ -79,4 +79,12 @@ $ sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_ttf
 $ make && sudo make install
 ```
 
-That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started)
+# Install Ruby 2D
+
+You're now ready to install the gem!
+
+```
+$ gem install ruby2d
+```
+
+That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started/#writing-your-first-2d-app)
