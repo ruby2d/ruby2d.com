@@ -4,7 +4,7 @@ subtitle: Learn how to set up your Ruby environment on the Mac
 layout: learn
 ---
 
-macOS comes pre-installed with Ruby 🥳, but doesn't have Ruby's development libraries needed to build native extensions 😩. No problem though — there are a few tools we can use to set up a proper Ruby development environment. 😎
+macOS comes pre-installed with Ruby 🥳, but doesn't have Ruby's development libraries needed to build native extensions. 😩 No problem though — there are a few tools we can use to set up a proper Ruby development environment. 😎
 
 ## Using Homebrew
 

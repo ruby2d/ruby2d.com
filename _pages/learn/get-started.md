@@ -23,7 +23,7 @@ gem install ruby2d
 
 # Write your first 2D app
 
-After installing the gem, create a new Ruby script called `app.rb` and add the following two lines.
+After installing the gem, create a new Ruby script called `triangle.rb` and add the following two lines.
 
 ```ruby
 require 'ruby2d'
