@@ -28,7 +28,7 @@ song.play
 song.pause
 
 # Resume playing the music from where left off
-song.play
+song.resume
 
 # Stop playing and rewind to the beginning
 song.stop
