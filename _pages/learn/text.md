@@ -8,14 +8,14 @@ layout: learn
 Text with OpenType fonts (`.ttf` or `.otf` file extension) can be drawn in the window like so:
 
 ```ruby
-Text.new('Hello')
+Text.new(text: 'Hello')
 ```
 
 Here are all the possible instance attributes:
 
 ```ruby
 Text.new(
-  'Hello',
+  text: 'Hello',
   x: 150, y: 470,
   font: 'vera.ttf',
   size: 20,
