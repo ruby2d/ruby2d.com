@@ -1,0 +1,27 @@
+---
+layout: main
+title: News
+---
+
+<div class="mw8 center mb4 pa3">
+
+  {% for post in site.posts %}
+    <article class="post-excerpt">
+      <header>
+        <h1 class="mt3">{{ post.title }}</h1>
+      </header>
+
+      <div class="post-meta">
+        <img class="post-date-icon" src="/assets/img/calendar.svg" alt="calendar icon">
+        <span class="post-date">{{ post.date | date: "%B %e, %Y" }}</span>
+      </div>
+
+      <div class="post-content">
+        {{ post.content }}
+      </div>
+
+    </article>
+    <br>
+  {% endfor %}
+
+</div>

@@ -2,6 +2,9 @@
 kramdown:
   hard_wrap: true
 
+posts_path: /news
+permalink: '/news/:title'
+
 collections:
   pages:
     output: true
@@ -9,6 +12,6 @@ collections:
 
 defaults:
   - scope:
-      path: ""
+      path: ''
     values:
       layout: main

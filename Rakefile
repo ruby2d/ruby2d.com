@@ -1,6 +1,5 @@
-
 task default: 'serve'
 
 task :serve do
-  system "jekyll serve --baseurl \"\" --drafts"
+  system "bundle exec jekyll serve --trace --baseurl \"\" --drafts"
 end
