@@ -5,13 +5,17 @@ next_topic: web
 layout: learn
 ---
 
+{% include warning.html icon="⚠️" message="<b>Warning:</b> This is experimental! You can try it out, but it may not work well." %}
+
 Ruby programs are simply text files that can be run by a Ruby interpreter, like [MRI / CRuby](https://en.wikipedia.org/wiki/Ruby_MRI). Did you know you can also compile your programs to native code using MRuby.
 
 First, you'll need to install MRuby:
 
-- On **macOS**, we recommend using [Homebrew](https://brew.sh) to install MRuby:
+- On **macOS**, we recommend using [Homebrew](https://brew.sh) to install MRuby and Simple 2D:
 ```
 brew install mruby
+brew tap simple2d/tap
+brew install simple2d
 ```
 
 - On **Linux**, use your package manager:
@@ -22,6 +26,7 @@ brew install mruby
   # Other Linux distributions, search your package manager
   ```
   If your distribution, doesn't have an MRuby package, compile and install [from source](https://github.com/mruby/mruby) instead.
+  Next, install Simple 2D using [these instructions](https://github.com/simple2d/simple2d#on-linux).
 
 - On **Windows**, we don't yet have instructions, but we're working on it!
 
