@@ -33,8 +33,21 @@ brew install simple2d
 With MRuby installed, using the "Hello Triangle" script you wrote above, run the following to build a native and web-based version of the app:
 
 ```
-ruby2d build app.rb
+ruby2d build <options> app.rb
 ```
+
+Here are all the options you can set:
+
+| Option          | Description |
+|-----------------|-------------|
+| `--native`      | Compile and create a native executable file. |
+| `--web`         | Build for the web. (This feature is currently disabled while it is being upgraded.) |
+| `--macos`       | Create a MacOS app bundle.  |
+| `--ios`         | Create an iOS app. |
+| `--tvos`        | Create a tvOS app. |
+| `--all`         | Build for every platform supported by the current system. |
+| `--clean`       | Clean up the build directory. |
+| `--debug`       | Print debugging info and keep all intermediate files generated. |
 
 Notice a `build/` directory was created containing an executable named either `app` on Unix-like systems, or `app.exe` on Windows.
 
@@ -50,5 +63,8 @@ cd build
 # Run on Windows
 app.exe
 ```
+
+### Limitations
+The MRuby compiler does not support gems other than Ruby2D being included by `require`. It also does not support `load`.
 
 Continue to the [next topic »](/learn/{{ page.next_topic }})
