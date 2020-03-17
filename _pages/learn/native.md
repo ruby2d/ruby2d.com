@@ -1,7 +1,7 @@
 ---
 title: Native
 subtitle: Learn how to build a native executable of your app
-next_topic: web
+next_topic: console
 layout: learn
 ---
 
