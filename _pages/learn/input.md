@@ -1,6 +1,6 @@
 ---
 title: Input
-subtitle: Learn how to capture input from mice, keyboards, and game controllers
+description: Learn how to capture input from mice, keyboards, and game controllers
 next_topic: native
 layout: learn
 ---
@@ -181,4 +181,4 @@ on :controller_button_up do |event|
 end
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

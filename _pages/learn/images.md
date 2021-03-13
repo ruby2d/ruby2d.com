@@ -1,6 +1,6 @@
 ---
 title: Images
-subtitle: Learn how to use images
+description: Learn how to use images
 next_topic: sprites
 layout: learn
 ---
@@ -24,4 +24,4 @@ Image.new(
 )
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

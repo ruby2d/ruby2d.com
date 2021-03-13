@@ -1,6 +1,6 @@
 ---
 title: Web
-subtitle: Learn how to build your app for the web
+description: Learn how to build your app for the web
 next_topic: console
 layout: learn
 ---

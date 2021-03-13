@@ -1,6 +1,6 @@
 ---
 title: Shapes
-subtitle: Learn how to draw common geometric shapes
+description: Learn how to draw common geometric shapes
 next_topic: images
 layout: learn
 ---
@@ -165,4 +165,4 @@ Circle.new(
 )
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

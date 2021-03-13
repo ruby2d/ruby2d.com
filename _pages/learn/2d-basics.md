@@ -1,6 +1,6 @@
 ---
 title: 2D basics
-subtitle: Learn the fundamentals of 2D graphics
+description: Learn the fundamentals of 2D graphics
 next_topic: colors
 layout: learn
 ---
@@ -93,4 +93,4 @@ end
 show
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

@@ -1,6 +1,6 @@
 ---
 title: Console
-subtitle: Learn how to interact with your app on the console
+description: Learn how to interact with your app on the console
 layout: learn
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Get started
-subtitle: Learn how to start creating 2D apps in Ruby
+description: Learn how to start creating 2D apps in Ruby
 next_topic: window
 layout: learn
 ---
@@ -21,7 +21,7 @@ Now you're ready to install the Ruby 2D gem! On your command line, run:
 gem install ruby2d
 ```
 
-{% include warning.html icon="🤔" message="<b>Having problems installing the gem?</b> <a href=\"https://gitter.im/ruby2d/ruby2d\">Chat with us on Gitter</a>." %}
+{% include warning.html icon="🤔" message="<b>Having problems installing the gem?</b> <a href=\"http://chat.ruby2d.com\">Get help on Discord in the <b>#support</b> channel</a>." %}
 
 # Write your first 2D app
 
@@ -63,4 +63,4 @@ Congrats, you just built your first Ruby 2D app! 🎉
 
 # What's next?
 
-There's a lot Ruby 2D can do. [Check out the showcase](/showcase) to see examples of what you can build. To keep learning, continue to the [next topic](/learn/{{ page.next_topic }}) or select one from the [contents menu](#) at the top. 👆
+There's a lot Ruby 2D can do. [Check out the showcase](/showcase) to see examples of what you can build. To keep learning, continue to the [next topic](/learn/{{ page.next_topic }}) or select one from the **contents** menu.

@@ -1,6 +1,6 @@
 ---
 title: Ruby 2D on Linux
-subtitle: Learn how to set up your environment and install dependencies
+description: Learn how to set up your environment and install dependencies
 layout: learn
 ---
 

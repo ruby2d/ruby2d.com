@@ -1,18 +1,22 @@
 <!doctype html>
 
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ruby 2D{% unless page.title == 'home' %} — {{ page.title }}{% endunless %}</title>
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800&family=Source+Code+Pro&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon-152.png">
     <script src="/assets/js/fastclick.js"></script>
     <script src="/assets/js/anchor.js"></script>
   </head>
 
-  <body class="sans-serif mb5 bg-tan-light brown">
+  <body class="mb5 bg-tan-light brown">
     <!-- Header -->
     <div class="bg-ruby-red">
       <nav class="site-header">
@@ -30,12 +34,10 @@
           <a href="/showcase" class="{% if page.url == '/showcase/' %}active{% endif %}">SHOWCASE</a>
           <a href="/learn/get-started" class="{% if page.url contains '/learn/' %}active{% endif %}">LEARN</a>
           <a href="/community" class="{% if page.url == '/community/' %}active{% endif %}">COMMUNITY</a>
-          <a href="/news" class="{% if page.url == '/news/' %}active{% endif %}">NEWS</a>
         </div>
       </nav>
     </div>
     {{ content }}
   </body>
 
-  {% include google-analytics.html %}
 </html>

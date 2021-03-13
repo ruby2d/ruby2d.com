@@ -1,6 +1,6 @@
 ---
 title: Welcome Hacker Hours!
-subtitle: Your guide to getting started
+description: Your guide to getting started
 layout: article
 ---
 

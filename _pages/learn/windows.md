@@ -1,6 +1,6 @@
 ---
 title: Ruby 2D on Windows
-subtitle: Learn how to set up your Ruby environment on Windows
+description: Learn how to set up your Ruby environment on Windows
 layout: learn
 ---
 

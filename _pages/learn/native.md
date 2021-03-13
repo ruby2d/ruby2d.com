@@ -1,6 +1,6 @@
 ---
 title: Native
-subtitle: Learn how to build a native executable of your app
+description: Learn how to build a native executable of your app
 next_topic: web
 layout: learn
 ---
@@ -51,4 +51,4 @@ cd build
 app.exe
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

@@ -1,6 +1,6 @@
 ---
 title: Audio
-subtitle: Learn how to play sounds and music
+description: Learn how to play sounds and music
 next_topic: input
 layout: learn
 ---
@@ -46,4 +46,4 @@ song.volume = 50
 Music.volume = 80
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

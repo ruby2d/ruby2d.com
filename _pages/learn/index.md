@@ -1,6 +1,6 @@
 ---
 title: Learn
-subtitle: Everything you need to build 2D apps in Ruby
+description: Everything you need to build 2D apps in Ruby
 layout: learn
 permalink: /learn/
 ---

@@ -1,6 +1,6 @@
 ---
 title: Text
-subtitle: Learn how draw text
+description: Learn how draw text
 next_topic: audio
 layout: learn
 ---
@@ -25,4 +25,4 @@ Text.new(
 )
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

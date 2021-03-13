@@ -1,6 +1,6 @@
 ---
 title: Ruby 2D on macOS
-subtitle: Learn how to set up your Ruby environment on the Mac
+description: Learn how to set up your Ruby environment on the Mac
 layout: learn
 ---
 

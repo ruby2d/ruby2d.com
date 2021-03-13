@@ -1,6 +1,6 @@
 ---
 title: The window
-subtitle: Learn how to create and configure a window
+description: Learn how to create and configure a window
 next_topic: 2d-basics
 layout: learn
 ---
@@ -146,4 +146,4 @@ Each turn of the window's loop, it checks if the time we saved in variable `t` i
 
 # That's it!
 
-You've learned all there is to know about the window in Ruby 2D. Continue to the [next topic »](/learn/{{ page.next_topic }})
+You've learned all there is to know about the window in Ruby 2D. Continue to the [next topic ▸](/learn/{{ page.next_topic }})

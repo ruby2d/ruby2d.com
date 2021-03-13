@@ -1,6 +1,6 @@
 ---
 title: Sprites
-subtitle: Learn how to create sprite animations
+description: Learn how to create sprite animations
 next_topic: text
 layout: learn
 ---
@@ -156,4 +156,4 @@ Here's what the animation looks like:
 
 <video width="100" class="sprite-video" src="/assets/img/learn/atlas.mp4" autoplay loop muted playsinline></video>
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})

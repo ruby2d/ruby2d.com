@@ -59,6 +59,10 @@ $brown: rgb(100, 65, 56);
 
 // Elements ////////////////////////////////////////////////////////////////////
 
+body {
+  font-family: 'Public Sans', sans-serif;
+}
+
 h1 {
   @extend .mt4;
 }
@@ -94,11 +98,12 @@ table {
 }
 
 h1.title {
-  @extend .f1, .mt0, .mb2;
+  @extend .f1, .fw8, .mt2, .mb2;
 }
 
-p.subtitle {
-  @extend .f3, .mt0, .mb2;
+p.description {
+  @extend .f3, .fw3, .mt0, .mb2;
+  font-size: 1.75rem;
 }
 
 hr {
@@ -127,14 +132,15 @@ hr {
 // Site navigation /////////////////////////////////////////////////////////////
 
 nav.site-header {
-  @extend .flex, .justify-between, .mw8, .center, .f5, .b;
+  @extend .flex, .justify-between, .mw8, .center, .b;
+  font-size: 1.1rem;
 
   a {
     @extend .b, .white, .no-underline;
   }
 
   .logo {
-    @extend .flex, .items-center, .ml1, .mr0, .pa2, .pr0, .link;
+    @extend .flex, .items-center, .ml1, .mr0, .pa2, .pv3, .pr0, .link;
 
     img {
       @extend .mr2;
@@ -154,6 +160,7 @@ nav.site-header {
 
   .links {
     @extend .mr1, .pa2, .pl0, .flex, .items-center;
+    font-size: 1rem;
 
     a {
       @extend .dib, .mr3, .mr4-ns;
@@ -194,32 +201,45 @@ nav.site-header {
 // Learn pages /////////////////////////////////////////////////////////////////
 
 .learn {
-  @extend .flex, .items-start, .mw8, .center, .mb4, .pa3;
+  @extend .flex, .items-start, .mw8, .center, .mb4, .pa3, .pt4;
 
   .contents {
-    @extend .mr3, .pr3, .br, .bw1, .b--tan-dark;
+    @extend .mr5, .pr3;
     min-width: 8.5rem;
     position: sticky;
     position: -webkit-sticky;
-    top: 0;
+    top: 20px;
 
     h1 {
-      @extend .mt2, .f3;
+      @extend .mt2, .mb4, .fw8;
+      font-size: 1.75rem;
     }
 
     a {
-      @extend .db, .mb2, .f5, .link, .b, .underline-hover;
+      @extend .db, .link, .fw5, .underline-hover;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
 
       &.current {
-        &::before {
-          content: "👉 ";
-        }
+        // &::before {
+        //   content: "👉 ";
+        // }
+        @extend .b, .underline;
       }
     }
   }
 
   .page {
     @extend .flex-auto;
+
+    .title {
+      @extend .fw8;
+    }
+
+    .description {
+      @extend .fw3;
+      font-size: 1.75rem;
+    }
 
     .active::before {
       content: "👉 ";
@@ -353,7 +373,7 @@ nav.site-header {
   nav.site-header {
 
     a {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       margin-right: 1rem;
     }
 
@@ -379,6 +399,7 @@ nav.site-header {
     display: block;
 
     .contents {
+      position: static;
       margin: 0 0 1.15rem 0;
       padding: 0.25rem;
       border: 2px solid $tan-dark;

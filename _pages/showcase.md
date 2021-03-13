@@ -1,6 +1,6 @@
 ---
 title: Showcase
-subtitle: Check out what people are building with Ruby 2D 🚀
+description: Check out what people are building with Ruby 2D 🚀
 layout: article
 ---
 

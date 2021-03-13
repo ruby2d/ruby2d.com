@@ -1,6 +1,6 @@
 ---
 title: Colors
-subtitle: Learn about how to create and assign colors
+description: Learn about how to create and assign colors
 next_topic: shapes
 layout: learn
 ---
@@ -54,4 +54,4 @@ Change the opacity, or transparency, of an object by using the `opacity` method:
 square.opacity = 0.5
 ```
 
-Continue to the [next topic »](/learn/{{ page.next_topic }})
+Continue to the [next topic ▸](/learn/{{ page.next_topic }})
