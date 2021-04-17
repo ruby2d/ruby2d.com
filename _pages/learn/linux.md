@@ -31,17 +31,17 @@ source ~/.bashrc  # or `~/.bash_profile`
 
 5. [Install packages](https://github.com/rbenv/ruby-build/wiki#suggested-build-environment) to prepare your build environment.
 
-6. Install the latest version of Ruby (2.6.2 in this case) and set it as the global default:
+6. Install the latest version of Ruby (3.0.1 in this case) and set it as the global default:
 ```
-rbenv install 2.6.2
-rbenv global 2.6.2
+rbenv install 3.0.1
+rbenv global 3.0.1
 ```
 
 7. Check to make sure everything works (the `$` symbol represents the prompt):
 ```
 $ rbenv versions
   system
-* 2.6.2 (set by /home/<me>/.rbenv/version)
+* 3.0.1 (set by /home/<me>/.rbenv/version)
 $ ruby -e "puts 'Hello Ruby'"
 Hello Ruby
 ```
