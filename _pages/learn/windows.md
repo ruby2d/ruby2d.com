@@ -14,7 +14,7 @@ Show instructions for: <a id="rubyinstaller-link" href="javascript:showRubyInsta
 
 1. Go to [RubyInstaller download page](https://rubyinstaller.org/downloads) and download the latest Ruby+Devkit 64-bit release (the one with `x64` in the name).
 
-2. Run the installer (leaving the default options is fine). When finished installing, keep the "Run 'ridk install'" option selected to install MSYS2 and the development toolchain.
+2. Run the installer (leaving the default options is fine). When finished installing, keep the `Run 'ridk install'` option selected to install MSYS2 and the development toolchain.
 
 3. When prompted for "Which components shall be installed", just press "enter" to install all of them. When finished installing, press "enter" again to quit.
 
@@ -40,16 +40,16 @@ There are a couple ways to launch a Ruby environment:
 - **For a traditional command prompt (`cmd.exe`) experience**, choose the "Start Command Prompt with Ruby" shortcut from the Start menu.
 
 <div class="rubyinstaller" markdown="1">
-- **For a Bash-like experience**, use a MinGW 64-bit command prompt from `C:\Ruby26-x64\msys64\mingw64.exe` (your Ruby directory might differ based on the version you installed). Make sure to add `ruby` to your `$PATH` variable, for example by running the following (again, your Ruby directory might be different):
+- **For a Bash-like experience**, use a MinGW 64-bit command prompt from `C:\Ruby30-x64\msys64\mingw64.exe` (your Ruby directory might differ based on the version you installed). Make sure to add `ruby` to your `$PATH` variable, for example by running the following (again, your Ruby directory might be different):
   ```
-  echo 'export PATH=$PATH:/c/Ruby26-x64/bin' >> ~/.bash_profile
+  echo 'export PATH=$PATH:/c/Ruby30-x64/bin' >> ~/.bash_profile
   ```
   To get access to Ruby in the current shell, run `source ~/.bash_profile`. Ruby should now be available for this and all new shells. Try running `ruby --version` to check. At this time, you might also want to create a convenient shortcut to the `mingw64.exe` shell.
 </div>
 <div class="chocolatey" markdown="1">
 - **For a Bash-like experience**, use a MinGW 64-bit command prompt from `C:\tools\msys64\mingw64.exe`. Make sure to add `ruby` to your `$PATH` variable, for example by running the following (your Ruby directory might be different):
   ```
-  echo 'export PATH=$PATH:/c/tools/ruby26/bin' >> ~/.bash_profile
+  echo 'export PATH=$PATH:/c/tools/ruby30/bin' >> ~/.bash_profile
   ```
   To get access to Ruby in the current shell, run `source ~/.bash_profile`. Ruby should now be available for this and all new shells. Try running `ruby --version` to check. At this time, you might also want to create a convenient shortcut to the `mingw64.exe` shell.
 </div>
