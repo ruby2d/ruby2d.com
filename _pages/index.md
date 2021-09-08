@@ -6,6 +6,7 @@ permalink: /
 <div class="home-banner bg-ruby-red">
   <img src="/assets/img/logo.svg">
   <h1>Ruby 2D</h1>
+  <h2>v1.0.0</h2>
   <h2>Make cross-platform 2D applications in Ruby</h2>
   <p class="mv3"><a class="f3 white" href="/learn/get-started">Get started »</a></p>
 </div>
