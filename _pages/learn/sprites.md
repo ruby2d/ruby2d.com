@@ -1,7 +1,7 @@
 ---
 title: Sprites
 description: Learn how to create sprite animations
-next_topic: text
+next_topic: tilesets
 layout: learn
 ---
 
