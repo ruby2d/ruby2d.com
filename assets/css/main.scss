@@ -175,8 +175,8 @@ nav.nav-content {
   }
 
   .links {
-    @extend .mr1, .pa2, .pl0, .flex, .items-center;
-    font-size: 1.1rem;
+    @extend .mr1, .pa2, .pl0, .flex, .items-center, .b;
+    font-size: 1.05rem;
 
     a {
       @extend .link, .dib, .mr3, .mr4-ns;
@@ -244,9 +244,9 @@ nav.nav-content {
     }
 
     a {
-      @extend .db, .link, .fw5, .black;
+      @extend .db, .link, .b, .black;
       font-size: 1.05rem;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.9rem;
 
       &:hover {
         @extend .gray;
