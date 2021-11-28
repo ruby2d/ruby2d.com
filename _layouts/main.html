@@ -16,24 +16,18 @@
     <script src="/assets/js/anchor.js"></script>
   </head>
 
-  <body class="mb5 bg-tan-light brown">
+  <body class="mb5">
     <!-- Header -->
-    <div class="bg-ruby-red">
-      <nav class="site-header">
-        {% if page.title == 'home' %}
-        <div class="logo-empty">
-          <img src="/assets/img/empty-logo.svg">
-        </div>
-        {% else %}
+    <div class="main-nav">
+      <nav class="nav-content">
         <a class="logo" href="/">
-          <img src="/assets/img/logo-sm.svg" alt="Ruby 2D logo">
-          <div>RUBY 2D</div>
+          <!-- <img src="/assets/img/logo-sm.svg" alt="Ruby 2D logo"> -->
+          <div class='b'>RUBY 2D v1.0</div>
         </a>
-        {% endif %}
         <div class="links">
-          <a href="/showcase" class="{% if page.url == '/showcase/' %}active{% endif %}">SHOWCASE</a>
-          <a href="/learn/get-started" class="{% if page.url contains '/learn/' %}active{% endif %}">LEARN</a>
-          <a href="/community" class="{% if page.url == '/community/' %}active{% endif %}">COMMUNITY</a>
+          <a href="/showcase" class="{% if page.url == '/showcase/' %}active{% endif %}">Showcase</a>
+          <a href="/learn/get-started" class="{% if page.url contains '/learn/' %}active{% endif %}">Learn</a>
+          <a href="/community" class="{% if page.url == '/community/' %}active{% endif %}">Community</a>
         </div>
       </nav>
     </div>

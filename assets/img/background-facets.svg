@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1440px" height="600px" viewBox="0 0 1440 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Rectangle</title>
+    <defs>
+        <linearGradient x1="50%" y1="0.993549907%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#F2F2F2" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="148.675483%" y1="-23.5958961%" x2="146.779078%" y2="70.4416083%" id="linearGradient-2">
+            <stop stop-color="#BABABA" stop-opacity="0.271135237" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="148.675483%" y1="2.70647806%" x2="146.779078%" y2="63.1359995%" id="linearGradient-3">
+            <stop stop-color="#BABABA" stop-opacity="0.271135237" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="148.675483%" y1="37.386642%" x2="146.779078%" y2="53.5034199%" id="linearGradient-4">
+            <stop stop-color="#BABABA" stop-opacity="0.271135237" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="148.675483%" y1="-22.0379946%" x2="146.779078%" y2="70.0088938%" id="linearGradient-5">
+            <stop stop-color="#BABABA" stop-opacity="0.271135237" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="92.1483878%" y1="-96.5686956%" x2="91.3383547%" y2="90.7101486%" id="linearGradient-6">
+            <stop stop-color="#BABABA" stop-opacity="0.271135237" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="148.675483%" y1="12.9790335%" x2="146.779078%" y2="60.2827486%" id="linearGradient-7">
+            <stop stop-color="#BABABA" stop-opacity="0.271135237" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="1440" height="600"></rect>
+        <polygon id="Triangle" stroke="url(#linearGradient-2)" fill-opacity="0.511489" fill="#FFFFFF" points="301.951849 -0.109646479 468.686982 332.005802 -6.31088724e-30 81.9114221 -5.84695035e-14 -0.109646479"></polygon>
+        <polygon id="Triangle-Copy-4" stroke="url(#linearGradient-3)" fill-opacity="0.36" fill="#FFFFFF" points="1440 93.5261877 866.8815 300 1440 419.081394"></polygon>
+        <polygon id="Triangle-Copy-3" stroke="url(#linearGradient-4)" fill-opacity="0.371489" fill="#FFFFFF" points="1440 300 1440 0 417.351221 0"></polygon>
+        <polygon id="Triangle-Copy" stroke="url(#linearGradient-5)" fill-opacity="0.28" fill="#FFFFFF" points="588.5663 0 114.994887 332.005802 259.482931 0"></polygon>
+        <polygon id="Triangle-Copy-5" stroke="url(#linearGradient-6)" fill-opacity="0.28" fill="#FFFFFF" points="290.386589 310.972357 -5.68434189e-14 472.947579 3.68523016e-14 28.6328581"></polygon>
+        <polygon id="Triangle-Copy-2" stroke="url(#linearGradient-7)" fill-opacity="0.3" fill="#FFFFFF" points="675.497855 242.763139 675.497855 -0.109646479 1158.752 9.95037386e-15"></polygon>
+    </g>
+</svg>

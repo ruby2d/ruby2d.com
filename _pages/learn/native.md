@@ -5,7 +5,7 @@ next_topic: web
 layout: learn
 ---
 
-{% include warning.html icon="⚠️" message="<b>Warning:</b> This is experimental! You can try it out, but it may not work well." %}
+{% include tip.html icon="⚠️" message="<b>Warning:</b> This is experimental! You can try it out, but it may not work well." %}
 
 Ruby programs are simply text files that can be run by a Ruby interpreter, like [MRI / CRuby](https://en.wikipedia.org/wiki/Ruby_MRI). Did you know you can also compile your programs to native code using MRuby.
 

@@ -1,0 +1,9 @@
+{% comment %}
+  Usage:
+  {% include tip.html icon="⚠️" message="<b>Warning:</b> The message here." %}
+  {% include tip.html icon="❗" message="Beware!" %}
+{% endcomment %}
+
+<div class="tip">
+  <div class="icon">{{ include.icon }}</div><div class="message">{{ include.message }}</div>
+</div>
