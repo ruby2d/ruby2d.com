@@ -17,6 +17,10 @@ $gray-light: rgb(241, 244, 250);
 $gray-medium: rgb(209, 212, 219);
 $gray-dark: rgb(214, 217, 223);
 
+$font-headers: 'Poppins', sans-serif;
+
+$page-width: 1200px;
+
 // Common classes //////////////////////////////////////////////////////////////
 
 .bg-ruby-red {
@@ -70,15 +74,17 @@ $gray-dark: rgb(214, 217, 223);
 // Elements ////////////////////////////////////////////////////////////////////
 
 body {
-  font-family: 'Public Sans', sans-serif;
-  background-image: url('/assets/img/background-facets.svg');
+  font-family: 'Poppins', sans-serif;
+  // background-image: url('/assets/img/background-facets.svg');
   background-position: 0px 20px, center;
   background-size: 100%;
   background-repeat: no-repeat, repeat-x;
+  font-family: $font-headers;
 }
 
 h1 {
   @extend .mt4;
+  font-family: $font-headers;
 }
 
 p, ul, ol {
@@ -97,12 +103,12 @@ a {
 
 table {
   @extend .ba, .bw1, .br2;
-  border-color: $gray-dark;
+  border-color: $tan-dark;
 
   th {
     @extend .bb, .bw1;
-    border-color: $gray-medium;
-    background-color: $gray-light;
+    border-color: $tan-dark;
+    background-color: $tan-light;
   }
 
   th, td {
@@ -111,7 +117,7 @@ table {
   }
 
   tr:nth-child(even) {
-    background-color: $gray-light;
+    background-color: $tan-light;
   }
 }
 
@@ -152,40 +158,48 @@ hr {
 
 .main-nav {
   border-bottom: solid 1px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
+  // box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.1);
+  background: $ruby-red;
 }
 
 nav.nav-content {
   @extend .flex, .justify-between, .center;
-  max-width: 72em;
+  max-width: $page-width;
+  font-family: $font-headers;
+  font-weight: 700;
+  font-size: 1.1rem;
 
   a {
-    @extend .no-underline, .black;
+    @extend .no-underline, .white;
   }
 
   .logo {
     @extend .flex, .items-center, .pa2, .pv3, .pr0, .link;
+    padding-left: 16px;
 
     img {
       @extend .mr2;
       width: 50px;
       height: 50px;
     }
+
+    .logo-text {
+      font-size: 1.3rem;
+    }
   }
 
   .links {
     @extend .mr1, .pa2, .pl0, .flex, .items-center, .b;
-    font-size: 1.05rem;
 
     a {
-      @extend .link, .dib, .mr3, .mr4-ns;
+      @extend .link, .dib;
       margin-top: 2px;
+      margin-right: 38px;
       border-bottom: 2px solid rgba(255, 255, 255, 0);
 
-      &:hover {
-        @extend .ruby-red;
-      }
+      // &:hover {
+      //   @extend .ruby-red;
+      // }
 
       &:hover, &.active {
         border-bottom: 2px solid rgba(255, 255, 255, 0.7);
@@ -201,7 +215,7 @@ nav.nav-content {
 // Home page ///////////////////////////////////////////////////////////////////
 
 .home-banner {
-  @extend .ph2, .pt4, .pb3, .tc;
+  @extend .pv6, .tc;
 
   img {
     width: 150px;
@@ -209,27 +223,58 @@ nav.nav-content {
 
   h1 {
     @extend .mt3, .mb3;
-    font-size: 3.5rem;
+    font-size: 5rem;
+    font-family: $font-headers;
+    font-weight: 700;
   }
 
   h2 {
     @extend .ma0, .fw3;
     font-size: 2rem;
   }
+
+  p {
+    font-family: $font-headers;
+    font-weight: 400;
+    font-size: 1.75rem;
+  }
+}
+
+section.home {
+  @extend .pv3, .tc;
+
+  h1 {
+    font-family: $font-headers;
+    font-size: 2.5rem;
+    font-weight: 700;
+  }
+
+  p {
+    font-family: $font-headers;
+    font-size: 1.5rem;
+    font-weight: 400;
+  }
+}
+
+.section-divider {
+  width: 100%;
+  height: 40px;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(180deg, #fafbfc, #fff);
 }
 
 // Article /////////////////////////////////////////////////////////////////////
 
 .article {
   @extend .pt5;
-  max-width: 72rem;
+  max-width: $page-width;
 }
 
 // Learn pages /////////////////////////////////////////////////////////////////
 
 .learn {
   @extend .flex, .items-start, .center, .mb4, .pa3, .pt5;
-  max-width: 72rem;
+  max-width: $page-width;
 
   .contents {
     @extend .mr4, .pr3;
@@ -245,7 +290,7 @@ nav.nav-content {
 
     a {
       @extend .db, .link, .b, .black;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       margin-bottom: 0.9rem;
 
       &:hover {
@@ -417,14 +462,15 @@ nav.nav-content {
 
   .learn {
     display: block;
+    padding-top: 0;
 
     .contents {
       position: static;
       margin: 0 0 1.15rem 0;
       padding: 0.25rem;
-      border: 2px solid $tan-dark;
-      border-radius: .25rem;
-      background-color: $tan-medium;
+      // border: 2px solid $tan-dark;
+      // border-radius: .25rem;
+      // background-color: $tan-medium;
 
       h1 {
         cursor: pointer;
@@ -444,7 +490,7 @@ nav.nav-content {
         display: none;
         margin-top: 0.4rem;
         padding-top: 0.6rem;
-        border-top: 2px solid #f0d2aa;
+        // border-top: 2px solid #f0d2aa;
       }
     }
   }
@@ -476,10 +522,10 @@ nav.nav-content {
 code {
   @extend .pb0, .ba;
   padding: 0 4px;
-  font-family: 'Source Code Pro', monospace;
+  font-family: 'PT Mono', monospace;
   word-wrap: break-word;
-  background-color: $gray-light;
-  border: 2px solid $gray-medium;
+  background-color: $tan-light;
+  border: 2px solid $tan-dark;
   border-radius: 0.25em;
 }
 

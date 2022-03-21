@@ -9,8 +9,6 @@ layout: learn
 
 Ruby 2D makes use of low-level graphics and hardware, so you'll need a Ruby environment that can build native extensions. If you're new to Ruby and need some help, check out these guides: [**macOS**](/learn/macos), [**Windows**](/learn/windows), and [**Linux**](/learn/linux).
 
-{% include tip.html icon="👋" message="<b>There's a new way to install Ruby 2D!</b> On macOS and Windows, you no longer have to install <i>any</i> dependencies — just go ahead and install the gem using any Ruby command prompt you'd like. On Linux, you'll still have to install some required packages, see below." %}
-
 **On Linux**, you'll need to install a few packages before installing the gem, [see the instructions here](/learn/linux#install-packages).
 
 # Install the gem

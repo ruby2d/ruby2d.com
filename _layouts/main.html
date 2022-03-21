@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ruby 2D{% unless page.title == 'home' %} — {{ page.title }}{% endunless %}</title>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Public+Sans:wght@300;400;500;700;800&family=PT+Mono&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon-152.png">
@@ -22,12 +23,13 @@
       <nav class="nav-content">
         <a class="logo" href="/">
           <!-- <img src="/assets/img/logo-sm.svg" alt="Ruby 2D logo"> -->
-          <div class='b'>RUBY 2D v1.0</div>
+          <div class="logo-text">RUBY 2D</div>
         </a>
         <div class="links">
           <a href="/showcase" class="{% if page.url == '/showcase/' %}active{% endif %}">Showcase</a>
           <a href="/learn/get-started" class="{% if page.url contains '/learn/' %}active{% endif %}">Learn</a>
-          <a href="/community" class="{% if page.url == '/community/' %}active{% endif %}">Community</a>
+          <a href="/extensions" class="{% if page.url == '/extensions/' %}active{% endif %}">Extensions</a>
+          <a href="/contribute" class="{% if page.url == '/contribute/' %}active{% endif %}">Contribute</a>
         </div>
       </nav>
     </div>
