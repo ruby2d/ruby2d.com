@@ -4,99 +4,40 @@ description: Learn how to set up your Ruby environment on Windows
 layout: learn
 ---
 
-Ruby 2D works with 64-bit Windows and is tested on the latest releases of Windows 10 (but will probably work with previous versions as well). While there are several ways to get Ruby on Windows, Ruby 2D requires a [MinGW](https://en.wikipedia.org/wiki/MinGW) environment. We recommend using the latest [RubyInstaller for Windows](https://rubyinstaller.org), which is based on [MSYS2](http://www.msys2.org) (the Ruby 2.3 and older installers are no longer supported). You can download and run the installer, or use [Chocolatey](https://chocolatey.org) to get Ruby and MSYS2 — instructions for both are below.
+While there are several ways to get Ruby on Windows, we recommend using the latest [RubyInstaller for Windows](https://rubyinstaller.org). To get started...
 
-Show instructions for: <a id="rubyinstaller-link" href="javascript:showRubyInstaller()">RubyInstaller (recommended)</a> or <a id="chocolatey-link" href="javascript:showChocolatey()">Chocolatey</a>
-
-## Install Ruby
-
-<div class="rubyinstaller" markdown="1">
-
-1. Go to [RubyInstaller download page](https://rubyinstaller.org/downloads) and download the latest Ruby+Devkit 64-bit release (the one with `x64` in the name).
+1. Go to the [RubyInstaller download page](https://rubyinstaller.org/downloads) and download the latest **Ruby+Devkit (x64)** version 3.1 or newer.
 
 2. Run the installer (leaving the default options is fine). When finished installing, keep the `Run 'ridk install'` option selected to install MSYS2 and the development toolchain.
 
-3. When prompted for "Which components shall be installed", just press "enter" to install all of them. When finished installing, press "enter" again to quit.
+3. When prompted for "Which components shall be installed", just press "enter" to install everything needed. When finished installing, press "enter" again to quit.
 
-</div>
+To start using Ruby, we also recommend the new [Windows Terminal](https://docs.microsoft.com/en-us/windows/terminal/), which is easy to set up and provides access to multiple shells all in one view. You can [download it here](https://aka.ms/terminal) from the Microsoft Store for free.
 
-<div class="chocolatey" markdown="1">
+After installing, open Windows Terminal and click the drop-down icon (`˅`) and select `Settings`. Click `+ Add a new profile` then `+ New empty profile`. Enter a name for the profile, like `Ruby` or whatever you like. For `Command line`, enter this text:
 
-1. [Install Chocolatey](https://chocolatey.org/install).
-
-2. Install the [Ruby](https://chocolatey.org/packages/ruby) and [MSYS2](https://chocolatey.org/packages/msys2) packages with `choco install ruby msys2`
-
-3. To be able to build native gem extensions, install the MinGW compiler toolchain by opening a MinGW 64-bit command prompt (located at `C:\tools\msys64\mingw64.exe`) and running:
 ```
-pacman -S make mingw-w64-x86_64-gcc
+C:\Ruby31-x64\msys64\msys2_shell.cmd -defterm -here -no-start -ucrt64
 ```
 
-</div>
+(If you installed Ruby in a different location, update the path accordingly.) You can also set the `Starting directory` to anything you like, but we recommend just unchecking the box `Use parent process directory`, then `%USERPROFILE%` should appear. The rest of the fields are optional. Click `Save`.
 
-## Launching Ruby
+{% include warning.html icon="💡" message="If you want this Ruby profile to be the default one when you open Windows Terminal, in <code>Settings</code>, click <code>Startup</code> and under <code>Default profile</code>, select the  profile you just created. Click <code>Save</code>." %}
 
-There are a couple ways to launch a Ruby environment:
+Now, click the drop-down icon (`˅`) again and select your new Ruby profile. You should see a new tab open with a prompt that looks something like this:
 
-- **For a traditional command prompt (`cmd.exe`) experience**, choose the "Start Command Prompt with Ruby" shortcut from the Start menu.
+<pre><code style="background: black; color: white;"><span style="color: limegreen;">Me@DESKTOP-PB7BDLT</span> <span style="color: #cc00cc;">UCRT64</span> <span style="color: gold;">/c/Users/Me</span>
+$
+</code></pre>
 
-<div class="rubyinstaller" markdown="1">
-- **For a Bash-like experience**, use a MinGW 64-bit command prompt from `C:\Ruby30-x64\msys64\mingw64.exe` (your Ruby directory might differ based on the version you installed). Make sure to add `ruby` to your `$PATH` variable, for example by running the following (again, your Ruby directory might be different):
-  ```
-  echo 'export PATH=$PATH:/c/Ruby30-x64/bin' >> ~/.bash_profile
-  ```
-  To get access to Ruby in the current shell, run `source ~/.bash_profile`. Ruby should now be available for this and all new shells. Try running `ruby --version` to check. At this time, you might also want to create a convenient shortcut to the `mingw64.exe` shell.
-</div>
-<div class="chocolatey" markdown="1">
-- **For a Bash-like experience**, use a MinGW 64-bit command prompt from `C:\tools\msys64\mingw64.exe`. Make sure to add `ruby` to your `$PATH` variable, for example by running the following (your Ruby directory might be different):
-  ```
-  echo 'export PATH=$PATH:/c/tools/ruby30/bin' >> ~/.bash_profile
-  ```
-  To get access to Ruby in the current shell, run `source ~/.bash_profile`. Ruby should now be available for this and all new shells. Try running `ruby --version` to check. At this time, you might also want to create a convenient shortcut to the `mingw64.exe` shell.
-</div>
+To give the shell access to Ruby, run the following command:
 
-That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started)
+<pre><code style="background: black; color: white;">echo 'export PATH=$PATH:/c/Ruby31-x64/bin' >> ~/.bash_profile</code></pre>
 
-<script>
+(Again, if you installed Ruby in a different location, you'll need to update this directory path.) Run `source ~/.bash_profile` to make that change take effect in the current shell. Check to make sure Ruby is ready to go by running `ruby -v`. You should see Ruby print its version number and other information, like this:
 
-function hideAll() {
-  var classes = document.querySelectorAll('.rubyinstaller, .chocolatey'),
-    i = 0,
-    l = classes.length;
+<pre><code style="background: black; color: white;">$ ruby -v
+ruby 3.1.1p18 (2022-02-18 revision 53f5fc4236) [x64-mingw-ucrt]
+</code></pre>
 
-  for (i; i < l; i++) {
-    classes[i].style.display = 'none';
-  }
-
-  document.getElementById('rubyinstaller-link').classList.remove('active');
-  document.getElementById('chocolatey-link').classList.remove('active');
-}
-
-function showRubyInstaller() {
-  hideAll();
-  var classes = document.querySelectorAll('.rubyinstaller'),
-    i = 0,
-    l = classes.length;
-
-  for (i; i < l; i++) {
-    classes[i].style.display = 'block';
-  }
-
-  document.getElementById('rubyinstaller-link').classList.add('active');
-}
-
-function showChocolatey() {
-  hideAll();
-  var classes = document.querySelectorAll('.chocolatey'),
-    i = 0,
-    l = classes.length;
-
-  for (i; i < l; i++) {
-    classes[i].style.display = 'block';
-  }
-
-  document.getElementById('chocolatey-link').classList.add('active');
-}
-
-showRubyInstaller();
-
-</script>
+That's it! You're ready to install the gem and [write your first 2D app »](/learn/get-started)
