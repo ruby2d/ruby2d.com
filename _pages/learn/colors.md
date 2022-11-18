@@ -51,7 +51,7 @@ Additionally, use `'random'` to produce a random color value.
 Change the opacity, or transparency, of an object by using the `opacity` method:
 
 ```ruby
-square.opacity = 0.5
+square.color.opacity = 0.5
 ```
 
 Continue to the [next topic ▸](/learn/{{ page.next_topic }})
