@@ -34,7 +34,7 @@ tileset.define_tile('green', 0, 1)
 tileset.define_tile('purple', 1, 1)
 ```
 
-Now that we have defined some tiles we can draw them to the screen. Let's draw our purple and red tiles:
+Now that we have defined some tiles we can draw them to the screen. Let's draw our blue and red tiles:
 
 ```ruby
 tileset.set_tile('blue', [
