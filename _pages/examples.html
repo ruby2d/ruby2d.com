@@ -1,0 +1,108 @@
+---
+title: Examples
+description: A gallery of little programs, each a complete Ruby 2D app in a single file. Run them in your browser and make them yours.
+layout: main
+permalink: /examples
+---
+
+{% capture nl %}
+{% endcapture %}
+
+<div class="max-w-[1120px] mx-auto px-4 sm:px-6 py-8">
+
+  <!-- Gallery -->
+  <div id="galleryView">
+    <h1 class="text-4xl sm:text-5xl font-bold text-[var(--text-primary)] mb-3">Examples</h1>
+    <p class="text-lg text-[var(--text-secondary)] max-w-2xl mb-10 leading-relaxed">
+      A gallery of little programs, each one a complete Ruby 2D app in a single file.
+      Click any card to run it right here in your browser, then poke at the code and make it yours.
+    </p>
+
+    {% for cat in site.data.examples %}
+    <section class="mb-12">
+      <h2 class="font-fredoka font-semibold text-2xl text-[var(--text-primary)] mb-1">{{ cat.name }}</h2>
+      <p class="text-[var(--text-muted)] mb-5">{{ cat.blurb }}</p>
+      <div class="examples-grid">
+        {% for ex in cat.items %}
+        {% assign inc_path = 'examples/' | append: ex.file | append: '.rb' %}
+        {% capture ex_code %}{% include {{ inc_path }} %}{% endcapture %}
+        {% assign ex_lines = ex_code | split: nl %}
+        {% assign ex_title = ex_lines[0] | remove_first: '# ' %}
+        {% assign ex_blurb = ex_lines[1] | remove_first: '# ' | remove: '`' %}
+        {% assign ex_slug = ex.file | replace: '_', '-' %}
+        <a class="example-card" href="#{{ ex_slug }}"
+           data-slug="{{ ex_slug }}"
+           data-title="{{ ex_title | escape }}"
+           data-blurb="{{ ex_blurb | escape }}"
+           data-icon="{{ ex.icon }}">
+          <span class="example-icon">{{ ex.icon }}</span>
+          <span class="example-card-body">
+            <span class="example-card-title">{{ ex_title }}</span>
+            <span class="example-card-blurb">{{ ex_blurb }}</span>
+          </span>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endfor %}
+  </div>
+
+  <!-- Player -->
+  <div id="playerView" class="hidden example-player max-w-[840px] mx-auto">
+
+    <a href="#" id="backLink" class="inline-flex items-center gap-1.5 font-semibold text-sm text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors no-underline">◂ All examples</a>
+
+    <div class="flex items-center gap-4 mt-5 mb-6">
+      <span id="playerIcon" class="example-icon"></span>
+      <div>
+        <h1 id="playerTitle" class="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]"></h1>
+        <p id="playerBlurb" class="text-[var(--text-secondary)] mt-0.5"></p>
+      </div>
+    </div>
+
+    <!-- Canvas -->
+    <div id="canvasContainer" class="try-canvas-container relative">
+      <canvas id="canvas" class="try-canvas" width="640" height="480" tabindex="0"></canvas>
+      <div class="try-loading-overlay" id="loadingOverlay">
+        <div class="try-spinner"></div>
+        Loading…
+      </div>
+    </div>
+
+    <!-- Editor -->
+    <div class="try-editor-wrap mt-4">
+      <div class="try-editor-prism">
+        <pre class="language-ruby"><code class="language-ruby" id="editorHighlight"></code></pre>
+        <textarea id="editor" class="try-editor" spellcheck="false"></textarea>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex items-center gap-3 mt-3">
+      <button
+        id="runBtn"
+        disabled
+        onclick="runCode()"
+        title="Run (⌘Enter / Ctrl+Enter)"
+        class="px-5 py-2 rounded-full font-semibold text-sm text-white bg-[var(--ruby-red)] shadow-[0_2px_8px_rgba(255,71,87,0.35)] hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0"
+      >Run &ensp;▶</button>
+      <button
+        id="consoleBtn"
+        onclick="toggleConsole()"
+        class="px-4 py-2 rounded-full font-semibold text-sm text-[var(--text-secondary)] bg-[var(--surface-raised)] border-2 border-[var(--surface-border)] hover:border-[var(--ruby-red)] hover:text-[var(--ruby-red)] transition-colors cursor-pointer"
+      >Show Console</button>
+    </div>
+
+    <!-- Console -->
+    <div id="consolePanel" class="mt-2 hidden">
+      <div id="consoleOutput" class="try-console-output"></div>
+    </div>
+
+  </div>
+
+</div>
+
+<script>window.Prism = {manual: true};</script>
+<script src="/assets/js/prism.min.js"></script>
+<script src="/assets/try/playground.js"></script>
+<script src="/assets/examples/examples.js"></script>

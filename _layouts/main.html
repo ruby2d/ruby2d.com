@@ -1,43 +1,121 @@
 <!doctype html>
-
-
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Ruby 2D{% unless page.title == 'home' %} — {{ page.title }}{% endunless %}</title>
+    {% capture full_title %}Ruby 2D{% unless page.title == 'home' %} — {{ page.title }}{% endunless %}{% endcapture %}
+    {% assign description = page.description | default: site.description %}
+    <title>{{ full_title }}</title>
+    <meta name="description" content="{{ description }}">
+    <meta name="color-scheme" content="light">
+    <meta name="theme-color" content="#f63c38">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700;800&family=Source+Code+Pro&display=swap" rel="stylesheet">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title }}">
+    <meta property="og:title" content="{{ full_title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+    <meta property="og:image" content="{{ site.url }}/assets/img/logo.png">
+    <meta property="og:image:width" content="1000">
+    <meta property="og:image:height" content="1000">
+    <meta property="og:image:alt" content="The Ruby 2D logo: a white-outlined gem on a red background">
+    <meta name="twitter:card" content="summary">
 
-    <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="apple-touch-icon-precomposed" href="/assets/img/favicon-152.png">
-    <script src="/assets/js/fastclick.js"></script>
-    <script src="/assets/js/anchor.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@400;500;600;700&family=Roboto+Mono:wght@600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   </head>
 
-  <body class="mb5 bg-tan-light brown">
-    <!-- Header -->
-    <div class="bg-ruby-red">
-      <nav class="site-header">
+  <body class="min-h-screen relative">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 border-b-2 border-[var(--surface-border)] bg-[var(--surface-bg)]/90 backdrop-blur-xl">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
         {% if page.title == 'home' %}
-        <div class="logo-empty">
-          <img src="/assets/img/empty-logo.svg">
-        </div>
+        <!-- Spacer: keeps the nav links right-aligned where the logo would be -->
+        <div class="w-10 h-10" aria-hidden="true"></div>
         {% else %}
-        <a class="logo" href="/">
-          <img src="/assets/img/logo-sm.svg" alt="Ruby 2D logo">
-          <div>RUBY 2D</div>
+        <a class="flex items-center gap-2.5 no-underline group" href="/">
+          <img src="/assets/img/logo.svg" alt="Ruby 2D logo" class="w-9 h-9 group-hover:scale-110 transition-transform duration-200">
+          <span class="text-[var(--text-primary)] font-fredoka font-bold text-[1.7rem]">Ruby 2D</span>
         </a>
         {% endif %}
-        <div class="links">
-          <a href="/showcase" class="{% if page.url == '/showcase/' %}active{% endif %}">SHOWCASE</a>
-          <a href="/learn/get-started" class="{% if page.url contains '/learn/' %}active{% endif %}">LEARN</a>
-          <a href="/community" class="{% if page.url == '/community/' %}active{% endif %}">COMMUNITY</a>
-        </div>
-      </nav>
-    </div>
-    {{ content }}
-  </body>
 
+        <!-- Desktop links -->
+        <div class="hidden sm:flex items-center gap-8">
+          <a href="/try" class="nav-link {% if page.url == '/try/' %}active{% endif %}">Try</a>
+          <a href="/examples" class="nav-link {% if page.url contains '/examples' %}active{% endif %}">Examples</a>
+          <a href="/learn/get-started" class="nav-link {% if page.url contains '/learn/' %}active{% endif %}">Learn</a>
+          <a href="/community" class="nav-link {% if page.url == '/community/' %}active{% endif %}">Community</a>
+          <a href="https://github.com/ruby2d/ruby2d" class="text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors" aria-label="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button id="mobile-menu-btn" class="sm:hidden text-[var(--text-secondary)] hover:text-[var(--ruby-red)] p-1 transition-colors cursor-pointer" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="sm:hidden hidden border-t-2 border-[var(--surface-border)] bg-[var(--surface-card)]">
+        <div class="px-4 py-3 flex flex-col gap-1">
+          <a href="/try" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Try</a>
+          <a href="/examples" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Examples</a>
+          <a href="/learn/get-started" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Learn</a>
+          <a href="/community" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Community</a>
+          <a href="https://github.com/ruby2d/ruby2d" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">GitHub</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page content -->
+    <main class="relative z-10">
+      {{ content }}
+    </main>
+
+    <script>
+      // Copy button for code blocks
+      document.querySelectorAll('pre > code, pre .highlight > code').forEach(function(code) {
+        var pre = code.closest('pre');
+        if (!pre || pre.querySelector('.copy-btn')) return;
+        var btn = document.createElement('button');
+        btn.className = 'copy-btn';
+        btn.setAttribute('aria-label', 'Copy code');
+        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3a1.5 1.5 0 00-1.5-1.5H3A1.5 1.5 0 001.5 3v6A1.5 1.5 0 003 10.5h2.5"/></svg>';
+        btn.addEventListener('click', function() {
+          navigator.clipboard.writeText(code.textContent).then(function() {
+            btn.classList.add('copied');
+            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+            setTimeout(function() {
+              btn.classList.remove('copied');
+              btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3a1.5 1.5 0 00-1.5-1.5H3A1.5 1.5 0 001.5 3v6A1.5 1.5 0 003 10.5h2.5"/></svg>';
+            }, 1500);
+          });
+        });
+        pre.appendChild(btn);
+      });
+    </script>
+
+    <script>
+      // Mobile menu toggle
+      var menuBtn = document.getElementById('mobile-menu-btn');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('hidden');
+        });
+        window.addEventListener('resize', function() {
+          if (window.innerWidth >= 640) mobileMenu.classList.add('hidden');
+        });
+      }
+    </script>
+  </body>
 </html>

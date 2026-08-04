@@ -2,8 +2,10 @@
 layout: main
 ---
 
-<div class="mw8 center mb4 pa3">
-  <h1 class="title">{{ page.title }}</h1>
-  <p class="description">{{ page.description }}</h2>
+<div class="max-w-3xl mx-auto px-4 sm:px-6 py-8 prose">
+  <h1 class="title text-3xl sm:text-4xl font-bold mt-0 mb-2 border-none pb-0">{{ page.title }}</h1>
+  {% if page.description %}
+  <p class="text-lg text-[var(--text-muted)] font-medium mt-0 mb-8" style="font-size: 1.25rem;">{{ page.description }}</p>
+  {% endif %}
   {{ content }}
 </div>

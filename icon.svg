@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" width="700" height="700">
+
+  <!-- Ruby 2D logo, square, on the Ruby 2D red. This is the master for every
+       icon-shaped asset — favicons, the iOS touch icon, the 1000px PNG. Run
+       `rake icons` after editing.
+
+       The gem is the same geometry as ruby2d_transparent.svg, translated so
+       its center lands on the canvas center: (250,175) + (100,175) = (350,350).
+       Rendered width comes out at 75.4% of the canvas.
+
+       Note the gem's base polygon is the same #f63c38 as the background, so the
+       silhouette is deliberately invisible — the shape reads through the white
+       stroke and the facet polygons. Don't "fix" this by changing the base. -->
+
+  <rect width="700" height="700" fill="#f63c38" />
+
+  <g transform="translate(100, 175)">
+    <polygon stroke="#fff" stroke-width="20" points="0,100 100,0 250,0 400,0 500,100 250,350" />
+    <polygon fill="#f63c38" points="0,100 100,0 250,0 400,0 500,100 250,350" />
+
+    <polygon fill="#ee3a36" points="100,0 250,0 140,100" />
+    <polygon fill="#e43734" points="400,0 250,0 360,100" />
+
+    <polygon fill="#f86c69" points="0,100 100,0 140,100" />
+    <polygon fill="#f75955" points="140,100 250,0 360,100" />
+    <polygon fill="#f64f4c" points="400,0 500,100 360,100" />
+
+    <polygon fill="#f64542" points="0,100 140,100 250,350" />
+    <polygon fill="#ea362c" points="140,100 360,100 250,350" />
+    <polygon fill="#d83431" points="500,100 360,100 250,350" />
+  </g>
+
+</svg>

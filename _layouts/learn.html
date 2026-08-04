@@ -2,50 +2,79 @@
 layout: main
 ---
 
-<div class="learn">
-  <div class="contents">
-    <h1 id="learn-contents-menu">Contents</h1>
-    <div id="learn-contents-menu-links" class="links">
-      <a class="{% if page.id == '/learn/get-started' %}current{% endif %}" href="/learn/get-started">Get started</a>
-      <a class="{% if page.id == '/learn/window' %}current{% endif %}" href="/learn/window">Window</a>
-      <a class="{% if page.id == '/learn/2d-basics' %}current{% endif %}" href="/learn/2d-basics">2D basics</a>
-      <a class="{% if page.id == '/learn/colors' %}current{% endif %}" href="/learn/colors">Colors</a>
-      <a class="{% if page.id == '/learn/shapes' %}current{% endif %}" href="/learn/shapes">Shapes</a>
-      <a class="{% if page.id == '/learn/images' %}current{% endif %}" href="/learn/images">Images</a>
-      <a class="{% if page.id == '/learn/sprites' %}current{% endif %}" href="/learn/sprites">Sprites</a>
-      <a class="{% if page.id == '/learn/tilesets' %}current{% endif %}" href="/learn/tilesets">Tilesets</a>
-      <a class="{% if page.id == '/learn/text' %}current{% endif %}" href="/learn/text">Text</a>
-      <a class="{% if page.id == '/learn/audio' %}current{% endif %}" href="/learn/audio">Audio</a>
-      <a class="{% if page.id == '/learn/input' %}current{% endif %}" href="/learn/input">Input</a>
-      <!-- <a class="{% if page.id == '/learn/native' %}current{% endif %}" href="/learn/native">Native</a> -->
-      <!-- <a class="{% if page.id == '/learn/web' %}current{% endif %}" href="/learn/web">Web</a> -->
-      <a class="{% if page.id == '/learn/console' %}current{% endif %}" href="/learn/console">Console</a>
+<div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 md:flex md:items-start md:gap-10">
+  <!-- Desktop sidebar -->
+  <aside class="learn-sidebar shrink-0 w-52 sticky top-24 hidden md:block">
+    <h2 class="text-xs font-bold uppercase tracking-widest text-[var(--text-muted)] mb-4 px-1">Contents</h2>
+    <nav class="flex flex-col gap-0.5">
+      <a class="sidebar-link {% if page.id == '/learn/get-started' %}current{% endif %}" href="/learn/get-started">Get started</a>
+      <a class="sidebar-link {% if page.id == '/learn/window' %}current{% endif %}" href="/learn/window">Window</a>
+      <a class="sidebar-link {% if page.id == '/learn/2d-basics' %}current{% endif %}" href="/learn/2d-basics">2D basics</a>
+      <a class="sidebar-link {% if page.id == '/learn/colors' %}current{% endif %}" href="/learn/colors">Colors</a>
+      <a class="sidebar-link {% if page.id == '/learn/shapes' %}current{% endif %}" href="/learn/shapes">Shapes</a>
+      <a class="sidebar-link {% if page.id == '/learn/images' %}current{% endif %}" href="/learn/images">Images</a>
+      <a class="sidebar-link {% if page.id == '/learn/text' %}current{% endif %}" href="/learn/text">Text</a>
+      <a class="sidebar-link {% if page.id == '/learn/sprites' %}current{% endif %}" href="/learn/sprites">Sprites</a>
+      <a class="sidebar-link {% if page.id == '/learn/tilesets' %}current{% endif %}" href="/learn/tilesets">Tilesets</a>
+      <a class="sidebar-link {% if page.id == '/learn/canvas' %}current{% endif %}" href="/learn/canvas">Canvas</a>
+      <a class="sidebar-link {% if page.id == '/learn/audio' %}current{% endif %}" href="/learn/audio">Audio</a>
+      <a class="sidebar-link {% if page.id == '/learn/input' %}current{% endif %}" href="/learn/input">Input</a>
+      <a class="sidebar-link {% if page.id == '/learn/buttons' %}current{% endif %}" href="/learn/buttons">Buttons</a>
+      <a class="sidebar-link {% if page.id == '/learn/building' %}current{% endif %}" href="/learn/building">Building</a>
+      <a class="sidebar-link {% if page.id == '/learn/agents' %}current{% endif %}" href="/learn/agents">AI agents</a>
+    </nav>
+  </aside>
+
+  <!-- Mobile sidebar -->
+  <div class="md:hidden learn-sidebar mb-6">
+    <h2 id="learn-contents-menu" class="text-sm font-bold text-[var(--text-secondary)] mt-0 mb-0 px-1">Contents</h2>
+    <div id="learn-contents-menu-links" class="flex flex-col gap-0.5 mt-2">
+      <a class="sidebar-link {% if page.id == '/learn/get-started' %}current{% endif %}" href="/learn/get-started">Get started</a>
+      <a class="sidebar-link {% if page.id == '/learn/window' %}current{% endif %}" href="/learn/window">Window</a>
+      <a class="sidebar-link {% if page.id == '/learn/2d-basics' %}current{% endif %}" href="/learn/2d-basics">2D basics</a>
+      <a class="sidebar-link {% if page.id == '/learn/colors' %}current{% endif %}" href="/learn/colors">Colors</a>
+      <a class="sidebar-link {% if page.id == '/learn/shapes' %}current{% endif %}" href="/learn/shapes">Shapes</a>
+      <a class="sidebar-link {% if page.id == '/learn/images' %}current{% endif %}" href="/learn/images">Images</a>
+      <a class="sidebar-link {% if page.id == '/learn/text' %}current{% endif %}" href="/learn/text">Text</a>
+      <a class="sidebar-link {% if page.id == '/learn/sprites' %}current{% endif %}" href="/learn/sprites">Sprites</a>
+      <a class="sidebar-link {% if page.id == '/learn/tilesets' %}current{% endif %}" href="/learn/tilesets">Tilesets</a>
+      <a class="sidebar-link {% if page.id == '/learn/canvas' %}current{% endif %}" href="/learn/canvas">Canvas</a>
+      <a class="sidebar-link {% if page.id == '/learn/audio' %}current{% endif %}" href="/learn/audio">Audio</a>
+      <a class="sidebar-link {% if page.id == '/learn/input' %}current{% endif %}" href="/learn/input">Input</a>
+      <a class="sidebar-link {% if page.id == '/learn/buttons' %}current{% endif %}" href="/learn/buttons">Buttons</a>
+      <a class="sidebar-link {% if page.id == '/learn/building' %}current{% endif %}" href="/learn/building">Building</a>
+      <a class="sidebar-link {% if page.id == '/learn/agents' %}current{% endif %}" href="/learn/agents">AI agents</a>
     </div>
   </div>
-  <div class="page">
-    <h1 class="title">{{ page.title }}</h1>
-    <p class="description">{{ page.description }}</p>
+
+  <!-- Content -->
+  <div class="flex-1 min-w-0 prose">
+    <h1 class="title text-3xl sm:text-4xl font-bold mt-0 mb-2 border-none pb-0">{{ page.title }}</h1>
+    <p class="text-lg text-[var(--text-muted)] font-medium mt-0 mb-8" style="font-size: 1.25rem;">{{ page.description }}</p>
     {{ content }}
-    <hr class="mt4">
-    <p>✏️ <a class="link underline-hover" href="https://github.com/ruby2d/ruby2d.com/edit/main/{{ page.relative_path }}">Suggest an edit to this page</a></p>
+    <hr>
+    <p class="text-sm">
+      <a href="https://github.com/ruby2d/ruby2d.com/edit/main/{{ page.relative_path }}">Suggest an edit to this page</a>
+    </p>
   </div>
 </div>
 
-
+<!-- AnchorJS is only used here, so it loads with the learn pages rather than site-wide -->
+<script src="/assets/js/anchor.js"></script>
 <script>
 // Add anchors to headers
-anchors.add('.learn .page h1, .learn .page h2, .learn .page h3');
-anchors.remove('.learn .page h1.title');
+anchors.add('.prose h1, .prose h2, .prose h3');
+anchors.remove('.prose h1.title');
 
 // Toggle mobile menu
-document.getElementById('learn-contents-menu').onclick = function() {
-  document.getElementById('learn-contents-menu-links').classList.toggle('is-expanded');
-};
-
-window.addEventListener('resize', function (e) {
-  document.getElementById('learn-contents-menu-links').classList.remove('is-expanded');
-});
-
-// // Attach FastClick to mobile menu buttons
-FastClick.attach(document.getElementById('learn-contents-menu'));
+var contentsMenu = document.getElementById('learn-contents-menu');
+var contentsLinks = document.getElementById('learn-contents-menu-links');
+if (contentsMenu && contentsLinks) {
+  contentsMenu.onclick = function() {
+    contentsLinks.classList.toggle('is-expanded');
+  };
+  window.addEventListener('resize', function() {
+    contentsLinks.classList.remove('is-expanded');
+  });
+}
 </script>

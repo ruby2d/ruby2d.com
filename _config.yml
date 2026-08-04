@@ -1,9 +1,39 @@
+title: Ruby 2D
+description: Make 2D applications with Ruby. Ruby 2D is a library for creating 2D applications, games, graphics, and interactive art in a way that's simple, natural, and joyful, in the spirit of Ruby itself.
+url: https://www.ruby2d.com
 
-kramdown:
-  hard_wrap: true
+# The Ruby version named in the setup guides. Bump when a newer stable
+# release shows up in `rbenv install -l`.
+ruby_version: 4.0.6
 
-posts_path: /news
-permalink: '/news/:title'
+plugins:
+  - jekyll-tailwind
+  - jekyll-sitemap
+
+tailwind:
+  input: _css/app.css
+  minify: true
+
+# Setting `exclude` replaces Jekyll's default list, so the defaults are
+# repeated here. Everything after them is repo furniture or artwork sources
+# that would otherwise be served from the site root.
+exclude:
+  - .sass-cache
+  - .jekyll-cache
+  - gemfiles
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - AGENTS.md
+  - CLAUDE.md
+  - LICENSE.md
+  - README.md
+  - Rakefile
+  - assets/img/learn/window-coordinates.rb
 
 collections:
   pages:

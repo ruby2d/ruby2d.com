@@ -1,0 +1,881 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Ruby 2D — Light & Playful Theme
+   ========================================================================== */
+
+@theme {
+  --font-fredoka: 'Fredoka', sans-serif;
+  --font-outfit: 'Outfit', sans-serif;
+  --font-mono: 'Roboto Mono', monospace;
+}
+
+/* --- Theme tokens -------------------------------------------------------- */
+:root {
+  --ruby-red: #ff4757;
+  --ruby-red-hover: #ff6b81;
+  --ruby-glow: rgba(255,71,87,.15);
+  --surface-bg: #faf8f5;
+  --surface-card: #ffffff;
+  --surface-raised: #f2eeea;
+  --surface-border: #e8e2db;
+  --text-primary: #2d2a26;
+  --text-secondary: #4b443e;
+  --text-muted: #a09890;
+  --accent-pink: #ff6b81;
+  --accent-green: #2ed573;
+  --accent-blue: #1e90ff;
+  --accent-purple: #a55eea;
+  --accent-orange: #ffa502;
+  --accent-yellow: #ffd32a;
+  --accent-teal: #00d2d3;
+
+  /* Syntax highlighting palette (shared by Rouge + Prism) */
+  --syn-comment:   #8a9098;
+  --syn-keyword:   #8c48cc;
+  --syn-string:    #20b85f;
+  --syn-symbol:    #00aeb0;
+  --syn-number:    #1a78d6;
+  --syn-attribute: #c79a00;
+  --syn-constant:  #e08a00;
+  --syn-variable:  #e6496a;
+  --syn-operator:  #5f6770;
+  --syn-punctuation: #6b7280;
+}
+
+/* --- Base ---------------------------------------------------------------- */
+html {
+  scroll-padding-top: 4.5rem; /* offset for sticky nav (h-16 = 4rem + a little breathing room) */
+}
+
+body {
+  font-family: var(--font-outfit);
+  background: var(--surface-bg);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Playful dot pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(0,0,0,.03) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Typography ---------------------------------------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-fredoka);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+/* Markdown-generated content */
+.prose h1 { font-size: 2.25rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+.prose h2 { font-size: 1.6rem; margin-top: 2rem; margin-bottom: 0.75rem; padding-bottom: 0.4rem; }
+.prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+.prose p, .prose ul, .prose ol { font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem; }
+/* Tailwind Preflight resets list-style to none — restore markers for prose content */
+.prose ul { list-style: disc; padding-left: 1.5rem; }
+.prose ol { list-style: decimal; padding-left: 1.5rem; }
+.prose li { margin-bottom: 0.4rem; }
+.prose a { color: var(--ruby-red); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,71,87,.3); transition: all 0.2s; text-decoration-style: wavy; }
+.prose a:hover { text-decoration-color: var(--ruby-red); color: var(--ruby-red-hover); }
+.prose strong { color: var(--text-primary); font-weight: 700; }
+.prose a strong, .prose strong a { color: var(--ruby-red); }
+.prose hr { border: none; height: 2px; background: var(--surface-border); margin: 2rem 0; border-radius: 1px; }
+.prose img { border-radius: 1rem; margin: 1rem 0; max-width: 100%; height: auto; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+.prose table { width: 100%; border-collapse: collapse; border: 2px solid var(--surface-border); border-radius: 0.75rem; overflow: hidden; margin: 1rem 0; }
+.prose th { background: var(--surface-raised); padding: 0.6rem 0.8rem; text-align: left; font-weight: 700; font-size: 0.9rem; color: var(--text-primary); border-bottom: 2px solid var(--surface-border); }
+.prose td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--surface-border); font-size: 0.95rem; color: var(--text-secondary); }
+.prose tr:last-child td { border-bottom: none; }
+.prose tr:nth-child(even) { background: rgba(0,0,0,.015); }
+
+/* --- Code blocks --------------------------------------------------------- */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  font-weight: bold;
+  background: var(--surface-raised);
+  border: 1.5px solid var(--surface-border);
+  border-radius: 0.4rem;
+  padding: 0.15em 0.45em;
+  color: var(--text-secondary);
+  word-wrap: break-word;
+}
+
+pre {
+  border-radius: 1rem;
+  margin: 1.25rem 0;
+  border: 2px solid var(--surface-border);
+  background: var(--surface-card) !important;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 24px rgba(0,0,0,.05);
+}
+
+pre code {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  overflow-x: auto;
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.7;
+  background: transparent !important;
+  border: none;
+  border-radius: 0;
+  color: var(--text-primary);
+}
+
+pre .copy-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--surface-border);
+  border-radius: 0.5rem;
+  background: var(--surface-card);
+  color: var(--text-muted);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+}
+pre:hover .copy-btn { opacity: 1; }
+pre .copy-btn:hover {
+  color: var(--ruby-red);
+  border-color: var(--ruby-red);
+}
+pre .copy-btn.copied {
+  opacity: 1;
+  color: var(--syn-string);
+  border-color: var(--syn-string);
+}
+
+pre code::-webkit-scrollbar { height: 6px; }
+pre code::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 3px; }
+pre code::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
+
+
+/* --- Syntax highlighting (Rouge — vibrant accent theme w/ contrast, tuned for Ruby readability) ------ */
+
+/* Comments */
+.highlight .c, .highlight .ch, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: var(--syn-comment);
+  font-style: italic;
+}
+
+/* Keywords: def, class, module, if, end, do, yield, etc. */
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kn, .highlight .kp, .highlight .kr {
+  color: var(--syn-keyword);
+}
+.highlight .kt { color: var(--syn-keyword); } /* types/constants read better in purple than pink */
+
+/* Strings */
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .s1,
+.highlight .sh, .highlight .sx, .highlight .sa, .highlight .dl, .highlight .se {
+  color: var(--syn-string);
+}
+
+/* Interpolation / regex */
+.highlight .si, .highlight .sr {
+  color: var(--syn-symbol);
+}
+
+/* Symbols — very useful in Ruby */
+.highlight .ss {
+  color: var(--syn-symbol);
+}
+
+/* Numbers */
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo, .highlight .il {
+  color: var(--syn-number);
+}
+
+/* Attribute / keyword-style names */
+.highlight .na {
+  color: var(--syn-attribute); /* darker yellow for readability */
+}
+
+/* Builtins / kernel methods / common builtins */
+.highlight .nb {
+  color: var(--syn-number);
+}
+
+/* Class / module / constant-like names */
+.highlight .nc {
+  color: var(--syn-keyword);
+}
+.highlight .nn {
+  color: var(--syn-keyword);
+}
+
+/* Function / method names */
+.highlight .nf, .highlight .fm {
+  color: var(--syn-number);
+}
+
+/* Constants / decorators */
+.highlight .no, .highlight .nd {
+  color: var(--syn-constant);
+}
+
+/* Tags */
+.highlight .nt {
+  color: var(--syn-variable);
+}
+
+/* Variables — better separated from keywords for Ruby */
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi, .highlight .vm {
+  color: var(--syn-variable);
+}
+
+/* Operators: keep stronger for Ruby’s expressive syntax */
+.highlight .o, .highlight .ow {
+  color: var(--syn-operator);
+}
+
+/* Builtin pseudo */
+.highlight .bp {
+  color: var(--syn-number);
+}
+
+/* Errors */
+.highlight .err {
+  color: var(--syn-variable);
+  background: rgba(230, 73, 106, 0.08); /* --syn-variable at 8% opacity */
+}
+
+/* Preprocessor / special */
+.highlight .cp, .highlight .cpf {
+  color: var(--syn-symbol);
+}
+
+/* Punctuation — slightly stronger than secondary text helps Ruby */
+.highlight .p {
+  color: var(--syn-punctuation);
+}
+
+.highlight .w { color: var(--text-primary); }
+
+/* --- Warning component --------------------------------------------------- */
+.warning {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+  padding: 1rem 1.25rem;
+  background: #fff8f0;
+  border: 2px solid #ffe0b2;
+  border-radius: 1rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+.warning .icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+.warning .message { flex: 1; }
+.warning .message b { color: var(--text-primary); }
+.warning .message a b, .warning .message b a { color: var(--ruby-red); }
+.warning .message a { color: var(--ruby-red); text-decoration: underline; text-underline-offset: 2px; }
+
+/* --- Color examples (learn/colors page) ---------------------------------- */
+.color-example {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--surface-border);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  margin: 0.15rem;
+}
+.color-example.navy { color: #fff; background-color: #001F3F; }
+.color-example.blue { color: #fff; background-color: #0074D9; }
+.color-example.aqua { color: #1e343d; background-color: #7FDBFF; }
+.color-example.teal { color: #fff; background-color: #39CCCC; }
+.color-example.olive { color: #fff; background-color: #3D9970; }
+.color-example.green { color: #fff; background-color: #2ECC40; }
+.color-example.lime { color: #003517; background-color: #01FF70; }
+.color-example.yellow { color: #453b00; background-color: #FFDC00; }
+.color-example.orange { color: #fff; background-color: #FF851B; }
+.color-example.red { color: #fff; background-color: #FF4136; }
+.color-example.brown { color: #fff; background-color: #663300; }
+.color-example.fuchsia { color: #fff; background-color: #F012BE; }
+.color-example.purple { color: #fff; background-color: #B10DC9; }
+.color-example.maroon { color: #fff; background-color: #85144B; }
+.color-example.white { color: #000; background-color: #FFFFFF; }
+.color-example.silver { color: #000; background-color: #DDDDDD; }
+.color-example.gray { color: #fff; background-color: #AAAAAA; }
+.color-example.black { color: #fff; background-color: #111111; }
+
+/* --- Sprite/tileset images in learn -------------------------------------- */
+img.sprite-sheet {
+  border: 2px solid var(--surface-border);
+  border-radius: 1rem;
+  background: var(--surface-card);
+  padding: 0.5rem;
+}
+video.sprite-video {
+  border: 2px solid var(--surface-border);
+  border-radius: 1rem;
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+.nav-link {
+  position: relative;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+}
+.nav-link:hover, .nav-link.active {
+  color: var(--ruby-red);
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--ruby-red);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.25s cubic-bezier(.4,.2,.2,1);
+}
+.nav-link:hover::after, .nav-link.active::after {
+  transform: scaleX(1);
+}
+
+/* --- Sidebar (learn pages) ----------------------------------------------- */
+.sidebar-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  border-left: 3px solid transparent;
+  transition: all 0.2s cubic-bezier(.4,.2,.2,1);
+}
+.sidebar-link:hover {
+  color: var(--text-primary);
+  background: rgba(0,0,0,.03);
+  transform: translateX(2px);
+}
+.sidebar-link.current {
+  color: var(--ruby-red);
+  background: var(--ruby-glow);
+  font-weight: 700;
+}
+
+/* --- Mobile sidebar toggle ----------------------------------------------- */
+#learn-contents-menu {
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+#learn-contents-menu-links {
+  display: block;
+}
+
+/* --- Hero section -------------------------------------------------------- */
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255,71,87,.1) 0%, rgba(255,211,42,.05) 40%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Decorative floating shapes */
+.deco-shape {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* --- Animations ---------------------------------------------------------- */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-5deg); }
+}
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s cubic-bezier(.2,.8,.3,1) both;
+}
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out both;
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+.animate-float-reverse {
+  animation: float-reverse 5s ease-in-out infinite;
+}
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
+
+/* Staggered delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+
+/* --- Post date (news) ---------------------------------------------------- */
+.post-date-icon {
+  position: relative;
+  top: 4px;
+  margin-right: 2px;
+}
+.post-date {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* --- Utility: expanded state (mobile menu) ------------------------------- */
+.is-expanded {
+  display: block !important;
+}
+
+/* --- Try Ruby 2D playground ---------------------------------------------- */
+
+/* Playground layout */
+.try-playground {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .try-playground {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .try-playground-sidebar {
+    width: 20rem;
+    flex-shrink: 0;
+    position: sticky;
+    top: 6rem; /* below the sticky nav */
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+  }
+}
+
+/* Canvas container — constrains width so canvas scales on mobile */
+.try-canvas-container {
+  width: 100%;
+  max-width: 640px;
+}
+
+.try-canvas {
+  display: block;
+  max-width: 100%;
+  height: auto !important;
+  border-radius: 10px;
+}
+/* The canvas is focusable (tabindex="0"), so a right-click can leave it
+   focused; WebKit then reads the next keypress as keyboard interaction and
+   paints a focus ring mid-game. Nothing is lost by hiding it: the wasm build
+   listens for keys page-wide rather than on the canvas, so a game plays the
+   same whether or not the canvas holds focus. */
+.try-canvas:focus,
+.try-canvas:focus-visible {
+  outline: none;
+}
+
+.try-editor-wrap {
+  position: relative;
+  border: 2px solid var(--surface-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,.05);
+  overflow: hidden;
+  resize: vertical;
+  min-height: 260px;
+  height: 270px;
+  transition: border-color 0.15s;
+}
+.try-editor-wrap:focus-within { border-color: var(--ruby-red); }
+.try-editor-wrap.error { border-color: #f55; box-shadow: 0 0 0 3px rgba(255, 85, 85, 0.35); }
+
+.try-editor-prism {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Shared layout for both the highlighted pre and the transparent textarea */
+.try-editor-prism pre,
+.try-editor {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.6;
+  tab-size: 2;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: normal;
+  box-sizing: border-box;
+}
+
+/* Highlighted pre layer */
+.try-editor-prism pre {
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+  width: max-content;
+  min-width: 100%;
+  height: auto;
+  min-height: 100%;
+  background: var(--surface-card);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  text-shadow: none;
+}
+.try-editor-prism pre code {
+  font: inherit;
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  color: inherit;
+}
+
+/* Transparent textarea layer */
+.try-editor {
+  display: block;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--text-primary);
+  border: none;
+  outline: none;
+  resize: none;
+  z-index: 2;
+}
+.try-editor::-webkit-scrollbar { width: 6px; height: 6px; }
+.try-editor::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 3px; }
+.try-editor::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
+.try-editor::-webkit-scrollbar-corner { background: var(--surface-bg); }
+
+/* --- Prism Ruby token colors — matching the site's Ruby syntax palette --- */
+.try-editor-prism .token.comment { color: var(--syn-comment); font-style: italic; }
+.try-editor-prism .token.keyword { color: var(--syn-keyword); }
+.try-editor-prism .token.boolean,
+.try-editor-prism .token.nil { color: var(--syn-keyword); }
+.try-editor-prism .token.string { color: var(--syn-string); }
+.try-editor-prism .token.string-interpolation { color: var(--syn-string); }
+.try-editor-prism .token.interpolation .token.interpolation-punctuation { color: var(--syn-symbol); }
+.try-editor-prism .token.symbol { color: var(--syn-symbol); }
+.try-editor-prism .token.regex { color: var(--syn-symbol); }
+.try-editor-prism .token.number { color: var(--syn-number); }
+.try-editor-prism .token.class-name { color: var(--syn-keyword); }
+.try-editor-prism .token.constant { color: var(--syn-constant); }
+.try-editor-prism .token.function { color: var(--syn-number); }
+.try-editor-prism .token.builtin { color: var(--syn-number); }
+.try-editor-prism .token.variable { color: var(--syn-variable); }
+.try-editor-prism .token.operator { color: var(--syn-operator); }
+.try-editor-prism .token.punctuation { color: var(--text-primary); }
+
+.try-console-output {
+  width: 100%;
+  min-height: 80px;
+  max-height: 180px;
+  padding: 1.25rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.7;
+  background: var(--surface-card);
+  color: var(--text-secondary);
+  border: 2px solid var(--surface-border);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(0,0,0,.05);
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.try-loading-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 15px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.try-spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255,255,255,0.25);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: try-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes try-spin { to { transform: rotate(360deg); } }
+
+/* Tutorial step chips */
+.try-step-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 1rem;
+}
+.try-step-chip {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface-raised);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.try-step-chip:hover { color: var(--text-primary); border-color: var(--surface-border); }
+.try-step-chip.visited { color: var(--ruby-red); }
+.try-step-chip.active {
+  background: var(--ruby-glow);
+  color: var(--ruby-red);
+  border-color: var(--ruby-red);
+}
+
+/* Tutorial prose panel */
+.try-step-prose h1 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+.try-step-prose p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+.try-step-prose p:last-child { margin-bottom: 0; }
+.try-step-prose a {
+  color: var(--ruby-red);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(255,71,87,.3);
+  text-decoration-style: wavy;
+}
+.try-step-prose a:hover { color: var(--ruby-red-hover); text-decoration-color: var(--ruby-red); }
+.try-step-prose strong { color: var(--text-primary); font-weight: 700; }
+.try-step-prose code { font-size: 0.85em; }
+.try-step-prose div.highlighter-rouge { margin: 0.75rem 0; }
+.try-step-prose pre code {
+  font-size: 0.85rem;
+  padding: 0.75rem 1rem;
+  line-height: 1.6;
+}
+
+/* Tutorial prev/next buttons */
+.try-step-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.try-step-btn {
+  padding: 0.4rem 1.1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  background: var(--surface-raised);
+  border: 2px solid var(--surface-border);
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, opacity 0.15s;
+}
+.try-step-btn:hover:not(:disabled) { border-color: var(--ruby-red); color: var(--ruby-red); }
+.try-step-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.try-step-btn-primary {
+  color: #fff;
+  background: var(--ruby-red);
+  border-color: var(--ruby-red);
+  box-shadow: 0 2px 8px rgba(255,71,87,0.35);
+}
+.try-step-btn-primary:hover:not(:disabled) { color: #fff; opacity: 0.9; }
+
+/* Run button — pulse when the editor differs from what's running */
+#runBtn.dirty { animation: run-pulse 1.6s ease-in-out infinite; }
+@keyframes run-pulse {
+  0%, 100% { box-shadow: 0 2px 8px rgba(255,71,87,0.35); }
+  50%      { box-shadow: 0 2px 20px rgba(255,71,87,0.75); }
+}
+
+/* --- Examples gallery ----------------------------------------------------- */
+.examples-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+@media (min-width: 640px)  { .examples-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .examples-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.example-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--surface-card);
+  border: 2px solid var(--surface-border);
+  border-radius: 1rem;
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.example-card:hover {
+  border-color: var(--ruby-red);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.07);
+}
+
+.example-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 0.75rem;
+  background: var(--surface-raised);
+}
+
+/* Cycle the icon tile tints through the accent palette */
+.example-card:nth-child(5n+1) .example-icon { background: rgba(30,144,255,.12); }
+.example-card:nth-child(5n+2) .example-icon { background: rgba(46,213,115,.12); }
+.example-card:nth-child(5n+3) .example-icon { background: rgba(165,94,234,.12); }
+.example-card:nth-child(5n+4) .example-icon { background: rgba(255,165,2,.14); }
+.example-card:nth-child(5n)   .example-icon { background: rgba(255,71,87,.12); }
+
+.example-card-body { min-width: 0; }
+.example-card-title {
+  display: block;
+  font-family: var(--font-fredoka);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 0.15rem;
+}
+.example-card-blurb {
+  display: block;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+}
+
+/* Examples player — roomier than the tutorial: canvases up to 800px wide,
+   and a taller editor since these programs run a few hundred lines */
+.example-player .try-canvas-container { max-width: 800px; }
+.example-player .try-editor-wrap { height: 420px; }
+
+/* --- AnchorJS links ------------------------------------------------------ */
+.anchorjs-link {
+  color: var(--text-muted) !important;
+  text-decoration: none !important;
+  transition: color 0.2s;
+}
+.anchorjs-link:hover {
+  color: var(--ruby-red) !important;
+}
+
+/* --- Showcase card hover ------------------------------------------------- */
+.showcase-card {
+  transition: transform 0.25s cubic-bezier(.4,.2,.2,1), box-shadow 0.25s ease;
+}
+.showcase-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+}
+
+/* --- Responsive ---------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .prose h1 { font-size: 1.75rem; }
+  .prose h2 { font-size: 1.35rem; }
+  .prose p, .prose ul, .prose ol { font-size: 1rem; }
+
+  pre code { font-size: 0.85rem; padding: 1rem; }
+
+  /* Mobile learn sidebar */
+  .learn-sidebar {
+    position: static !important;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--surface-border);
+    border-radius: 1rem;
+    padding: 0.75rem;
+    background: var(--surface-card);
+  }
+  .learn-sidebar #learn-contents-menu::after {
+    content: ' \25BE';
+  }
+  #learn-contents-menu-links {
+    display: none;
+    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    border-top: 2px dashed var(--surface-border);
+  }
+
+  /* Try Ruby 2D — mobile */
+  .try-playground-sidebar {
+    width: 100%;
+  }
+
+}

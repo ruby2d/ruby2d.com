@@ -6,68 +6,62 @@ layout: learn
 
 # Install Ruby
 
-Installing Ruby with package managers (e.g. apt, yum, pacman) can cause issues. We recommend using a Ruby version manager instead, like [rbenv](https://github.com/rbenv/rbenv). Here's how to set it up:
+Installing Ruby with system package managers (e.g. apt, yum, pacman) can cause issues. We recommend using [rbenv](https://github.com/rbenv/rbenv), a lightweight Ruby version manager. Here's how to set it up:
 
-1. In your terminal, clone the rbenv repo into `~/.rbenv`:
+1. Clone the rbenv repo into `~/.rbenv`:
 ```
 git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 ```
 
-2. Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin, which will add the `rbenv install` command:
+2. Run the init command to set up rbenv in your shell:
 ```
-git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+~/.rbenv/bin/rbenv init
+```
+This will print instructions for adding rbenv to your shell profile. Follow those steps, then restart your terminal (or open a new tab) so the changes take effect.
+
+3. Install [ruby-build](https://github.com/rbenv/ruby-build) as an rbenv plugin, which adds the `rbenv install` command:
+```
+git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
 ```
 
-3. Add rbenv to your path and initialize it by adding the following to your `~/.bashrc` or `~/.bash_profile`:
-```bash
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
+4. [Install packages](https://github.com/rbenv/ruby-build/wiki#suggested-build-environment) to prepare your build environment.
+
+5. Install Ruby and set it as your default. Version {{ site.ruby_version }} is the latest as we write this, and `rbenv install -l` will show you the newest available:
+```
+rbenv install {{ site.ruby_version }}
+rbenv global {{ site.ruby_version }}
 ```
 
-4. Get access to rbenv by loading the new shell config using:
-```bash
-source ~/.bashrc  # or `~/.bash_profile`
+6. Check to make sure everything works (the `$` symbol represents the prompt):
 ```
-
-5. [Install packages](https://github.com/rbenv/ruby-build/wiki#suggested-build-environment) to prepare your build environment.
-
-6. Install the latest version of Ruby (3.0.1 in this case) and set it as the global default:
-```
-rbenv install 3.0.1
-rbenv global 3.0.1
-```
-
-7. Check to make sure everything works (the `$` symbol represents the prompt):
-```
-$ rbenv versions
-  system
-* 3.0.1 (set by /home/<me>/.rbenv/version)
 $ ruby -e "puts 'Hello Ruby'"
 Hello Ruby
 ```
 
 # Install packages
 
-Ruby 2D needs a few packages to tap into low-level graphics and hardware. Install the following for your Linux distribution.
+Ruby 2D needs a few system packages for low-level graphics and hardware. Install the following for your Linux distribution:
 
 **Ubuntu, Debian, and Mint**
 ```
-sudo apt install libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+sudo apt install libsdl3-dev libsdl3-image-dev libsdl3-mixer-dev libsdl3-ttf-dev
 ```
 
 **CentOS and Fedora**
 ```
-sudo yum install SDL2-devel SDL2_image-devel SDL2_mixer-devel SDL2_ttf-devel
+sudo yum install SDL3-devel SDL3_image-devel SDL3_mixer-devel SDL3_ttf-devel
 ```
 
 **openSUSE**
 ```
-sudo zypper install libSDL2-devel libSDL2_image-devel libSDL2_mixer-devel libSDL2_ttf-devel
+sudo zypper install libSDL3-devel libSDL3_image-devel libSDL3_mixer-devel libSDL3_ttf-devel
 ```
 
 **Arch**
 ```
-sudo pacman -S sdl2 sdl2_image sdl2_mixer sdl2_ttf
+sudo pacman -S sdl3 sdl3_image sdl3_mixer sdl3_ttf
 ```
+
+SDL3 is fairly new, so if your distribution doesn't package it yet, you don't have to build it by hand: run [`ruby2d setup`](/learn/building#setting-up-other-platforms) and Ruby 2D will compile SDL3 (and mruby) for you, then wire it into the gem.
 
 That's it! Head back to the "get started" guide and [write your first 2D app »](/learn/get-started)

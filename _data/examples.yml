@@ -1,0 +1,87 @@
+# Examples gallery index — grouped by category, in display order.
+#
+# Each entry's `file` is the basename of a script in `_includes/examples/`.
+# Card titles and blurbs are pulled from the first two comment lines of each
+# file at build time, so they live in one place: the code itself.
+
+- name: Games
+  blurb: Playable classics, built from scratch in a few hundred lines.
+  items:
+    - file: snake
+      icon: 🐍
+    - file: breakout
+      icon: 🧱
+    - file: asteroids
+      icon: 🚀
+    - file: outrun
+      icon: 🏎️
+    - file: hill_driver
+      icon: 🚙
+    - file: platformer
+      icon: 🏃
+    - file: ray_casting_maze
+      icon: 👁️
+
+- name: Simulations
+  blurb: Little worlds that run themselves — physics, particles, and cellular automata.
+  items:
+    - file: boids
+      icon: 🐦
+    - file: nbody
+      icon: 🌌
+    - file: fireworks
+      icon: 🎆
+    - file: bouncing_balls
+      icon: 🏀
+    - file: double_pendulum
+      icon: 🪀
+    - file: game_of_life
+      icon: 🦠
+    - file: swarm
+      icon: 🕸️
+
+- name: Math & fractals
+  blurb: Beautiful structures hiding in equations.
+  items:
+    - file: mandelbrot
+      icon: 🌀
+    - file: fractal_tree
+      icon: 🌳
+    - file: lorenz_attractor
+      icon: 🦋
+    - file: fourier_epicycles
+      icon: ❤️
+    - file: marching_squares
+      icon: 🫧
+    - file: wireframe_3d
+      icon: 🌐
+    - file: bezier_editor
+      icon: ✏️
+
+- name: Algorithms & AI
+  blurb: Watch a search unfold, a tour untangle, a network learn.
+  items:
+    - file: astar
+      icon: 🧭
+    - file: maze
+      icon: 🐭
+    - file: tsp_annealing
+      icon: 📍
+
+- name: Toys & apps
+  blurb: Interactive things to poke at, and a few practical bits.
+  items:
+    - file: pixel_paint
+      icon: 🎨
+    - file: constellations
+      icon: ⭐
+    - file: shadow_casting
+      icon: 🔦
+    - file: dashboard
+      icon: 📊
+    - file: ui_controls
+      icon: 🎛️
+    - file: gamepads
+      icon: 🎮
+    - file: logo_animation
+      icon: 💎

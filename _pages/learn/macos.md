@@ -4,34 +4,36 @@ description: Learn how to set up your Ruby environment on the Mac
 layout: learn
 ---
 
-macOS comes pre-installed with Ruby 🥳, but doesn't have Ruby's development libraries needed to build native extensions. 😩 No problem though — there are a few tools we can use to set up a proper Ruby development environment. 😎
+macOS comes with a system Ruby, but it doesn't have the development libraries needed to build native extensions. No problem though, we can use [Homebrew](https://brew.sh) to get a proper Ruby environment set up in no time.
 
-## Using Homebrew
+# Install rbenv with Homebrew
 
-Our favorite, and perhaps the easiest, is using [Homebrew](https://brew.sh). After installing Homebrew (see their website for details), you can install Ruby using: `brew install ruby`
-
-Make sure to add Ruby to your `$PATH` variable, for example by running:
-```
-echo 'export PATH="/usr/local/opt/ruby/bin:$PATH"' >> ~/.bash_profile
-```
-To get access to Ruby in the current shell, run `source ~/.bash_profile`. Ruby should now be available for this and all new shells. Try running `ruby --version` to check.
-
-## Multiple Ruby versions with rbenv
-
-Even better, if you want to switch Ruby versions on-the-fly, you can use [rbenv](https://github.com/rbenv/rbenv). Install with Homebrew using `brew install rbenv ruby-build`
-
-Then, add `eval "$(rbenv init -)"` to your `~/.bash_profile`. Install a Ruby version and set it as the global default like so:
+If you don't already have Homebrew, head over to [brew.sh](https://brew.sh) and follow the install instructions. Once that's ready, install [rbenv](https://github.com/rbenv/rbenv) (a lightweight Ruby version manager) using:
 
 ```
-rbenv install 2.6.2
-rbenv global 2.6.2
+brew install rbenv
 ```
 
-Check to make sure everything is set up by running the following (the `$` symbol represents the prompt):
+Next, run the init command to set up rbenv in your shell:
+
 ```
-$ rbenv versions
-  system
-* 2.6.2 (set by /home/<me>/.rbenv/version)
+rbenv init
+```
+
+This will print instructions for adding rbenv to your shell profile. Follow those steps, then restart your terminal (or open a new tab) so the changes take effect.
+
+# Install Ruby
+
+Now you can install Ruby and set it as your default. Version {{ site.ruby_version }} is the latest as we write this, and `rbenv install -l` will show you the newest available:
+
+```
+rbenv install {{ site.ruby_version }}
+rbenv global {{ site.ruby_version }}
+```
+
+Check to make sure everything works (the `$` symbol represents the prompt):
+
+```
 $ ruby -e "puts 'Hello Ruby'"
 Hello Ruby
 ```
