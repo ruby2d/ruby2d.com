@@ -7,8 +7,7 @@
 # the dust streams after the cursor — the faster you move the harder it pulls,
 # and the grip releases when you stop. Click to set off a shockwave that blows
 # a cavity in the disc. Press `r` to rebuild the lattice. Stress test for many
-# small shapes updated every frame, with a thinner disc in the browser, where
-# mruby on WebAssembly has less headroom than native Ruby.
+# small shapes updated every frame.
 #
 # Caveats for physics nerds:
 #   - The force law is effectively 1/r, not Newtonian 1/r². The coefficient
