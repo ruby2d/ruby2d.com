@@ -83,4 +83,4 @@ img.visible = false   # same thing as .hide
 
 Reach for `.remove` and `.add` when you actually want the image out of the scene; reach for `.hide` and `.show` for a cheap per-frame toggle.
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

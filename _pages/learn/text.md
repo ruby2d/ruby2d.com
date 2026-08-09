@@ -98,4 +98,4 @@ Font.default           # => path to the default font
 
 Fonts are cached internally. You don't instantiate `Font` objects directly. They're managed behind the scenes by `Text`.
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

@@ -253,4 +253,4 @@ end
 
 Any of `x:`, `y:`, `width:`, `height:`, `rotate:`, `tint:`, and `opacity:` can be passed as a per-frame override.
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

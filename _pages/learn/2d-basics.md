@@ -168,4 +168,4 @@ end
 show
 ```
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

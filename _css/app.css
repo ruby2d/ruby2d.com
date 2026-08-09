@@ -362,6 +362,34 @@ video.sprite-video {
   transform: scaleX(1);
 }
 
+/* The mobile menu overlays the page rather than pushing it down, so it gets a
+   shadow to sit above the content instead of reading as part of it. */
+#mobile-menu {
+  box-shadow: 0 12px 30px rgba(0,0,0,.10);
+}
+
+/* Mobile nav links: a stacked list, so the current page is marked the way the
+   learn sidebar does it rather than with the desktop underline. */
+.mobile-nav-link {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: color 0.2s, background-color 0.2s;
+}
+.mobile-nav-link:hover {
+  color: var(--ruby-red);
+  background: var(--ruby-glow);
+}
+.mobile-nav-link.current {
+  color: var(--ruby-red);
+  background: var(--ruby-glow);
+  font-weight: 700;
+}
+
 /* --- Sidebar (learn pages) ----------------------------------------------- */
 .sidebar-link {
   display: block;
@@ -390,6 +418,27 @@ video.sprite-video {
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
+}
+/* The "next topic" arrow at the foot of each learn page. Drawn with borders for
+   the same reason as the Contents caret below: Outfit carries no Geometric
+   Shapes glyphs, so a typed ▸ falls back to whatever font the OS picks. */
+.next-topic::after {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.35em;
+  margin-bottom: 0.08em;
+  border-top: 0.28em solid transparent;
+  border-bottom: 0.28em solid transparent;
+  border-left: 0.32em solid currentColor;
+}
+
+/* It's reachable by keyboard now, so focus has to be visible when it lands. */
+/* Inset, because the button now runs to the card's edge and an outset ring
+   would draw outside it. The outline follows the button's own border-radius. */
+#learn-contents-menu:focus-visible {
+  outline: 2px solid var(--ruby-red);
+  outline-offset: -3px;
 }
 #learn-contents-menu-links {
   display: block;
@@ -732,6 +781,9 @@ video.sprite-video {
   margin-top: 1.25rem;
 }
 .try-step-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
   padding: 0.4rem 1.1rem;
   border-radius: 9999px;
   font-size: 0.875rem;
@@ -863,8 +915,35 @@ video.sprite-video {
     padding: 0.75rem;
     background: var(--surface-card);
   }
+  /* The whole top strip of the card toggles the menu, not just the word itself.
+     The negative margin bleeds the button out over the card's padding and the
+     matching padding puts the label back exactly where it sat, so the target
+     grows from the height of the text to a comfortable ~42px without anything
+     moving. */
+  .learn-sidebar #learn-contents-menu {
+    display: block;
+    width: calc(100% + 1.5rem);
+    margin: -0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: 0.85rem;
+  }
+
+  /* Drawn with borders rather than set as ▾/▴: Outfit has no Geometric Shapes
+     glyphs, so those fall back per-character and the two arrows end up coming
+     from different fonts at different weights. One shape rotated can't mismatch. */
   .learn-sidebar #learn-contents-menu::after {
-    content: ' \25BE';
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0.4em;
+    margin-bottom: 0.1em;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+    border-top: 0.35em solid currentColor;
+    transition: transform 0.2s cubic-bezier(.4,.2,.2,1);
+  }
+  .learn-sidebar #learn-contents-menu[aria-expanded="true"]::after {
+    transform: rotate(180deg);
   }
   #learn-contents-menu-links {
     display: none;

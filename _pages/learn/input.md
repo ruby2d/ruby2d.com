@@ -447,4 +447,4 @@ rect.interactive?          # any handlers at all?
 rect.interactive?(:click)  # handlers for :click specifically?
 ```
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

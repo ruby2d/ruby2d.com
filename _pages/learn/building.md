@@ -107,7 +107,7 @@ On the web, the render loop is driven by the browser's `requestAnimationFrame`, 
 A couple of browser specifics worth knowing:
 
 - **Chrome** and **Firefox** run at the full refresh rate by default.
-- **Safari** caps `requestAnimationFrame` at 60Hz unless you turn off the **"Prefer Page Rendering Updates near 60fps"** flag (Safari ▸ Develop ▸ Feature Flags). With it off, Safari matches the display refresh rate too.
+- **Safari** caps `requestAnimationFrame` at 60Hz unless you turn off the **"Prefer Page Rendering Updates near 60fps"** flag (Safari › Develop › Feature Flags). With it off, Safari matches the display refresh rate too.
 
 # Setting up other platforms
 

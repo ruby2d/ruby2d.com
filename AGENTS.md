@@ -22,6 +22,7 @@ The learn articles are a friendly guide, not a reference manual. Match the voice
 - Section headings are `#` (H1), subsections `##`. Unusual, but consistent across the directory.
 - Show code early and keep examples focused on one idea at a time.
 - Tables are fine — and the one place terse language is welcome — for attribute and parameter reference.
-- End with `Continue to the [next topic ▸](/learn/{{ page.next_topic }})` when `next_topic` is set.
+- Symbols like `▸`, `▶`, and `✕` aren't in the body font, so the OS substitutes one and iOS renders some as color emoji. Draw arrows and icons in CSS or inline SVG instead of typing the character.
+- End with `Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}` when `next_topic` is set.
 
 When in doubt, read a neighboring article and trust your ear. If it sounds like a person talking, you're there.

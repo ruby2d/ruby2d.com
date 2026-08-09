@@ -142,4 +142,4 @@ btn.remove          # remove from the window
 btn.add             # add back to the window
 ```
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

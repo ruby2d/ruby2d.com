@@ -511,4 +511,4 @@ A page can't close itself, only the person viewing it can. So on [the web](/lear
 
 # That's it!
 
-You've learned all there is to know about the window in Ruby 2D. Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+You've learned all there is to know about the window in Ruby 2D. Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

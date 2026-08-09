@@ -108,4 +108,4 @@ tileset.delete(x, y)  # remove a tile at a screen position
 tileset.clear         # remove all placed tiles
 ```
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

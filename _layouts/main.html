@@ -32,6 +32,14 @@
   </head>
 
   <body class="min-h-screen relative">
+    <!-- Which nav section we're in, worked out once so the desktop and mobile
+         menus can't drift apart -->
+    {% if page.url == '/try' or page.url == '/try/' %}{% assign nav_section = 'try' %}
+    {% elsif page.url contains '/examples' %}{% assign nav_section = 'examples' %}
+    {% elsif page.url contains '/learn/' %}{% assign nav_section = 'learn' %}
+    {% elsif page.url == '/community/' %}{% assign nav_section = 'community' %}
+    {% endif %}
+
     <!-- Navigation -->
     <nav class="sticky top-0 z-50 border-b-2 border-[var(--surface-border)] bg-[var(--surface-bg)]/90 backdrop-blur-xl">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
@@ -47,17 +55,17 @@
 
         <!-- Desktop links -->
         <div class="hidden sm:flex items-center gap-8">
-          <a href="/try" class="nav-link {% if page.url == '/try/' %}active{% endif %}">Try</a>
-          <a href="/examples" class="nav-link {% if page.url contains '/examples' %}active{% endif %}">Examples</a>
-          <a href="/learn/get-started" class="nav-link {% if page.url contains '/learn/' %}active{% endif %}">Learn</a>
-          <a href="/community" class="nav-link {% if page.url == '/community/' %}active{% endif %}">Community</a>
+          <a href="/try" class="nav-link {% if nav_section == 'try' %}active{% endif %}" {% if nav_section == 'try' %}aria-current="page"{% endif %}>Try</a>
+          <a href="/examples" class="nav-link {% if nav_section == 'examples' %}active{% endif %}" {% if nav_section == 'examples' %}aria-current="page"{% endif %}>Examples</a>
+          <a href="/learn/get-started" class="nav-link {% if nav_section == 'learn' %}active{% endif %}" {% if nav_section == 'learn' %}aria-current="page"{% endif %}>Learn</a>
+          <a href="/community" class="nav-link {% if nav_section == 'community' %}active{% endif %}" {% if nav_section == 'community' %}aria-current="page"{% endif %}>Community</a>
           <a href="https://github.com/ruby2d/ruby2d" class="text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors" aria-label="GitHub">
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
           </a>
         </div>
 
         <!-- Mobile hamburger -->
-        <button id="mobile-menu-btn" class="sm:hidden text-[var(--text-secondary)] hover:text-[var(--ruby-red)] p-1 transition-colors cursor-pointer" aria-label="Menu">
+        <button id="mobile-menu-btn" class="sm:hidden text-[var(--text-secondary)] hover:text-[var(--ruby-red)] p-1 transition-colors cursor-pointer" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
           </svg>
@@ -65,13 +73,13 @@
       </div>
 
       <!-- Mobile menu -->
-      <div id="mobile-menu" class="sm:hidden hidden border-t-2 border-[var(--surface-border)] bg-[var(--surface-card)]">
+      <div id="mobile-menu" class="sm:hidden hidden absolute top-full inset-x-0 border-t-2 border-[var(--surface-border)] bg-[var(--surface-card)]">
         <div class="px-4 py-3 flex flex-col gap-1">
-          <a href="/try" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Try</a>
-          <a href="/examples" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Examples</a>
-          <a href="/learn/get-started" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Learn</a>
-          <a href="/community" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">Community</a>
-          <a href="https://github.com/ruby2d/ruby2d" class="block px-3 py-2 rounded-xl text-[var(--text-secondary)] hover:text-[var(--ruby-red)] hover:bg-[var(--ruby-glow)] font-semibold text-sm transition-colors">GitHub</a>
+          <a href="/try" class="mobile-nav-link {% if nav_section == 'try' %}current{% endif %}" {% if nav_section == 'try' %}aria-current="page"{% endif %}>Try</a>
+          <a href="/examples" class="mobile-nav-link {% if nav_section == 'examples' %}current{% endif %}" {% if nav_section == 'examples' %}aria-current="page"{% endif %}>Examples</a>
+          <a href="/learn/get-started" class="mobile-nav-link {% if nav_section == 'learn' %}current{% endif %}" {% if nav_section == 'learn' %}aria-current="page"{% endif %}>Learn</a>
+          <a href="/community" class="mobile-nav-link {% if nav_section == 'community' %}current{% endif %}" {% if nav_section == 'community' %}aria-current="page"{% endif %}>Community</a>
+          <a href="https://github.com/ruby2d/ruby2d" class="mobile-nav-link">GitHub</a>
         </div>
       </div>
     </nav>
@@ -109,11 +117,36 @@
       var menuBtn = document.getElementById('mobile-menu-btn');
       var mobileMenu = document.getElementById('mobile-menu');
       if (menuBtn && mobileMenu) {
+        var isOpen = function() { return !mobileMenu.classList.contains('hidden'); };
+        var setMenu = function(open) {
+          mobileMenu.classList.toggle('hidden', !open);
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+
         menuBtn.addEventListener('click', function() {
-          mobileMenu.classList.toggle('hidden');
+          setMenu(!isOpen());
         });
+
+        // The menu floats over the page, so it needs a way out that isn't the
+        // hamburger itself: tap anywhere else, or press Escape.
+        document.addEventListener('click', function(e) {
+          if (!isOpen()) return;
+          if (menuBtn.contains(e.target) || mobileMenu.contains(e.target)) return;
+          setMenu(false);
+        });
+
+        // Capture phase, because the Try page's wasm runtime binds its own
+        // keydown handler to `window` and consumes plain keys like Escape.
+        document.addEventListener('keydown', function(e) {
+          if (e.key !== 'Escape' || !isOpen()) return;
+          setMenu(false);
+          menuBtn.focus();
+        }, true);
+
+        // Only on a real width change — mobile browsers fire `resize` while
+        // scrolling, as the URL bar hides and shows.
         window.addEventListener('resize', function() {
-          if (window.innerWidth >= 640) mobileMenu.classList.add('hidden');
+          if (window.innerWidth >= 640) setMenu(false);
         });
       }
     </script>

@@ -50,7 +50,7 @@ permalink: /examples
   <!-- Player -->
   <div id="playerView" class="hidden example-player max-w-[840px] mx-auto">
 
-    <a href="#" id="backLink" class="inline-flex items-center gap-1.5 font-semibold text-sm text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors no-underline">◂ All examples</a>
+    <a href="#" id="backLink" class="inline-flex items-center gap-1.5 font-semibold text-sm text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors no-underline"><svg class="w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>All examples</a>
 
     <div class="flex items-center gap-4 mt-5 mb-6">
       <span id="playerIcon" class="example-icon"></span>
@@ -84,8 +84,8 @@ permalink: /examples
         disabled
         onclick="runCode()"
         title="Run (⌘Enter / Ctrl+Enter)"
-        class="px-5 py-2 rounded-full font-semibold text-sm text-white bg-[var(--ruby-red)] shadow-[0_2px_8px_rgba(255,71,87,0.35)] hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0"
-      >Run &ensp;▶</button>
+        class="inline-flex items-center gap-2 px-5 py-2 rounded-full font-semibold text-sm text-white bg-[var(--ruby-red)] shadow-[0_2px_8px_rgba(255,71,87,0.35)] hover:opacity-90 hover:-translate-y-0.5 active:translate-y-0 transition-all cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed disabled:translate-y-0"
+      >Run<svg class="w-2.5 h-2.5 shrink-0" viewBox="0 0 12 12" fill="currentColor" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round" aria-hidden="true"><path d="M3.2 2.4L9.4 6L3.2 9.6Z"/></svg></button>
       <button
         id="consoleBtn"
         onclick="toggleConsole()"

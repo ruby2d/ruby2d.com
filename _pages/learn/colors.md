@@ -105,4 +105,4 @@ shape.opacity = 0.25
 
 `shape.color.opacity = 0.25` works too, if you'd rather go through the color. For shapes with per-vertex colors, setting `opacity` fades the whole shape evenly, and reading it gives you back the first vertex's value. On a `Canvas` or `Image`, `opacity` adjusts the tint, just like `opacity:` does when you create one.
 
-Continue to the [next topic ▸](/learn/{{ page.next_topic }})
+Continue to the [next topic](/learn/{{ page.next_topic }}){:.next-topic}

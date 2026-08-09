@@ -27,7 +27,9 @@ layout: main
 
   <!-- Mobile sidebar -->
   <div class="md:hidden learn-sidebar mb-6">
-    <h2 id="learn-contents-menu" class="text-sm font-bold text-[var(--text-secondary)] mt-0 mb-0 px-1">Contents</h2>
+    <h2 class="text-sm font-bold text-[var(--text-secondary)] mt-0 mb-0">
+      <button id="learn-contents-menu" type="button" class="text-left" aria-controls="learn-contents-menu-links" aria-expanded="false">Contents</button>
+    </h2>
     <div id="learn-contents-menu-links" class="flex flex-col gap-0.5 mt-2">
       <a class="sidebar-link {% if page.id == '/learn/get-started' %}current{% endif %}" href="/learn/get-started">Get started</a>
       <a class="sidebar-link {% if page.id == '/learn/window' %}current{% endif %}" href="/learn/window">Window</a>
@@ -70,11 +72,21 @@ anchors.remove('.prose h1.title');
 var contentsMenu = document.getElementById('learn-contents-menu');
 var contentsLinks = document.getElementById('learn-contents-menu-links');
 if (contentsMenu && contentsLinks) {
-  contentsMenu.onclick = function() {
-    contentsLinks.classList.toggle('is-expanded');
+  // aria-expanded is the single source of truth for the open state: the caret
+  // in the header is drawn off it, so there's no second flag to keep in sync.
+  var setContents = function(open) {
+    contentsLinks.classList.toggle('is-expanded', open);
+    contentsMenu.setAttribute('aria-expanded', open ? 'true' : 'false');
   };
+  // A real <button>, so Enter and Space come for free.
+  contentsMenu.addEventListener('click', function() {
+    setContents(!contentsLinks.classList.contains('is-expanded'));
+  });
+  // Only collapse when we've grown to the desktop sidebar. Mobile browsers fire
+  // `resize` while scrolling (the URL bar hides and shows), and that shouldn't
+  // close a menu the reader is in the middle of scrolling through.
   window.addEventListener('resize', function() {
-    contentsLinks.classList.remove('is-expanded');
+    if (window.innerWidth >= 768) setContents(false);
   });
 }
 </script>
