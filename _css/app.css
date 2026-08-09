@@ -77,6 +77,20 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Markdown-generated content */
 .prose h1 { font-size: 2.25rem; margin-top: 2.5rem; margin-bottom: 1rem; }
+/* The learn layout's page title, as opposed to the section headings the
+   Markdown generates — both are h1, so the rule above catches this one too and
+   starts it 2.5rem down, well below where the sidebar beside it begins. The
+   layout does ask for mt-0, but a utility can't win here: Tailwind's live in
+   @layer utilities and these .prose rules don't, and unlayered wins whatever
+   the specificity. Hence the override in CSS rather than in the markup. */
+.prose h1.title { margin-top: 0; margin-bottom: 0.5rem; }
+/* The description under it is a subtitle, so it sits tight to the title and
+   leaves a clear break before the body — the layout asks for exactly this and,
+   again, can't have it. Its color is left to inherit the .prose p rule rather
+   than the --text-muted the layout names: muted comes out around 2.7:1 against
+   this background, under the 4.5:1 WCAG AA wants, where secondary is near 9:1.
+   The accident reads better than the intent, so it stays. */
+.prose h1.title + p { font-size: 1.25rem; margin-bottom: 2rem; }
 .prose h2 { font-size: 1.6rem; margin-top: 2rem; margin-bottom: 0.75rem; padding-bottom: 0.4rem; }
 .prose h3 { font-size: 1.25rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
 .prose p, .prose ul, .prose ol { font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 1rem; }
@@ -95,6 +109,28 @@ h1, h2, h3, h4, h5, h6 {
 .prose td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--surface-border); font-size: 0.95rem; color: var(--text-secondary); }
 .prose tr:last-child td { border-bottom: none; }
 .prose tr:nth-child(even) { background: rgba(0,0,0,.015); }
+
+/* A table can't lay out narrower than its widest cell, so a parameter table on
+   a phone would push the whole page sideways rather than shrink. The frame
+   holds the border and stays put while the table scrolls inside it, the same
+   arrangement as a code block. Both wrappers come from the script in the main
+   layout; a table it never reaches keeps its own border and its old behavior. */
+.table-scroll {
+  position: relative;
+  margin: 1rem 0;
+  border: 2px solid var(--surface-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.table-scroll-box { overflow-x: auto; }
+.prose .table-scroll table {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+}
+.table-scroll-box::-webkit-scrollbar { height: 6px; }
+.table-scroll-box::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 3px; }
+.table-scroll-box::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
 
 /* --- Code blocks --------------------------------------------------------- */
 code {
@@ -148,12 +184,21 @@ pre .copy-btn {
   cursor: pointer;
   opacity: 0;
   transition: opacity 0.15s, color 0.15s, border-color 0.15s;
+  z-index: 2; /* above the right-hand scroll fade */
 }
 pre:hover .copy-btn { opacity: 1; }
+pre .copy-btn:focus-visible { opacity: 1; }
+/* Red on both the icon and the border, matching .try-step-btn — the site's
+   other small bordered button */
 pre .copy-btn:hover {
   color: var(--ruby-red);
   border-color: var(--ruby-red);
 }
+/* Deliberately no touchscreen rule here. Nothing hovers on a phone, so showing
+   the button would mean showing it always, parked over the top-right corner —
+   and since it's pinned to the <pre> while the code scrolls underneath, that's
+   a fixed blind spot rather than a few covered characters. Long-press to select
+   is the native way to copy on iOS, and it doesn't cover anything. */
 pre .copy-btn.copied {
   opacity: 1;
   color: var(--syn-string);
@@ -163,6 +208,36 @@ pre .copy-btn.copied {
 pre code::-webkit-scrollbar { height: 6px; }
 pre code::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 3px; }
 pre code::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
+
+/* Those scrollbar rules only reach desktop — iOS ignores them and shows an
+   overlay indicator that appears while a finger is dragging and then fades, so
+   a block with code past the edge looks exactly like one that fits. These fades
+   sit over whichever side still has more to see. The `scroll-fade` marker and
+   the `more-*` classes both come from the script in the main layout, so a block
+   that JS never reaches just keeps its plain edges. Wide tables scroll for the
+   same reason and carry the same marker. */
+.scroll-fade::before,
+.scroll-fade::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2.5rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1;
+}
+pre.scroll-fade::before { left: 0; background: linear-gradient(to right, var(--surface-card), transparent); }
+pre.scroll-fade::after { right: 0; background: linear-gradient(to left, var(--surface-card), transparent); }
+/* Table rows are striped and the header has a fill of its own, so there's no
+   one color to fade from. A soft shadow darkens whatever it lands on instead. */
+.table-scroll.scroll-fade::before,
+.table-scroll.scroll-fade::after { width: 1.25rem; }
+.table-scroll.scroll-fade::before { left: 0; background: linear-gradient(to right, rgba(0,0,0,.10), transparent); }
+.table-scroll.scroll-fade::after { right: 0; background: linear-gradient(to left, rgba(0,0,0,.10), transparent); }
+.scroll-fade.more-left::before,
+.scroll-fade.more-right::after { opacity: 1; }
 
 
 /* --- Syntax highlighting (Rouge — vibrant accent theme w/ contrast, tuned for Ruby readability) ------ */
@@ -419,18 +494,25 @@ video.sprite-video {
   -webkit-user-select: none;
   user-select: none;
 }
-/* The "next topic" arrow at the foot of each learn page. Drawn with borders for
+/* The "next topic" arrow at the foot of each learn page. Not a typed glyph, for
    the same reason as the Contents caret below: Outfit carries no Geometric
-   Shapes glyphs, so a typed ▸ falls back to whatever font the OS picks. */
+   Shapes, so a ▸ falls back to whatever font the OS picks. It's the chevron
+   from the Try page's Next button — around here a chevron means "go somewhere"
+   and a filled triangle means "run," and this is navigation. Painted as a mask
+   rather than a background image so it keeps following the link color through
+   the hover. The viewBox is cropped to the stroke, so the box below is the
+   glyph, with no padding to size around. */
 .next-topic::after {
   content: '';
   display: inline-block;
   vertical-align: middle;
   margin-left: 0.35em;
   margin-bottom: 0.08em;
-  border-top: 0.28em solid transparent;
-  border-bottom: 0.28em solid transparent;
-  border-left: 0.32em solid currentColor;
+  width: 0.37em;
+  height: 0.6em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='3.5 1.5 5.5 9' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 2.5L8 6l-3.5 3.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='3.5 1.5 5.5 9' fill='none' stroke='%23000' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4.5 2.5L8 6l-3.5 3.5'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 
 /* It's reachable by keyboard now, so focus has to be visible when it lands. */
@@ -570,8 +652,10 @@ video.sprite-video {
   outline: none;
 }
 
+/* The frame around the editor. prism-code-editor mounts its own container as
+   the only child, and `display: grid` is what stretches it to fill the frame. */
 .try-editor-wrap {
-  position: relative;
+  display: grid;
   border: 2px solid var(--surface-border);
   border-radius: 1rem;
   box-shadow: 0 4px 24px rgba(0,0,0,.05);
@@ -584,91 +668,111 @@ video.sprite-video {
 .try-editor-wrap:focus-within { border-color: var(--ruby-red); }
 .try-editor-wrap.error { border-color: #f55; box-shadow: 0 0 0 3px rgba(255, 85, 85, 0.35); }
 
-.try-editor-prism {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* Shared layout for both the highlighted pre and the transparent textarea */
-.try-editor-prism pre,
-.try-editor {
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 1rem 1.5rem;
+/* --- The editor itself (prism-code-editor) ------------------------------- */
+/* Layout comes from assets/css/prism-editor.css, a build artifact. Everything
+   here is the part that makes it look like the rest of the site: the type, and
+   the --pce-* hooks the library exposes for colors. */
+.try-editor-wrap .prism-code-editor {
   font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: bold;
   line-height: 1.6;
-  tab-size: 2;
-  overflow: auto;
-  white-space: pre;
-  word-wrap: normal;
-  box-sizing: border-box;
-}
-
-/* Highlighted pre layer */
-.try-editor-prism pre {
-  z-index: 1;
-  pointer-events: none;
-  overflow: visible;
-  width: max-content;
-  min-width: 100%;
-  height: auto;
-  min-height: 100%;
-  background: var(--surface-card);
+  --padding-inline: 1.5rem;   /* breathing room to the right of the code */
+  --gutter-inset: 0.75rem;    /* … and to the left of the line numbers */
+  --number-spacing: 1rem;     /* the gap between the numbers and the code */
+  /* A gutter three digits wide, always. The library sizes it from the line
+     count instead, rewriting a --number-width inline style every time the
+     count changes; pinning it keeps the code from shifting sideways when a
+     file crosses its tenth line, and keeps the width of every line number off
+     a property JavaScript is continually mutating. Three digits fits every
+     program here — the longest is around 600 lines. Single-digit files do pay
+     for it: the number is right-aligned, so it sits two characters in from the
+     left, which is why the inset above is tighter than the code's padding. */
+  --padding-left: calc(var(--gutter-inset) + 3ch + var(--number-spacing));
+  --pce-bg: var(--surface-card);
+  --pce-cursor: var(--text-primary);
+  /* Spelled out rather than mixed from the tokens they come from:
+     --ruby-red at 22% and --text-primary at 4%. The build rewrites a
+     color-mix() into an @supports pair, and for a custom property the
+     no-color-mix branch it writes is the *solid* color — a red block over the
+     selection, a near-black bar down the active line. An alpha value is what
+     the mix resolves to anyway, so this is the same paint with no fallback to
+     get wrong. Keep in step with the tokens above if they ever move. */
+  --pce-selection: rgba(255, 71, 87, 0.22);
+  /* Mixed toward the background rather than dimmed with opacity. Each line
+     number is a position: sticky pseudo-element, and giving one of those an
+     opacity below 1 would promote each one to its own compositing layer, and
+     these are pseudo-elements on every line — a lot of layers on a long file
+     for something a color can express. */
+  --pce-line-number: color-mix(in srgb, var(--text-muted) 65%, var(--surface-card));
+  --pce-bg-highlight: rgba(45, 42, 38, 0.04);
   color: var(--text-primary);
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  text-shadow: none;
 }
-.try-editor-prism pre code {
-  font: inherit;
+/* First and last line want the same breathing room the sides get */
+.try-editor-wrap .pce-wrapper { margin: 1rem 0; }
+
+/* Line numbers. Positioning is the library's — each one is stuck to the left
+   edge so the gutter holds still when a long line is scrolled sideways — but
+   the backing behind them is not. Each number carries its own, and the strip
+   below is switched off.
+
+   That swap is what makes the gutter work in Safari, where the numbers were
+   going missing. The strip and the numbers sit at the same z-index, and only
+   tree order separates them; Safari resolved that the other way from Chrome
+   and painted the strip over the numbers. Exactly why it did so on some files
+   and not others was never pinned down — the strip spans the whole gutter
+   either way — so the fix removes the tie rather than the symptom. A
+   background on the number itself can't end up on top of the number. */
+.try-editor-wrap .pce-line:before {
+  font-weight: normal;
+  background: var(--pce-bg);
+  z-index: 3;
+}
+
+/* Only the background goes. The element stays: it holds the first of the two
+   grid columns the editor lays itself out in, and removing it would drop the
+   code into that column. */
+.try-editor-wrap .show-line-numbers:before {
   background: none;
-  padding: 0;
-  border-radius: 0;
-  color: inherit;
 }
 
-/* Transparent textarea layer */
-.try-editor {
-  display: block;
-  background: transparent;
-  color: transparent;
-  caret-color: var(--text-primary);
-  border: none;
-  outline: none;
-  resize: none;
-  z-index: 2;
-}
-.try-editor::-webkit-scrollbar { width: 6px; height: 6px; }
-.try-editor::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 3px; }
-.try-editor::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
-.try-editor::-webkit-scrollbar-corner { background: var(--surface-bg); }
+.try-editor-wrap .prism-code-editor::-webkit-scrollbar { width: 6px; height: 6px; }
+.try-editor-wrap .prism-code-editor::-webkit-scrollbar-track { background: var(--surface-bg); border-radius: 3px; }
+.try-editor-wrap .prism-code-editor::-webkit-scrollbar-thumb { background: var(--surface-border); border-radius: 3px; }
+.try-editor-wrap .prism-code-editor::-webkit-scrollbar-corner { background: var(--surface-bg); }
 
-/* --- Prism Ruby token colors — matching the site's Ruby syntax palette --- */
-.try-editor-prism .token.comment { color: var(--syn-comment); font-style: italic; }
-.try-editor-prism .token.keyword { color: var(--syn-keyword); }
-.try-editor-prism .token.boolean,
-.try-editor-prism .token.nil { color: var(--syn-keyword); }
-.try-editor-prism .token.string { color: var(--syn-string); }
-.try-editor-prism .token.string-interpolation { color: var(--syn-string); }
-.try-editor-prism .token.interpolation .token.interpolation-punctuation { color: var(--syn-symbol); }
-.try-editor-prism .token.symbol { color: var(--syn-symbol); }
-.try-editor-prism .token.regex { color: var(--syn-symbol); }
-.try-editor-prism .token.number { color: var(--syn-number); }
-.try-editor-prism .token.class-name { color: var(--syn-keyword); }
-.try-editor-prism .token.constant { color: var(--syn-constant); }
-.try-editor-prism .token.function { color: var(--syn-number); }
-.try-editor-prism .token.builtin { color: var(--syn-number); }
-.try-editor-prism .token.variable { color: var(--syn-variable); }
-.try-editor-prism .token.operator { color: var(--syn-operator); }
-.try-editor-prism .token.punctuation { color: var(--text-primary); }
+/* The pair of brackets the cursor sits between */
+.try-editor-wrap .active-bracket {
+  background: rgba(0, 174, 176, 0.24);
+  background: color-mix(in srgb, var(--syn-symbol) 24%, transparent);
+  border-radius: 2px;
+}
+
+/* --- Ruby token colors — matching the site's Ruby syntax palette --------- */
+.try-editor-wrap .token.comment { color: var(--syn-comment); font-style: italic; }
+.try-editor-wrap .token.keyword { color: var(--syn-keyword); }
+.try-editor-wrap .token.boolean,
+.try-editor-wrap .token.nil { color: var(--syn-keyword); }
+.try-editor-wrap .token.string,
+.try-editor-wrap .token.string-literal,
+.try-editor-wrap .token.heredoc-string { color: var(--syn-string); }
+.try-editor-wrap .token.command,
+.try-editor-wrap .token.command-literal { color: var(--syn-string); }
+.try-editor-wrap .token.interpolation { color: var(--text-primary); }
+.try-editor-wrap .token.interpolation .token.delimiter { color: var(--syn-symbol); }
+.try-editor-wrap .token.symbol { color: var(--syn-symbol); }
+.try-editor-wrap .token.regex,
+.try-editor-wrap .token.regex-literal { color: var(--syn-symbol); }
+.try-editor-wrap .token.number { color: var(--syn-number); }
+.try-editor-wrap .token.class-name { color: var(--syn-keyword); }
+.try-editor-wrap .token.constant { color: var(--syn-constant); }
+.try-editor-wrap .token.function,
+.try-editor-wrap .token.method-definition { color: var(--syn-number); }
+.try-editor-wrap .token.builtin { color: var(--syn-number); }
+.try-editor-wrap .token.variable { color: var(--syn-variable); }
+.try-editor-wrap .token.operator,
+.try-editor-wrap .token.double-colon { color: var(--syn-operator); }
+.try-editor-wrap .token.punctuation { color: var(--text-primary); }
 
 .try-console-output {
   width: 100%;
@@ -875,8 +979,19 @@ video.sprite-video {
 }
 
 /* Examples player — roomier than the tutorial: canvases up to 800px wide,
-   and a taller editor since these programs run a few hundred lines */
-.example-player .try-canvas-container { max-width: 800px; }
+   and a taller editor since these programs run a few hundred lines.
+
+   Canvases vary from 600px to 900px across the examples, so left-aligning them
+   left the narrow ones adrift under a full-width editor. fit-content shrinks
+   the box to whatever the running program asked for and the auto margins
+   center it; the 800px cap still scales the two 900px ones down. The box has
+   to hug the canvas rather than fill the column, because the loading overlay
+   is pinned to its edges and would otherwise darken past the picture. */
+.example-player .try-canvas-container {
+  width: fit-content;
+  max-width: 800px;
+  margin-inline: auto;
+}
 .example-player .try-editor-wrap { height: 420px; }
 
 /* --- AnchorJS links ------------------------------------------------------ */
@@ -956,5 +1071,15 @@ video.sprite-video {
   .try-playground-sidebar {
     width: 100%;
   }
+
+  /* A gutter of line numbers plus 1.5rem either side is a lot of a phone's
+     width to spend on margins. The type stays at 1rem: anything smaller and
+     iOS zooms the page in the moment the textarea takes focus. */
+  .try-editor-wrap .prism-code-editor {
+    --padding-inline: 0.75rem;
+    --gutter-inset: 0.5rem;
+    --number-spacing: 0.6rem;
+  }
+  .example-player .try-editor-wrap { height: 340px; }
 
 }

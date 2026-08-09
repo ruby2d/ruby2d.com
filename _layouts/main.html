@@ -25,6 +25,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Outfit:wght@400;500;600;700&family=Roboto+Mono:wght@600;700&display=swap" rel="stylesheet">
 
+    {% comment %} Editor layout styles, only on the two pages that mount one.
+    Ahead of app.css on purpose: several of the site's editor rules match the
+    library's own at identical specificity, and whichever sheet comes second
+    wins those. The site's should. {% endcomment %}
+    {% if page.editor %}<link rel="stylesheet" href="/assets/css/prism-editor.css">{% endif %}
     <link rel="stylesheet" href="/assets/css/app.css">
     <link rel="icon" href="/favicon.ico" sizes="16x16 32x32">
     <link rel="icon" href="/icon.svg" type="image/svg+xml">
@@ -90,26 +95,88 @@
     </main>
 
     <script>
-      // Copy button for code blocks
-      document.querySelectorAll('pre > code, pre .highlight > code').forEach(function(code) {
-        var pre = code.closest('pre');
-        if (!pre || pre.querySelector('.copy-btn')) return;
-        var btn = document.createElement('button');
-        btn.className = 'copy-btn';
-        btn.setAttribute('aria-label', 'Copy code');
-        btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3a1.5 1.5 0 00-1.5-1.5H3A1.5 1.5 0 001.5 3v6A1.5 1.5 0 003 10.5h2.5"/></svg>';
-        btn.addEventListener('click', function() {
-          navigator.clipboard.writeText(code.textContent).then(function() {
-            btn.classList.add('copied');
-            btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>';
-            setTimeout(function() {
-              btn.classList.remove('copied');
-              btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3a1.5 1.5 0 00-1.5-1.5H3A1.5 1.5 0 001.5 3v6A1.5 1.5 0 003 10.5h2.5"/></svg>';
-            }, 1500);
+      // Furniture for the two things on a page that can be wider than it is:
+      // code blocks (a copy button, plus fades over an edge the code runs past)
+      // and tables (a frame they scroll inside, so a wide one stops dragging the
+      // whole page sideways). iOS draws its scrollbar only while a finger is on
+      // the box, so without the fades there's no sign anything continues. Call
+      // refreshProse(root) after putting either into the page — anything that
+      // has already been through here is left alone.
+      (function() {
+        var COPY_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5"/><path d="M10.5 5.5V3a1.5 1.5 0 00-1.5-1.5H3A1.5 1.5 0 001.5 3v6A1.5 1.5 0 003 10.5h2.5"/></svg>';
+        var COPIED_ICON = '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>';
+
+        function addCopyButton(pre, code) {
+          var btn = document.createElement('button');
+          btn.className = 'copy-btn';
+          btn.setAttribute('aria-label', 'Copy code');
+          btn.innerHTML = COPY_ICON;
+          btn.addEventListener('click', function() {
+            navigator.clipboard.writeText(code.textContent).then(function() {
+              btn.classList.add('copied');
+              btn.innerHTML = COPIED_ICON;
+              setTimeout(function() {
+                btn.classList.remove('copied');
+                btn.innerHTML = COPY_ICON;
+              }, 1500);
+            });
           });
-        });
-        pre.appendChild(btn);
-      });
+          pre.appendChild(btn);
+        }
+
+        // `frame` holds the fades and stays put; `scroller` is the box inside it
+        // that actually moves.
+        function addScrollFades(frame, scroller) {
+          frame.classList.add('scroll-fade');
+          var refresh = function() {
+            // scrollWidth rounds up, so a box whose content fits exactly can
+            // still report a pixel or two of overflow. Ignore anything that small.
+            var max = scroller.scrollWidth - scroller.clientWidth;
+            frame.classList.toggle('more-left', scroller.scrollLeft > 2);
+            frame.classList.toggle('more-right', max > 2 && scroller.scrollLeft < max - 2);
+          };
+          scroller.addEventListener('scroll', refresh, { passive: true });
+          // Watching the box rather than the window: no work while a phone
+          // fires resize after resize as its URL bar slides away.
+          if (window.ResizeObserver) new ResizeObserver(refresh).observe(scroller);
+          // Widths land in their final place once the webfonts swap in
+          if (document.fonts) document.fonts.ready.then(refresh);
+          refresh();
+        }
+
+        function setup(code) {
+          var pre = code.closest('pre');
+          if (!pre || pre.dataset.codeBlock) return;
+          pre.dataset.codeBlock = '1';
+          addCopyButton(pre, code);
+          addScrollFades(pre, code);
+        }
+
+        // A table is the one block that won't shrink to fit: it can't lay out
+        // narrower than its widest cell, so on a phone it drags the page
+        // sideways instead. Two wrappers, because the fades have to sit still
+        // while the table moves — the frame carries the border and the rounded
+        // corners the table used to draw itself.
+        function setupTable(table) {
+          if (table.dataset.tableScroll) return;
+          table.dataset.tableScroll = '1';
+          var frame = document.createElement('div');
+          frame.className = 'table-scroll';
+          var box = document.createElement('div');
+          box.className = 'table-scroll-box';
+          frame.appendChild(box);
+          table.parentNode.insertBefore(frame, table);
+          box.appendChild(table);
+          addScrollFades(frame, box);
+        }
+
+        window.refreshProse = function(root) {
+          root = root || document;
+          root.querySelectorAll('pre > code, pre .highlight > code').forEach(setup);
+          root.querySelectorAll('.prose table, .try-step-prose table').forEach(setupTable);
+        };
+        window.refreshProse();
+      })();
     </script>
 
     <script>

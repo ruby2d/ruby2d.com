@@ -3,6 +3,7 @@ title: Examples
 description: A gallery of little programs, each a complete Ruby 2D app in a single file. Run them in your browser and make them yours.
 layout: main
 permalink: /examples
+editor: true
 ---
 
 {% capture nl %}
@@ -47,14 +48,15 @@ permalink: /examples
     {% endfor %}
   </div>
 
-  <!-- Player -->
-  <div id="playerView" class="hidden example-player max-w-[840px] mx-auto">
+  <!-- Player. Pulled up into the wrapper's top padding, which is sized for the
+       gallery's big heading and is more than a small back link needs. -->
+  <div id="playerView" class="hidden example-player max-w-[840px] mx-auto -mt-4">
 
-    <a href="#" id="backLink" class="inline-flex items-center gap-1.5 font-semibold text-sm text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors no-underline"><svg class="w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>All examples</a>
+    <a href="#" id="backLink" class="inline-flex items-center gap-1 font-semibold text-sm text-[var(--text-muted)] hover:text-[var(--ruby-red)] transition-colors no-underline"><svg class="w-3 h-3 shrink-0" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.5 2.5L4 6l3.5 3.5"/></svg>All examples</a>
 
-    <div class="flex items-center gap-4 mt-5 mb-6">
+    <div class="flex items-center gap-3 sm:gap-4 mt-1.5 mb-5">
       <span id="playerIcon" class="example-icon"></span>
-      <div>
+      <div class="min-w-0">
         <h1 id="playerTitle" class="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]"></h1>
         <p id="playerBlurb" class="text-[var(--text-secondary)] mt-0.5"></p>
       </div>
@@ -70,12 +72,7 @@ permalink: /examples
     </div>
 
     <!-- Editor -->
-    <div class="try-editor-wrap mt-4">
-      <div class="try-editor-prism">
-        <pre class="language-ruby"><code class="language-ruby" id="editorHighlight"></code></pre>
-        <textarea id="editor" class="try-editor" spellcheck="false"></textarea>
-      </div>
-    </div>
+    <div class="try-editor-wrap mt-4" id="editorWrap"></div>
 
     <!-- Controls -->
     <div class="flex items-center gap-3 mt-3">
@@ -102,7 +99,6 @@ permalink: /examples
 
 </div>
 
-<script>window.Prism = {manual: true};</script>
-<script src="/assets/js/prism.min.js"></script>
+<script src="/assets/js/prism-editor.js"></script>
 <script src="/assets/try/playground.js"></script>
 <script src="/assets/examples/examples.js"></script>

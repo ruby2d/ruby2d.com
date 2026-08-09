@@ -114,6 +114,8 @@ function renderStep(index) {
     a.rel = 'noopener';
   });
   stepProseEl.scrollTop = 0;
+  // Steps arrive as HTML, after the layout's first pass over the page
+  if (window.refreshProse) window.refreshProse(stepProseEl);
 
   // Progress
   stepCountEl.textContent = (index + 1) + ' / ' + steps.length;
@@ -125,15 +127,7 @@ function renderStep(index) {
   prevBtnEl.disabled = index === 0;
   nextBtnEl.disabled = index === steps.length - 1;
 
-  // Editor
-  editorEl.value = steps[index].code;
-  resetDirty();
-  editorEl.scrollTop = 0;
-  editorEl.scrollLeft = 0;
-  updateHighlight();
-  editorPre.style.transform = '';
-  void editorPre.offsetWidth;  // flush pending styles so the next assignment is a genuine change
-  editorPre.style.transform = 'translate(0px, 0px)';
+  setEditorCode(steps[index].code);
 
   if (!runBtnEl.disabled) {
     runCode();

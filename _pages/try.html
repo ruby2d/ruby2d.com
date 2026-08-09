@@ -3,6 +3,7 @@ title: Try Ruby 2D
 description: Write Ruby 2D code and run it right in your browser. No install required.
 layout: main
 permalink: /try
+editor: true
 ---
 
 <div class="max-w-[1120px] mx-auto px-4 sm:px-6 py-8">
@@ -39,12 +40,7 @@ permalink: /try
       </div>
 
       <!-- Editor -->
-      <div class="try-editor-wrap mt-4">
-        <div class="try-editor-prism">
-          <pre class="language-ruby"><code class="language-ruby" id="editorHighlight"></code></pre>
-          <textarea id="editor" class="try-editor" spellcheck="false"></textarea>
-        </div>
-      </div>
+      <div class="try-editor-wrap mt-4" id="editorWrap"></div>
 
       <!-- Controls -->
       <div class="flex items-center gap-3 mt-3">
@@ -72,8 +68,7 @@ permalink: /try
 
 </div>
 
-<script>window.Prism = {manual: true};</script>
-<script src="/assets/js/prism.min.js"></script>
+<script src="/assets/js/prism-editor.js"></script>
 <script src="/assets/try/playground.js"></script>
 <script src="/assets/try/try.js"></script>
 <script async src="/assets/try/app.js"></script>

@@ -103,18 +103,17 @@ function showPlayer(slug) {
   playerBlurb.textContent = card.dataset.blurb;
   document.title = 'Ruby 2D — ' + card.dataset.title;
 
-  // Editor
-  editorEl.value = examples[slug];
-  resetDirty();
-  editorEl.scrollTop = 0;
-  editorEl.scrollLeft = 0;
-  updateHighlight();
-  editorPre.style.transform = '';
-  void editorPre.offsetWidth;  // flush pending styles so the next assignment is a genuine change
-  editorPre.style.transform = 'translate(0px, 0px)';
-
+  // Swap the views before loading the program. setEditorCode() puts the editor
+  // back to the top, and scroll offsets can't be set on something with no
+  // layout box — while the player is hidden the assignment is dropped, and the
+  // browser hands back the old offset when it reappears. It reads as zero the
+  // whole time it's hidden, so the bug looks like it isn't there: open a long
+  // example, scroll down, return to the gallery, and the next example you pick
+  // would open partway down its own source.
   galleryView.classList.add('hidden');
   playerView.classList.remove('hidden');
+
+  setEditorCode(examples[slug]);
   window.scrollTo(0, 0);
 
   ensureWasm();
@@ -152,6 +151,8 @@ window.addEventListener('pageshow', function(e) {
   }
 });
 
+// Route in place rather than letting the href land on a bare "#": pushState
+// keeps the URL as a clean /examples, and this is a view swap, not a page load.
 backLink.addEventListener('click', function(e) {
   e.preventDefault();
   history.pushState(null, '', window.location.pathname);

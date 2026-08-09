@@ -1,0 +1,12 @@
+{
+  "name": "ruby2d-com-editor-bundle",
+  "private": true,
+  "type": "module",
+  "description": "Build inputs for the vendored code editor used by /try and /examples. Run `rake editor` from the repo root to regenerate the committed bundle.",
+  "dependencies": {
+    "prism-code-editor": "5.3.0"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  }
+}

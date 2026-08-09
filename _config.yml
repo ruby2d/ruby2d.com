@@ -28,6 +28,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  - _build
   - AGENTS.md
   - CLAUDE.md
   - LICENSE.md
